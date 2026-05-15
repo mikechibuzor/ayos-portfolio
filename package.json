@@ -12,6 +12,7 @@
     "@fontsource/dm-mono": "^5.2.7",
     "@fontsource/uncut-sans": "^5.2.5",
     "@vitejs/plugin-react": "^4.7.0",
+    "gsap": "^3.15.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.15.0",

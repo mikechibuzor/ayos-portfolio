@@ -5,9 +5,12 @@ import { MePage } from "./pages/MePage";
 import { ProjectDetailPage } from "./pages/ProjectDetailPage";
 import { ResumePage } from "./pages/ResumePage";
 import { WorksPage } from "./pages/WorksPage";
+import { useGsapSectionReveal } from "./hooks/useGsapSectionReveal";
 import { SiteRoute } from "./types/site";
 
 export default function App() {
+  useGsapSectionReveal();
+
   return (
     <Routes>
       <Route path={SiteRoute.Home} element={<HomePage />} />

@@ -54,7 +54,7 @@ export function StackSection({ title, subtitle, tools }: StackSectionProps) {
   };
 
   return (
-    <section className="stack-section section-block" id="stacks" aria-labelledby="stack-title">
+    <section className="stack-section section-block scroll-reveal" id="stacks" aria-labelledby="stack-title">
       <div className="stack-section__inner content-container">
         <div className="stack-section__heading">
           <h2 id="stack-title">{title}</h2>

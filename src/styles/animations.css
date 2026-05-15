@@ -3,7 +3,8 @@
 }
 
 .scroll-reveal {
-  animation: section-reveal var(--duration-entrance) var(--ease-emphasized) both;
+  opacity: 0;
+  transform: translateY(1.5rem);
 }
 
 .reveal-delay-1 {
@@ -115,13 +116,6 @@
     opacity: 1;
     clip-path: inset(0 0 0 0);
     transform: translateY(0) scale(1);
-  }
-}
-
-@supports (animation-timeline: view()) {
-  .scroll-reveal {
-    animation-timeline: view();
-    animation-range: entry 0% cover 28%;
   }
 }
 

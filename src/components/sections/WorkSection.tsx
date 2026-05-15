@@ -19,7 +19,7 @@ export function WorkSection({
   onCategoryChange,
 }: WorkSectionProps) {
   return (
-    <section className="work-section section-block" id="works" aria-labelledby="work-title">
+    <section className="work-section section-block scroll-reveal" id="works" aria-labelledby="work-title">
       <div className="content-container">
         <h2 className="visually-hidden" id="work-title">
           {uiCopy.workSectionTitle}

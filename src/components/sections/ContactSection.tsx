@@ -11,7 +11,7 @@ type ContactSectionProps = {
 
 export function ContactSection({ availabilityLabel, title, subtitle, fields, buttonLabel }: ContactSectionProps) {
   return (
-    <section className="contact-section section-block" id="contact" aria-labelledby="contact-title">
+    <section className="contact-section section-block scroll-reveal" id="contact" aria-labelledby="contact-title">
       <div className="contact-section__inner content-container">
         <div className="contact-section__content">
           <div className="contact-section__heading">
