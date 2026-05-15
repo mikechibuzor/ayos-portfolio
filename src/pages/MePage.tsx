@@ -5,6 +5,7 @@ import { ContactSection } from "../components/sections/ContactSection";
 import { mePageContent } from "../data/pageContent";
 import { contactFields, profile } from "../data/profile";
 import { stackTools } from "../data/stacks";
+import { uiCopy } from "../data/uiCopy";
 import "./MePage.css";
 
 const MEDIA_PREVIEW_EXIT_DURATION_MS = 740;
@@ -100,6 +101,49 @@ export function MePage() {
   const [mediaPreviewPhase, setMediaPreviewPhase] = useState<MediaPreviewPhase>(MediaPreviewPhase.Active);
   const [mediaPreviewGeometry, setMediaPreviewGeometry] = useState<MediaPreviewGeometry | null>(null);
   const mediaPreviewCloseTimeoutRef = useRef<ReturnType<typeof window.setTimeout> | null>(null);
+  const stackToolsRef = useRef<HTMLUListElement>(null);
+  const [canScrollStackLeft, setCanScrollStackLeft] = useState(false);
+  const [canScrollStackRight, setCanScrollStackRight] = useState(false);
+  const [stackHasOverflow, setStackHasOverflow] = useState(false);
+
+  // Stack tools row gets the same pulsating arrows + scroll mechanic as the Visual Gallery.
+  useEffect(() => {
+    const toolsList = stackToolsRef.current;
+
+    if (!toolsList) {
+      return;
+    }
+
+    const updateStackScrollState = () => {
+      const maxScrollLeft = toolsList.scrollWidth - toolsList.clientWidth;
+
+      setStackHasOverflow(maxScrollLeft > 1);
+      setCanScrollStackLeft(toolsList.scrollLeft > 1);
+      setCanScrollStackRight(toolsList.scrollLeft < maxScrollLeft - 1);
+    };
+
+    updateStackScrollState();
+    toolsList.addEventListener("scroll", updateStackScrollState, { passive: true });
+    window.addEventListener("resize", updateStackScrollState);
+
+    return () => {
+      toolsList.removeEventListener("scroll", updateStackScrollState);
+      window.removeEventListener("resize", updateStackScrollState);
+    };
+  }, []);
+
+  const scrollStackTools = (direction: "left" | "right") => {
+    const toolsList = stackToolsRef.current;
+
+    if (!toolsList) {
+      return;
+    }
+
+    toolsList.scrollBy({
+      left: direction === "right" ? toolsList.clientWidth * 0.72 : -toolsList.clientWidth * 0.72,
+      behavior: "smooth",
+    });
+  };
   const testimonialMarqueeRows = [false, true];
   const activeMediaCardLabel =
     activeMediaCardIndex === null
@@ -234,15 +278,40 @@ export function MePage() {
               <h2 id="me-stack-title">{mePageContent.stackShowcase.title}</h2>
               <p>{mePageContent.stackShowcase.subtitle}</p>
             </div>
-            <ul className="me-page__stack-tools" aria-label={mePageContent.stackShowcase.title}>
-              {stackTools.map((tool) => (
-                <li className="me-page__stack-tool interactive-lift" key={tool.name}>
-                  <span className="me-page__stack-icon-frame">
-                    <img className={tool.iconClassName} src={tool.iconSource} alt={tool.name} />
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <div
+              className="me-page__stack-scroller"
+              data-can-scroll-left={canScrollStackLeft}
+              data-can-scroll-right={canScrollStackRight}
+              data-has-overflow={stackHasOverflow}
+            >
+              <button
+                className="me-page__stack-scroll-button me-page__stack-scroll-button--left"
+                type="button"
+                aria-label={uiCopy.scrollStackLeftAriaLabel}
+                disabled={!canScrollStackLeft}
+                onClick={() => scrollStackTools("left")}
+              >
+                <span aria-hidden="true">‹</span>
+              </button>
+              <ul className="me-page__stack-tools" aria-label={mePageContent.stackShowcase.title} ref={stackToolsRef}>
+                {stackTools.map((tool) => (
+                  <li className="me-page__stack-tool interactive-lift" key={tool.name}>
+                    <span className="me-page__stack-icon-frame">
+                      <img className={tool.iconClassName} src={tool.iconSource} alt={tool.name} />
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <button
+                className="me-page__stack-scroll-button me-page__stack-scroll-button--right"
+                type="button"
+                aria-label={uiCopy.scrollStackRightAriaLabel}
+                disabled={!canScrollStackRight}
+                onClick={() => scrollStackTools("right")}
+              >
+                <span aria-hidden="true">›</span>
+              </button>
+            </div>
           </div>
           <div className="me-page__project-previews sibling-dim-group" aria-label={mePageContent.stackShowcase.title}>
             {mePageContent.stackShowcase.projectLabels.map((label, index) => (

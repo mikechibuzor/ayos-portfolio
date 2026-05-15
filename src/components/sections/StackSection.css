@@ -38,16 +38,22 @@
   justify-content: flex-start;
   width: 100%;
   margin: 0;
-  overflow: visible;
-  padding: 0;
+  overflow-x: auto;
+  padding-inline: 3.5rem;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
   list-style: none;
+}
+
+.stack-section__tools::-webkit-scrollbar {
+  display: none;
 }
 
 .stack-section__scroll-button {
   position: absolute;
   top: 50%;
   z-index: 2;
-  display: none;
+  display: grid;
   width: 2.75rem;
   height: 2.75rem;
   place-items: center;
@@ -148,6 +154,38 @@
   background: var(--color-surface-raised);
 }
 
+.stack-section__scroller::before,
+.stack-section__scroller::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 4.5rem;
+  pointer-events: none;
+  content: "";
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.stack-section__scroller::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-page-background), transparent);
+}
+
+.stack-section__scroller::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-page-background), transparent);
+}
+
+.stack-section__scroller[data-can-scroll-left="true"]::before,
+.stack-section__scroller[data-can-scroll-right="true"]::after {
+  opacity: 1;
+}
+
+.stack-section__scroller[data-has-overflow="false"] .stack-section__scroll-button {
+  display: none;
+}
+
 @media (max-width: 42.5rem) {
   .stack-section__heading h2 {
     font-size: 2.5rem;
@@ -155,45 +193,6 @@
 
   .stack-section__heading p {
     line-height: 1.35;
-  }
-
-  .stack-section__scroller::before,
-  .stack-section__scroller::after {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    z-index: 1;
-    width: 4.5rem;
-    pointer-events: none;
-    content: "";
-  }
-
-  .stack-section__scroller::before {
-    left: 0;
-    background: linear-gradient(to right, var(--color-page-background), transparent);
-    opacity: 0;
-  }
-
-  .stack-section__scroller::after {
-    right: 0;
-    background: linear-gradient(to left, var(--color-page-background), transparent);
-    opacity: 0;
-  }
-
-  .stack-section__scroller[data-can-scroll-left="true"]::before,
-  .stack-section__scroller[data-can-scroll-right="true"]::after {
-    opacity: 1;
-  }
-
-  .stack-section__tools {
-    overflow-x: auto;
-    padding-inline: 3.5rem;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-  }
-
-  .stack-section__tools::-webkit-scrollbar {
-    display: none;
   }
 
   .stack-section__tool {
@@ -206,14 +205,6 @@
   .stack-section__tool img {
     max-width: 3rem;
     max-height: 3rem;
-  }
-
-  .stack-section__scroll-button {
-    display: grid;
-  }
-
-  .stack-section__scroller[data-has-overflow="false"] .stack-section__scroll-button {
-    display: none;
   }
 }
 

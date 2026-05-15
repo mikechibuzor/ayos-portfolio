@@ -1,6 +1,8 @@
 export const uiCopy = {
   socialLinksAriaLabel: "Social links",
   primaryNavigationAriaLabel: "Primary navigation",
+  mobileMenuOpenAriaLabel: "Open navigation menu",
+  mobileMenuCloseAriaLabel: "Close navigation menu",
   filterProjectsAriaLabel: "Filter projects",
   themeToggleLightAriaLabel: "Switch to light mode",
   themeToggleDarkAriaLabel: "Switch to dark mode",

@@ -8,10 +8,10 @@ import spoxioImage from "../assets/images/projects/spoxio.png";
 import vbanThumbnailImage from "../assets/images/projects/vban-thumbnail.png";
 
 export const projectFilters: ProjectFilter[] = [
-  { label: "All", category: ProjectCategory.All, displayCount: 18 },
-  { label: "Mobile", category: ProjectCategory.Mobile, displayCount: 18 },
-  { label: "Web", category: ProjectCategory.Web, displayCount: 18 },
-  { label: "Branding", category: ProjectCategory.Branding, displayCount: 18 },
+  { label: "All", category: ProjectCategory.All },
+  { label: "Mobile", category: ProjectCategory.Mobile },
+  { label: "Web", category: ProjectCategory.Web },
+  { label: "Branding", category: ProjectCategory.Branding },
 ];
 
 export const projects: Project[] = [

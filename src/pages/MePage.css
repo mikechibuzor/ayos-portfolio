@@ -276,14 +276,106 @@
   line-height: 1.35;
 }
 
+.me-page__stack-scroller {
+  position: relative;
+  width: 100%;
+}
+
+.me-page__stack-scroller::before,
+.me-page__stack-scroller::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 4.5rem;
+  pointer-events: none;
+  content: "";
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.me-page__stack-scroller::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-page-background), transparent);
+}
+
+.me-page__stack-scroller::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-page-background), transparent);
+}
+
+.me-page__stack-scroller[data-can-scroll-left="true"]::before,
+.me-page__stack-scroller[data-can-scroll-right="true"]::after {
+  opacity: 1;
+}
+
+.me-page__stack-scroll-button {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  color: var(--color-text-primary);
+  background: color-mix(in srgb, var(--color-surface-raised) 82%, transparent);
+  border: 0.0625rem solid var(--color-surface-border);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-50%);
+  transition:
+    opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
+}
+
+.me-page__stack-scroll-button span {
+  display: block;
+  font-size: 1.75rem;
+  line-height: 1;
+  transform: translateY(-0.0625rem);
+}
+
+.me-page__stack-scroll-button--left {
+  left: 0;
+}
+
+.me-page__stack-scroll-button--right {
+  right: 0;
+}
+
+.me-page__stack-scroll-button:not(:disabled) {
+  animation: me-page-stack-scroll-hint 1.4s var(--ease-standard) infinite;
+}
+
+.me-page__stack-scroll-button:disabled {
+  pointer-events: none;
+  opacity: 0.32;
+}
+
+.me-page__stack-scroller[data-has-overflow="false"] .me-page__stack-scroll-button {
+  display: none;
+}
+
+@keyframes me-page-stack-scroll-hint {
+  0%,
+  100% {
+    transform: translateY(-50%) scale(1);
+  }
+
+  50% {
+    transform: translateY(-50%) scale(1.08);
+  }
+}
+
 .me-page__stack-tools {
   display: flex;
   flex-wrap: nowrap;
   gap: 1.6875rem;
   margin: 0;
   overflow-x: auto;
-  padding: 0;
+  padding: 0 3.5rem;
   list-style: none;
+  scroll-behavior: smooth;
   scrollbar-width: none;
 }
 
@@ -972,9 +1064,21 @@
     font-size: 2.25rem;
   }
 
-  .me-page__stack-tools {
+  .me-page__stack-scroller {
+    width: calc(100% + (var(--layout-section-padding-x) * 2));
     margin-inline: calc(var(--layout-section-padding-x) * -1);
-    padding-inline: var(--layout-section-padding-x);
+  }
+
+  .me-page__stack-scroll-button--left {
+    left: var(--layout-section-padding-x);
+  }
+
+  .me-page__stack-scroll-button--right {
+    right: var(--layout-section-padding-x);
+  }
+
+  .me-page__stack-tools {
+    padding-inline: calc(var(--layout-section-padding-x) + 3.5rem);
   }
 
   .me-page__stack-tool {
@@ -990,13 +1094,46 @@
     max-height: 3rem;
   }
 
-  .me-page__project-previews,
+  .me-page__project-previews {
+    display: grid;
+    width: 100vw;
+    grid-auto-columns: minmax(16rem, 76vw);
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    gap: 1rem;
+    margin: 4rem calc(var(--layout-section-padding-x) * -1) 0;
+    overflow-x: auto;
+    padding-inline: var(--layout-section-padding-x);
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+
+  .me-page__project-previews::-webkit-scrollbar {
+    display: none;
+  }
+
+  .me-page__project-preview {
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+
+  .me-page__project-preview,
+  .me-page__project-preview[data-preview-index] {
+    margin-top: 0;
+  }
+
+  .me-page__project-preview-media,
+  .me-page__project-preview[data-preview-index="1"] .me-page__project-preview-media,
+  .me-page__project-preview[data-preview-index="3"] .me-page__project-preview-media {
+    min-height: clamp(13rem, 58vw, 18rem);
+  }
+
   .me-page__experience-grid {
     grid-template-columns: 1fr;
   }
 
   .me-page__project-preview:nth-child(n + 3) {
-    display: none;
+    display: grid;
   }
 
   .me-page__testimonial-card {
