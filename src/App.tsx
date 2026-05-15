@@ -6,9 +6,11 @@ import { ProjectDetailPage } from "./pages/ProjectDetailPage";
 import { ResumePage } from "./pages/ResumePage";
 import { WorksPage } from "./pages/WorksPage";
 import { useGsapSectionReveal } from "./hooks/useGsapSectionReveal";
+import { useScrollToTop } from "./hooks/useScrollToTop";
 import { SiteRoute } from "./types/site";
 
 export default function App() {
+  useScrollToTop();
   useGsapSectionReveal();
 
   return (
