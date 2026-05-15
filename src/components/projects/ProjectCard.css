@@ -10,9 +10,10 @@
   overflow: hidden;
   background: var(--color-surface-card);
   border: 0.0625rem solid var(--color-surface-border-muted);
-  border-radius: var(--radius-card);
+  border-radius: 0.5rem;
   transition:
     transform var(--duration-slow) var(--ease-emphasized),
+    border-radius var(--duration-base) var(--ease-standard),
     border-color var(--duration-base) var(--ease-standard);
 }
 
@@ -32,6 +33,7 @@
 
 .project-card:hover .project-card__media {
   transform: translateY(-0.35rem) scale(1.01);
+  border-radius: var(--radius-card);
   border-color: var(--color-surface-border);
 }
 

@@ -159,17 +159,17 @@
     padding: var(--space-5);
     pointer-events: none;
     visibility: hidden;
-    background: color-mix(in srgb, var(--color-page-background) 92%, transparent);
+    background: color-mix(in srgb, var(--color-page-background) 98%, var(--color-surface-raised));
     border: 0.0625rem solid var(--color-surface-border-muted);
     border-radius: var(--radius-card);
-    box-shadow: var(--shadow-soft);
+    box-shadow: 0 1.5rem 5rem rgba(0, 0, 0, 0.62);
     opacity: 0;
     transform: translateY(-0.5rem);
     transition:
       opacity var(--duration-base) var(--ease-standard),
       transform var(--duration-base) var(--ease-standard),
       visibility var(--duration-base) var(--ease-standard);
-    backdrop-filter: blur(1rem);
+    backdrop-filter: blur(1.25rem);
   }
 
   .site-header[data-menu-open="true"] .site-header__menu {

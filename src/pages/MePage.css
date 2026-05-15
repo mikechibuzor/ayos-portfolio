@@ -514,8 +514,10 @@
   min-height: clamp(14rem, 22vw, 23.25rem);
   background: var(--color-surface-card);
   border: 0.0625rem solid rgba(0, 0, 0, 0.28);
+  border-radius: 0.5rem;
   transition:
     transform var(--duration-slow) var(--ease-emphasized),
+    border-radius var(--duration-base) var(--ease-standard),
     border-color var(--duration-base) var(--ease-standard),
     box-shadow var(--duration-base) var(--ease-standard);
   transform-origin: center;
@@ -554,6 +556,7 @@
 }
 
 .me-page__project-preview:hover .me-page__project-preview-media {
+  border-radius: var(--radius-card);
   border-color: var(--color-surface-border);
   box-shadow: 0 1.25rem 4rem rgba(0, 0, 0, 0.36);
   transform: scale(1.012);

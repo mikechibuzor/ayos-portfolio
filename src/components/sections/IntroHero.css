@@ -11,7 +11,7 @@
 .intro-hero__title {
   max-width: 70rem;
   color: var(--color-text-primary);
-  font-size: 3rem;
+  font-size: 2.25rem;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0;
@@ -20,7 +20,7 @@
 .intro-hero__subtitle {
   max-width: 78rem;
   color: var(--color-text-muted);
-  font-size: 1.5rem;
+  font-size: 1rem;
   line-height: 1.2;
   letter-spacing: 0;
 }
@@ -31,10 +31,10 @@
   }
 
   .intro-hero__title {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .intro-hero__subtitle {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 }

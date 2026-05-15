@@ -390,7 +390,15 @@
   min-height: 16.5rem;
   background: var(--color-surface-card);
   border: 0.0625rem solid var(--color-surface-border-muted);
+  border-radius: 0.5rem;
+  transition:
+    border-radius var(--duration-base) var(--ease-standard),
+    border-color var(--duration-base) var(--ease-standard);
+}
+
+.case-study-detail__more-card:hover .case-study-detail__more-media {
   border-radius: var(--radius-card);
+  border-color: var(--color-surface-border);
 }
 
 .case-study-detail__more-title {

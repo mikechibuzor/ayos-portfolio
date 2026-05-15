@@ -36,15 +36,14 @@
     filter var(--duration-base) var(--ease-standard);
 }
 
-.sibling-dim-group:has(.sibling-dim-card:hover) .sibling-dim-card:not(:hover) {
-  opacity: 0.48;
-  filter: saturate(0.82);
-}
-
 .media-mask-hover {
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  border-radius: 0.5rem;
+  transition:
+    border-radius var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
 }
 
 .media-mask-hover::before,
@@ -79,6 +78,10 @@
 
 .media-mask-hover:hover::after {
   border-color: var(--color-surface-border-visible);
+}
+
+.media-mask-hover:hover {
+  border-radius: var(--radius-card);
 }
 
 @keyframes reveal-on-load {
