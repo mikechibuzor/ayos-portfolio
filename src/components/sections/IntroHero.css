@@ -1,0 +1,40 @@
+.intro-hero {
+  padding-top: 4.5rem;
+  padding-bottom: 1.75rem;
+}
+
+.intro-hero__inner {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.intro-hero__title {
+  max-width: 70rem;
+  color: var(--color-text-primary);
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.intro-hero__subtitle {
+  max-width: 78rem;
+  color: var(--color-text-muted);
+  font-size: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+@media (max-width: 47.5rem) {
+  .intro-hero {
+    padding-top: 3.5rem;
+  }
+
+  .intro-hero__title {
+    font-size: 2.5rem;
+  }
+
+  .intro-hero__subtitle {
+    font-size: 1.125rem;
+  }
+}

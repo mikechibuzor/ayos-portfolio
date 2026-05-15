@@ -1,0 +1,110 @@
+.project-detail-page {
+  padding-block: 5.5rem var(--layout-section-padding-y);
+}
+
+.project-detail-page__content {
+  display: grid;
+  gap: var(--space-16);
+}
+
+.project-detail-page__hero {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.project-detail-page__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+}
+
+.project-detail-page__intro {
+  display: grid;
+  max-width: 64rem;
+  gap: var(--space-5);
+}
+
+.project-detail-page__intro h1 {
+  color: var(--color-text-primary);
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.project-detail-page__intro p {
+  max-width: var(--layout-reading-max);
+  color: var(--color-text-muted);
+  font-size: 1.25rem;
+  line-height: 1.45;
+}
+
+.project-detail-page__media {
+  min-height: 26.3125rem;
+  background: var(--color-surface-card);
+  border: 0.0625rem solid var(--color-surface-border-muted);
+  border-radius: var(--radius-media);
+}
+
+.project-detail-page__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5625rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.project-detail-page__tags li {
+  padding: var(--space-1) var(--space-2);
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  background: var(--color-surface-raised);
+  border-radius: var(--radius-chip);
+}
+
+.project-detail-page__status {
+  width: fit-content;
+  padding: var(--space-2) var(--space-4);
+  color: var(--color-text-muted);
+  background: var(--color-surface-raised);
+  border-radius: var(--radius-pill);
+}
+
+.project-detail-page__not-found {
+  display: grid;
+  max-width: var(--layout-reading-max);
+  gap: var(--space-4);
+}
+
+.project-detail-page__not-found h1 {
+  color: var(--color-text-primary);
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.project-detail-page__not-found p {
+  color: var(--color-text-muted);
+  font-size: 1.25rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 42.5rem) {
+  .project-detail-page {
+    padding-block-start: 4rem;
+  }
+
+  .project-detail-page__intro h1,
+  .project-detail-page__not-found h1 {
+    font-size: 2.5rem;
+  }
+
+  .project-detail-page__media {
+    min-height: unset;
+    aspect-ratio: 1.38;
+  }
+}

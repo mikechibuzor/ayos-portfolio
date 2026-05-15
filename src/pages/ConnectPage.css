@@ -1,0 +1,15 @@
+.connect-page {
+  min-height: 100vh;
+}
+
+.connect-page .contact-section {
+  padding-block-start: clamp(3rem, 6vw, 5.25rem);
+  padding-block-end: clamp(8rem, 17vw, 15rem);
+}
+
+@media (max-width: 42.5rem) {
+  .connect-page .contact-section {
+    padding-block-start: 3rem;
+    padding-block-end: 7rem;
+  }
+}

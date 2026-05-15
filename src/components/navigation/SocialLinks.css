@@ -1,0 +1,86 @@
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.social-links__item {
+  display: grid;
+  width: 1.5rem;
+  height: 1.5rem;
+  place-items: center;
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0;
+}
+
+.social-links__icon-frame {
+  display: grid;
+  width: 1.5rem;
+  height: 1.5rem;
+  place-items: center;
+}
+
+.social-links__icon {
+  display: block;
+  opacity: 1;
+}
+
+.social-links__icon--linkedin {
+  width: 1rem;
+  height: 0.9375rem;
+}
+
+.social-links__icon--behance {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.social-links__icon--x {
+  width: 1.03125rem;
+  height: 0.9375rem;
+}
+
+.social-links__icon--instagram {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.social-links__item:hover {
+  color: var(--color-text-primary);
+}
+
+.social-links--icon {
+  gap: clamp(var(--space-3), 1.2vw, var(--space-5));
+}
+
+.social-links--icon .social-links__item {
+  opacity: 0.72;
+  transition:
+    opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
+}
+
+.social-links--icon .social-links__item:hover {
+  opacity: 1;
+}
+
+.social-links--framed {
+  gap: var(--space-6);
+}
+
+.social-links--framed .social-links__item {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0.0625rem solid var(--color-surface-raised);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-page-background) 74%, transparent);
+}
+
+.social-links--framed .social-links__item:hover .social-links__icon {
+  filter: brightness(1.35);
+}

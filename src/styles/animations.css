@@ -1,0 +1,143 @@
+.reveal-on-load {
+  animation: reveal-on-load var(--duration-entrance) var(--ease-emphasized) both;
+}
+
+.scroll-reveal {
+  animation: section-reveal var(--duration-entrance) var(--ease-emphasized) both;
+}
+
+.reveal-delay-1 {
+  animation-delay: 90ms;
+}
+
+.reveal-delay-2 {
+  animation-delay: 180ms;
+}
+
+.interactive-lift {
+  transition:
+    transform var(--duration-base) var(--ease-standard),
+    border-color var(--duration-base) var(--ease-standard),
+    color var(--duration-base) var(--ease-standard),
+    background-color var(--duration-base) var(--ease-standard);
+}
+
+.interactive-lift:hover {
+  transform: translateY(-0.2rem);
+}
+
+.sibling-dim-card {
+  transition:
+    opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard),
+    border-color var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard),
+    filter var(--duration-base) var(--ease-standard);
+}
+
+.sibling-dim-group:has(.sibling-dim-card:hover) .sibling-dim-card:not(:hover) {
+  opacity: 0.48;
+  filter: saturate(0.82);
+}
+
+.media-mask-hover {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.media-mask-hover::before,
+.media-mask-hover::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+}
+
+.media-mask-hover::before {
+  z-index: 1;
+  background:
+    linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.08) 48%, transparent 68%),
+    radial-gradient(circle at 28% 18%, rgba(255, 255, 255, 0.08), transparent 40%);
+  opacity: 0;
+  transform: translateX(-22%) skewX(-8deg);
+  transition:
+    opacity var(--duration-slow) var(--ease-standard),
+    transform var(--duration-slow) var(--ease-standard);
+}
+
+.media-mask-hover::after {
+  border: 0.0625rem solid transparent;
+  transition: border-color var(--duration-base) var(--ease-standard);
+}
+
+.media-mask-hover:hover::before {
+  opacity: 1;
+  transform: translateX(16%) skewX(-8deg);
+}
+
+.media-mask-hover:hover::after {
+  border-color: var(--color-surface-border-visible);
+}
+
+@keyframes reveal-on-load {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes section-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes media-card-reveal {
+  from {
+    opacity: 0;
+    clip-path: inset(12% 0 0 0);
+    transform: translateY(1.25rem) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .scroll-reveal {
+    animation-timeline: view();
+    animation-range: entry 0% cover 28%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .scroll-reveal,
+  .reveal-on-load {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
