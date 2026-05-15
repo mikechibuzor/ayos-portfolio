@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { uiCopy } from "../../data/uiCopy";
 import type { StackTool } from "../../types/site";
 import "./StackSection.css";
@@ -9,13 +9,16 @@ type StackSectionProps = {
   tools: StackTool[];
 };
 
+const stackScrollHintQuery = "(max-width: 56.25rem)";
+const minimumScrollableToolCount = 3;
+
 export function StackSection({ title, subtitle, tools }: StackSectionProps) {
   const toolsListRef = useRef<HTMLUListElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [hasHorizontalOverflow, setHasHorizontalOverflow] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const toolsList = toolsListRef.current;
 
     if (!toolsList) {
@@ -24,17 +27,31 @@ export function StackSection({ title, subtitle, tools }: StackSectionProps) {
 
     const updateScrollButtons = () => {
       const maxScrollLeft = toolsList.scrollWidth - toolsList.clientWidth;
+      const hasMeasuredOverflow = maxScrollLeft > 1;
+      const hasResponsiveOverflow =
+        window.matchMedia(stackScrollHintQuery).matches && toolsList.children.length > minimumScrollableToolCount;
 
-      setHasHorizontalOverflow(maxScrollLeft > 1);
+      setHasHorizontalOverflow(hasMeasuredOverflow || hasResponsiveOverflow);
       setCanScrollLeft(toolsList.scrollLeft > 1);
-      setCanScrollRight(toolsList.scrollLeft < maxScrollLeft - 1);
+      setCanScrollRight(hasMeasuredOverflow ? toolsList.scrollLeft < maxScrollLeft - 1 : hasResponsiveOverflow);
     };
 
     updateScrollButtons();
+    const animationFrameId = window.requestAnimationFrame(updateScrollButtons);
+    const resizeObserver = new ResizeObserver(updateScrollButtons);
+
+    resizeObserver.observe(toolsList);
+
+    if (toolsList.parentElement) {
+      resizeObserver.observe(toolsList.parentElement);
+    }
+
     toolsList.addEventListener("scroll", updateScrollButtons, { passive: true });
     window.addEventListener("resize", updateScrollButtons);
 
     return () => {
+      window.cancelAnimationFrame(animationFrameId);
+      resizeObserver.disconnect();
       toolsList.removeEventListener("scroll", updateScrollButtons);
       window.removeEventListener("resize", updateScrollButtons);
     };

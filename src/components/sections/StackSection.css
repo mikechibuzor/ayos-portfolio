@@ -29,6 +29,8 @@
 .stack-section__scroller {
   position: relative;
   width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .stack-section__tools {
@@ -37,6 +39,8 @@
   gap: 1.6875rem;
   justify-content: flex-start;
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   margin: 0;
   overflow-x: auto;
   padding-inline: 3.5rem;
@@ -184,6 +188,30 @@
 
 .stack-section__scroller[data-has-overflow="false"] .stack-section__scroll-button {
   display: none;
+}
+
+@media (max-width: 56.25rem) {
+  .stack-section__scroller {
+    width: calc(100% + (var(--layout-section-padding-x) * 2));
+    margin-inline: calc(var(--layout-section-padding-x) * -1);
+  }
+
+  .stack-section__scroll-button,
+  .stack-section__scroller[data-has-overflow="false"] .stack-section__scroll-button {
+    display: grid;
+  }
+
+  .stack-section__scroll-button--left {
+    left: var(--layout-section-padding-x);
+  }
+
+  .stack-section__scroll-button--right {
+    right: var(--layout-section-padding-x);
+  }
+
+  .stack-section__tools {
+    padding-inline: calc(var(--layout-section-padding-x) + 3.5rem);
+  }
 }
 
 @media (max-width: 42.5rem) {

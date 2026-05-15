@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import { PageLayout } from "../components/layout/PageLayout";
 import { ContactSection } from "../components/sections/ContactSection";
@@ -14,6 +14,8 @@ const MEDIA_PREVIEW_MIN_WIDTH_REM = 19;
 const MEDIA_PREVIEW_MAX_WIDTH_REM = 42;
 const MEDIA_PREVIEW_MAX_HEIGHT_REM = 34;
 const MEDIA_PREVIEW_HORIZONTAL_INSET_REM = 1.5;
+const STACK_SCROLL_HINT_QUERY = "(max-width: 56.25rem)";
+const MINIMUM_SCROLLABLE_STACK_TOOL_COUNT = 3;
 
 type MediaPreviewGeometry = {
   sourceX: number;
@@ -107,7 +109,7 @@ export function MePage() {
   const [stackHasOverflow, setStackHasOverflow] = useState(false);
 
   // Stack tools row gets the same pulsating arrows + scroll mechanic as the Visual Gallery.
-  useEffect(() => {
+  useLayoutEffect(() => {
     const toolsList = stackToolsRef.current;
 
     if (!toolsList) {
@@ -116,17 +118,34 @@ export function MePage() {
 
     const updateStackScrollState = () => {
       const maxScrollLeft = toolsList.scrollWidth - toolsList.clientWidth;
+      const hasMeasuredOverflow = maxScrollLeft > 1;
+      const hasResponsiveOverflow =
+        window.matchMedia(STACK_SCROLL_HINT_QUERY).matches &&
+        toolsList.children.length > MINIMUM_SCROLLABLE_STACK_TOOL_COUNT;
 
-      setStackHasOverflow(maxScrollLeft > 1);
+      setStackHasOverflow(hasMeasuredOverflow || hasResponsiveOverflow);
       setCanScrollStackLeft(toolsList.scrollLeft > 1);
-      setCanScrollStackRight(toolsList.scrollLeft < maxScrollLeft - 1);
+      setCanScrollStackRight(
+        hasMeasuredOverflow ? toolsList.scrollLeft < maxScrollLeft - 1 : hasResponsiveOverflow,
+      );
     };
 
     updateStackScrollState();
+    const animationFrameId = window.requestAnimationFrame(updateStackScrollState);
+    const resizeObserver = new ResizeObserver(updateStackScrollState);
+
+    resizeObserver.observe(toolsList);
+
+    if (toolsList.parentElement) {
+      resizeObserver.observe(toolsList.parentElement);
+    }
+
     toolsList.addEventListener("scroll", updateStackScrollState, { passive: true });
     window.addEventListener("resize", updateStackScrollState);
 
     return () => {
+      window.cancelAnimationFrame(animationFrameId);
+      resizeObserver.disconnect();
       toolsList.removeEventListener("scroll", updateStackScrollState);
       window.removeEventListener("resize", updateStackScrollState);
     };

@@ -279,6 +279,8 @@
 .me-page__stack-scroller {
   position: relative;
   width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .me-page__stack-scroller::before,
@@ -356,6 +358,26 @@
   display: none;
 }
 
+@media (max-width: 56.25rem) {
+  .me-page__stack-scroller {
+    width: calc(100% + (var(--layout-section-padding-x) * 2));
+    margin-inline: calc(var(--layout-section-padding-x) * -1);
+  }
+
+  .me-page__stack-scroll-button,
+  .me-page__stack-scroller[data-has-overflow="false"] .me-page__stack-scroll-button {
+    display: grid;
+  }
+
+  .me-page__stack-scroll-button--left {
+    left: var(--layout-section-padding-x);
+  }
+
+  .me-page__stack-scroll-button--right {
+    right: var(--layout-section-padding-x);
+  }
+}
+
 @keyframes me-page-stack-scroll-hint {
   0%,
   100% {
@@ -371,6 +393,8 @@
   display: flex;
   flex-wrap: nowrap;
   gap: 1.6875rem;
+  min-width: 0;
+  max-width: 100%;
   margin: 0;
   overflow-x: auto;
   padding: 0 3.5rem;
@@ -381,6 +405,12 @@
 
 .me-page__stack-tools::-webkit-scrollbar {
   display: none;
+}
+
+@media (max-width: 56.25rem) {
+  .me-page__stack-tools {
+    padding-inline: calc(var(--layout-section-padding-x) + 3.5rem);
+  }
 }
 
 .me-page__stack-tool {
