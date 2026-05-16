@@ -581,10 +581,12 @@
   width: min(100%, 55rem);
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.75rem;
+  align-items: start;
 }
 
 .me-page__experience-card {
   display: grid;
+  align-self: start;
   min-height: 7.5rem;
   padding: 1.5rem;
   background: var(--color-surface-card);
