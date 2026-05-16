@@ -108,6 +108,10 @@
   border-radius: 2rem;
   box-shadow: none;
   flex: 0 0 6.5rem;
+  transition:
+    background-color var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
 }
 
 .stack-section__tool::before,
@@ -136,6 +140,9 @@
   width: 3.5rem;
   height: 3.5rem;
   place-items: center;
+  transition:
+    filter var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
 }
 
 .stack-section__tool img {
@@ -156,6 +163,13 @@
 
 .stack-section__tool:hover {
   background: var(--color-surface-raised);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.24);
+  transform: translateY(-0.35rem) rotate(-1.5deg);
+}
+
+.stack-section__tool:hover .stack-section__icon-frame {
+  filter: drop-shadow(0 0.75rem 1.25rem color-mix(in srgb, var(--color-text-primary) 12%, transparent));
+  transform: translateY(-0.25rem) scale(1.045);
 }
 
 .stack-section__scroller::before,

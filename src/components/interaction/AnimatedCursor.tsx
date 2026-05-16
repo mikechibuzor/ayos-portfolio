@@ -14,6 +14,22 @@ const INTERACTIVE_SELECTOR = [
   ".stack-section__tile",
 ].join(",");
 
+const MAGNET_SELECTOR = [
+  "a",
+  "button",
+  ".project-card",
+  ".case-study-detail__more-card",
+  ".stack-section__tool",
+  ".me-page__experience-card-header",
+].join(",");
+
+const SPOTLIGHT_SELECTOR = [
+  ".project-card__media",
+  ".case-study-detail__cover",
+  ".case-study-detail__more-media",
+  ".me-page__project-preview-media",
+].join(",");
+
 function supportsCustomCursor() {
   return window.matchMedia("(pointer: fine)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
@@ -41,6 +57,7 @@ export function AnimatedCursor() {
     let trailX = pointerX;
     let trailY = pointerY;
     let animationFrameId = 0;
+    let rippleTimeoutId = 0;
 
     const renderCursor = () => {
       cursorX += (pointerX - cursorX) * 0.22;
@@ -53,8 +70,29 @@ export function AnimatedCursor() {
     };
 
     const updatePointerState = (event: PointerEvent) => {
-      pointerX = event.clientX;
-      pointerY = event.clientY;
+      let nextPointerX = event.clientX;
+      let nextPointerY = event.clientY;
+
+      if (event.target instanceof Element) {
+        const magnetTarget = event.target.closest(MAGNET_SELECTOR);
+
+        if (magnetTarget) {
+          const magnetTargetRect = magnetTarget.getBoundingClientRect();
+          nextPointerX += (magnetTargetRect.left + magnetTargetRect.width / 2 - event.clientX) * 0.14;
+          nextPointerY += (magnetTargetRect.top + magnetTargetRect.height / 2 - event.clientY) * 0.14;
+        }
+
+        const spotlightTarget = event.target.closest(SPOTLIGHT_SELECTOR);
+
+        if (spotlightTarget instanceof HTMLElement) {
+          const spotlightTargetRect = spotlightTarget.getBoundingClientRect();
+          spotlightTarget.style.setProperty("--cursor-local-x", `${event.clientX - spotlightTargetRect.left}px`);
+          spotlightTarget.style.setProperty("--cursor-local-y", `${event.clientY - spotlightTargetRect.top}px`);
+        }
+      }
+
+      pointerX = nextPointerX;
+      pointerY = nextPointerY;
       cursorElement.dataset.visible = "true";
       trailElement.dataset.visible = "true";
       const isInteractive = event.target instanceof Element && event.target.closest(INTERACTIVE_SELECTOR) ? "true" : "false";
@@ -71,6 +109,14 @@ export function AnimatedCursor() {
 
     const pressCursor = () => {
       cursorElement.dataset.pressed = "true";
+      cursorElement.dataset.rippling = "false";
+      window.clearTimeout(rippleTimeoutId);
+      window.requestAnimationFrame(() => {
+        cursorElement.dataset.rippling = "true";
+        rippleTimeoutId = window.setTimeout(() => {
+          cursorElement.dataset.rippling = "false";
+        }, 520);
+      });
       trailElement.dataset.pressed = "true";
     };
 
@@ -87,6 +133,7 @@ export function AnimatedCursor() {
 
     return () => {
       window.cancelAnimationFrame(animationFrameId);
+      window.clearTimeout(rippleTimeoutId);
       window.removeEventListener("pointermove", updatePointerState);
       window.removeEventListener("pointerdown", pressCursor);
       window.removeEventListener("pointerup", releaseCursor);
@@ -100,6 +147,7 @@ export function AnimatedCursor() {
         <span className="animated-cursor-trail__ring" />
       </div>
       <div className="animated-cursor" aria-hidden="true" ref={cursorRef}>
+        <span className="animated-cursor__ripple" />
         <span className="animated-cursor__ring" />
         <span className="animated-cursor__dot" />
       </div>

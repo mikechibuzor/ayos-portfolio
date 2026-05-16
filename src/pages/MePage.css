@@ -511,7 +511,9 @@
 }
 
 .me-page__project-preview-media {
+  position: relative;
   min-height: clamp(14rem, 22vw, 23.25rem);
+  overflow: hidden;
   background: var(--color-surface-card);
   border: 0.0625rem solid rgba(0, 0, 0, 0.28);
   border-radius: 0.5rem;
@@ -560,6 +562,24 @@
   border-color: var(--color-surface-border);
   box-shadow: 0 1.25rem 4rem rgba(0, 0, 0, 0.36);
   transform: scale(1.012);
+}
+
+.me-page__project-preview-media::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background: radial-gradient(
+    circle 10rem at var(--cursor-local-x, 50%) var(--cursor-local-y, 50%),
+    color-mix(in srgb, var(--color-text-primary) 14%, transparent),
+    transparent 62%
+  );
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.me-page__project-preview:hover .me-page__project-preview-media::after {
+  opacity: 1;
 }
 
 .me-page__experience {
@@ -660,6 +680,7 @@
 }
 
 .me-page__experience-card[data-expanded="true"] .me-page__experience-chevron {
+  animation: experience-chevron-pop 420ms var(--ease-emphasized);
   transform: rotate(225deg) translate(-0.125rem, -0.125rem);
 }
 
@@ -691,12 +712,39 @@
   opacity: 1;
 }
 
+.me-page__experience-card[data-expanded="true"] .me-page__experience-description {
+  animation: experience-panel-rise 520ms var(--ease-emphasized);
+}
+
 .me-page__experience-description {
   padding-top: 1.25rem;
   border-top: 0.0625rem solid var(--color-surface-border);
   color: var(--color-text-muted);
   font-size: 1rem;
   line-height: 1.35;
+}
+
+@keyframes experience-chevron-pop {
+  0%,
+  100% {
+    transform: rotate(225deg) translate(-0.125rem, -0.125rem) scale(1);
+  }
+
+  52% {
+    transform: rotate(225deg) translate(-0.125rem, -0.125rem) scale(1.18);
+  }
+}
+
+@keyframes experience-panel-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .me-page__creating {
@@ -925,6 +973,8 @@
 
   .me-page__media-preview-card,
   .me-page__media-preview-backdrop,
+  .me-page__experience-card[data-expanded="true"] .me-page__experience-chevron,
+  .me-page__experience-card[data-expanded="true"] .me-page__experience-description,
   .me-page__media-preview[data-phase="CLOSING"] .me-page__media-preview-card,
   .me-page__media-preview[data-phase="CLOSING"] .me-page__media-preview-backdrop {
     animation: none;

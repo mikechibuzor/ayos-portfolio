@@ -63,6 +63,7 @@
   height: 0.0625rem;
   content: "";
   background: currentColor;
+  box-shadow: 0 0 0.75rem currentColor;
   transform: scaleX(0);
   transform-origin: right;
   transition: transform var(--duration-base) var(--ease-standard);
@@ -79,6 +80,11 @@
 
 .site-header__link.active {
   color: var(--color-text-primary);
+}
+
+.site-header__link.active::after {
+  opacity: 0.58;
+  transform: scaleX(1);
 }
 
 @media (max-width: 67.5rem) {

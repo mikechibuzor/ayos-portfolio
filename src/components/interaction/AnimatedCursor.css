@@ -22,6 +22,7 @@
 
 .animated-cursor__ring,
 .animated-cursor__dot,
+.animated-cursor__ripple,
 .animated-cursor-trail__ring {
   position: absolute;
   top: 50%;
@@ -29,6 +30,17 @@
   display: block;
   border-radius: var(--radius-pill);
   transform: translate(-50%, -50%);
+}
+
+.animated-cursor__ripple {
+  width: 2rem;
+  height: 2rem;
+  border: 0.0625rem solid color-mix(in srgb, var(--color-text-primary) 78%, transparent);
+  opacity: 0;
+}
+
+.animated-cursor[data-rippling="true"] .animated-cursor__ripple {
+  animation: cursor-click-ripple 520ms var(--ease-standard);
 }
 
 .animated-cursor-trail__ring {
@@ -141,5 +153,17 @@
 
   .animated-cursor-trail {
     display: none;
+  }
+}
+
+@keyframes cursor-click-ripple {
+  0% {
+    opacity: 0.56;
+    transform: translate(-50%, -50%) scale(0.45);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2.1);
   }
 }

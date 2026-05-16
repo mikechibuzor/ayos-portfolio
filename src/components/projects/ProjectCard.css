@@ -15,6 +15,20 @@
     border-radius var(--duration-base) var(--ease-standard);
 }
 
+.project-card__media::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background: radial-gradient(
+    circle 12rem at var(--cursor-local-x, 50%) var(--cursor-local-y, 50%),
+    color-mix(in srgb, var(--color-text-primary) 18%, transparent),
+    transparent 62%
+  );
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
 .project-card__image {
   position: absolute;
   inset: 0;
@@ -37,6 +51,10 @@
 .project-card:hover .project-card__image {
   transform: scale(1.035);
   filter: saturate(1) brightness(0.98);
+}
+
+.project-card:hover .project-card__media::after {
+  opacity: 1;
 }
 
 .project-card__body {

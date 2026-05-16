@@ -61,12 +61,32 @@
 .social-links--icon .social-links__item {
   opacity: 0.72;
   transition:
+    color var(--duration-base) var(--ease-standard),
+    filter var(--duration-base) var(--ease-standard),
     opacity var(--duration-base) var(--ease-standard),
     transform var(--duration-base) var(--ease-standard);
 }
 
 .social-links--icon .social-links__item:hover {
   opacity: 1;
+  filter: drop-shadow(0 0 0.75rem color-mix(in srgb, var(--color-text-primary) 20%, transparent));
+  transform: translateY(-0.16rem);
+}
+
+.social-links--icon:hover .social-links__item:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.social-links--icon:hover .social-links__item:nth-child(2) {
+  transition-delay: 55ms;
+}
+
+.social-links--icon:hover .social-links__item:nth-child(3) {
+  transition-delay: 110ms;
+}
+
+.social-links--icon:hover .social-links__item:nth-child(4) {
+  transition-delay: 165ms;
 }
 
 .social-links--framed {
