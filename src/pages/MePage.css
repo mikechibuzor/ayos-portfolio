@@ -13,7 +13,7 @@
 .me-page__headline {
   max-width: 62rem;
   color: var(--color-text-primary);
-  font-size: 3rem;
+  font-size: 2.25rem;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: -0.03em;
@@ -41,7 +41,7 @@
 
 .me-page__copy p {
   color: var(--color-text-muted);
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.34;
   letter-spacing: 0;
 }
@@ -937,7 +937,7 @@
 
   .me-page__headline {
     max-width: 45rem;
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     line-height: 1.2;
     letter-spacing: -0.02em;
   }
@@ -1008,7 +1008,7 @@
   }
 
   .me-page__headline {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     line-height: 1.2;
   }
 
@@ -1019,7 +1019,7 @@
   }
 
   .me-page__copy p {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 
   .me-page__media-strip {

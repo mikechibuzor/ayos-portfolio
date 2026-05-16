@@ -76,15 +76,15 @@
 
 .case-study-detail__title-group h1 {
   color: var(--color-text-primary);
-  font-size: clamp(2.25rem, 4vw, 3rem);
+  font-size: 2.25rem;
   font-weight: 500;
   line-height: 1.08;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
 }
 
 .case-study-detail__title-group p {
   color: var(--color-text-muted);
-  font-size: clamp(1.125rem, 1.8vw, 1.5rem);
+  font-size: 1rem;
   line-height: 1.25;
 }
 
@@ -389,16 +389,12 @@
   overflow: hidden;
   min-height: 16.5rem;
   background: var(--color-surface-card);
-  border: 0.0625rem solid var(--color-surface-border-muted);
-  border-radius: 0.5rem;
-  transition:
-    border-radius var(--duration-base) var(--ease-standard),
-    border-color var(--duration-base) var(--ease-standard);
+  border-radius: 0;
+  transition: border-radius var(--duration-base) var(--ease-standard);
 }
 
 .case-study-detail__more-card:hover .case-study-detail__more-media {
   border-radius: var(--radius-card);
-  border-color: var(--color-surface-border);
 }
 
 .case-study-detail__more-title {

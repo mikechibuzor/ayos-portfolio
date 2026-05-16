@@ -21,14 +21,14 @@
 
 .route-page__intro h1 {
   color: var(--color-text-primary);
-  font-size: 3rem;
+  font-size: 2.25rem;
   font-weight: 500;
   line-height: 1.15;
 }
 
 .route-page__intro p {
   color: var(--color-text-muted);
-  font-size: 1.25rem;
+  font-size: 1rem;
   line-height: 1.45;
 }
 
@@ -92,6 +92,6 @@
   }
 
   .route-page__intro h1 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 }

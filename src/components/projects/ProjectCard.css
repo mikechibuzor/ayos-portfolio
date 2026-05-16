@@ -9,12 +9,10 @@
   min-height: 19.625rem;
   overflow: hidden;
   background: var(--color-surface-card);
-  border: 0.0625rem solid var(--color-surface-border-muted);
-  border-radius: 0.5rem;
+  border-radius: 0;
   transition:
     transform var(--duration-slow) var(--ease-emphasized),
-    border-radius var(--duration-base) var(--ease-standard),
-    border-color var(--duration-base) var(--ease-standard);
+    border-radius var(--duration-base) var(--ease-standard);
 }
 
 .project-card__image {
@@ -34,7 +32,6 @@
 .project-card:hover .project-card__media {
   transform: translateY(-0.35rem) scale(1.01);
   border-radius: var(--radius-card);
-  border-color: var(--color-surface-border);
 }
 
 .project-card:hover .project-card__image {

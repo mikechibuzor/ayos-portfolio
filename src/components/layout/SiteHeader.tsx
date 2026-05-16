@@ -43,9 +43,14 @@ export function SiteHeader({ navigationItems, socialLinks }: SiteHeaderProps) {
               </li>
             ))}
           </ul>
+          <div className="site-header__mobile-socials">
+            <SocialLinks links={socialLinks} variant="icon" />
+          </div>
+        </div>
+        <div className="site-header__actions">
+          <ThemeToggle />
           <SocialLinks links={socialLinks} variant="icon" />
         </div>
-        <ThemeToggle />
       </nav>
     </header>
   );

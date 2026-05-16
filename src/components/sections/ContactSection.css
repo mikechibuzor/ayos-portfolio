@@ -44,14 +44,14 @@
 .contact-section__heading h2 {
   max-width: 35rem;
   color: var(--color-text-primary);
-  font-size: 3rem;
+  font-size: 2.25rem;
   font-weight: 500;
   line-height: 1.16;
 }
 
 .contact-section__heading p {
   color: var(--color-text-muted);
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.35;
 }
 
