@@ -48,7 +48,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             )}
           </div>
           {project.liveHref ? (
-            <a className="project-card__action-link project-card__action-link--live" href={project.liveHref}>
+            <a className="project-card__action-link project-card__action-link--live" href={project.liveHref} target="_blank" rel="noreferrer">
               <span>{uiCopy.liveWebsiteLabel}</span>
               <span className="project-card__arrow-icon" aria-hidden="true">
                 <img src={arrowRightUpIcon} alt="" />

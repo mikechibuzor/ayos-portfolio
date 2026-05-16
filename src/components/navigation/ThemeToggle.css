@@ -23,50 +23,17 @@
     box-shadow var(--duration-base) var(--ease-standard);
 }
 
-.theme-toggle__knob {
-  display: grid;
-  width: 1rem;
-  height: 1rem;
-  place-items: center;
-  color: var(--color-text-muted);
-  transition: color var(--duration-base) var(--ease-standard);
-}
-
-.theme-toggle__moon {
-  position: relative;
+.theme-toggle__icon {
   display: block;
-  width: 0.55rem;
-  height: 0.55rem;
-  color: inherit;
-  background: currentColor;
-  border-radius: var(--radius-pill);
-  box-shadow:
-    0 -0.7rem 0 -0.24rem currentColor,
-    0.5rem -0.5rem 0 -0.24rem currentColor,
-    0.7rem 0 0 -0.24rem currentColor,
-    0.5rem 0.5rem 0 -0.24rem currentColor,
-    0 0.7rem 0 -0.24rem currentColor,
-    -0.5rem 0.5rem 0 -0.24rem currentColor,
-    -0.7rem 0 0 -0.24rem currentColor,
-    -0.5rem -0.5rem 0 -0.24rem currentColor;
+  width: 2rem;
+  height: 2rem;
   transition:
-    background-color var(--duration-base) var(--ease-standard),
-    box-shadow var(--duration-base) var(--ease-standard),
-    width var(--duration-base) var(--ease-standard),
-    height var(--duration-base) var(--ease-standard);
+    opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
 }
 
-.theme-toggle__moon::after {
-  position: absolute;
-  top: -0.125rem;
-  right: -0.1875rem;
+.theme-toggle__icon--moon {
   display: none;
-  width: 0.75rem;
-  height: 0.75rem;
-  content: "";
-  background: var(--color-page-background);
-  border-radius: var(--radius-pill);
-  transition: background-color var(--duration-base) var(--ease-standard);
 }
 
 .theme-toggle:hover .theme-toggle__track {
@@ -80,25 +47,17 @@
   background: #ffffff;
 }
 
-.theme-toggle[data-theme-mode="light"] .theme-toggle__knob {
-  color: var(--color-text-primary);
+.theme-toggle[data-theme-mode="light"] .theme-toggle__icon--sun {
+  display: none;
 }
 
-.theme-toggle[data-theme-mode="light"] .theme-toggle__moon {
-  width: 1rem;
-  height: 1rem;
-  box-shadow: none;
-}
-
-.theme-toggle[data-theme-mode="light"] .theme-toggle__moon::after {
+.theme-toggle[data-theme-mode="light"] .theme-toggle__icon--moon {
   display: block;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .theme-toggle__track,
-  .theme-toggle__knob,
-  .theme-toggle__moon,
-  .theme-toggle__moon::after {
+  .theme-toggle__icon {
     transition: none;
   }
 }
