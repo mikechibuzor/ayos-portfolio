@@ -1,4 +1,5 @@
 .contact-section {
+  position: relative;
   padding-block: clamp(4rem, 8vw, 7.25rem);
 }
 
@@ -113,6 +114,13 @@
   filter: brightness(1.08);
 }
 
+.contact-section__button:disabled {
+  cursor: wait;
+  filter: saturate(0.72);
+  opacity: 0.72;
+  transform: none;
+}
+
 @media (max-width: 42.5rem) {
   .contact-section__content {
     gap: 2.75rem;
@@ -121,5 +129,110 @@
   .contact-section__heading h2 {
     max-width: 21rem;
     font-size: 2.25rem;
+  }
+}
+
+.contact-section__modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: var(--space-6);
+  background: color-mix(in srgb, var(--color-page-background) 76%, transparent);
+  animation: contact-modal-backdrop-in var(--duration-base) var(--ease-standard) both;
+  backdrop-filter: blur(1rem);
+}
+
+.contact-section__modal {
+  position: relative;
+  display: grid;
+  width: min(100%, 27rem);
+  gap: var(--space-4);
+  justify-items: center;
+  overflow: hidden;
+  padding: var(--space-8);
+  text-align: center;
+  background: color-mix(in srgb, var(--color-surface-card) 94%, transparent);
+  border: 0.0625rem solid var(--color-surface-border-muted);
+  border-radius: var(--radius-card);
+  box-shadow: 0 1.5rem 5rem rgba(0, 0, 0, 0.4);
+  animation: contact-modal-in 560ms var(--ease-emphasized) both;
+}
+
+.contact-section__modal::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--color-text-primary) 12%, transparent), transparent 55%);
+}
+
+.contact-section__modal-orb {
+  position: relative;
+  display: block;
+  width: 0.85rem;
+  height: 0.85rem;
+  background: var(--color-accent-available);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 0 1.25rem color-mix(in srgb, var(--color-accent-available) 58%, transparent);
+}
+
+.contact-section__modal[data-status="ERROR"] .contact-section__modal-orb {
+  background: var(--color-text-primary);
+  box-shadow: 0 0 1.25rem color-mix(in srgb, var(--color-text-primary) 32%, transparent);
+}
+
+.contact-section__modal h3 {
+  position: relative;
+  color: var(--color-text-primary);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.contact-section__modal p {
+  position: relative;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.contact-section__modal-button {
+  position: relative;
+  min-height: 2.75rem;
+  padding: 0.65rem 1.35rem;
+  color: var(--color-text-inverse);
+  background: var(--color-action-primary);
+  border-radius: var(--radius-pill);
+  transition:
+    filter var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
+}
+
+.contact-section__modal-button:hover {
+  filter: brightness(1.08);
+  transform: translateY(-0.12rem);
+}
+
+@keyframes contact-modal-backdrop-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contact-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }

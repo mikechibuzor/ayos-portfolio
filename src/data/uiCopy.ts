@@ -24,4 +24,11 @@ export const uiCopy = {
   scrollMoreProjectsRightAriaLabel: "Scroll more projects right",
   projectNotFoundTitle: "Project not found",
   projectNotFoundDescription: "This project is not available in the current portfolio archive.",
+  contactSendingLabel: "Sending...",
+  contactSuccessTitle: "Message sent",
+  contactSuccessMessage: "Your message is in. I will get back to you soon.",
+  contactErrorTitle: "Message not sent",
+  contactErrorMessage: "Something blocked the message. Please try again.",
+  contactModalCloseLabel: "Close",
+  contactModalAriaLabel: "Contact form status",
 } as const;
