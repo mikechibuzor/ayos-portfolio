@@ -19,6 +19,14 @@ export type SocialLink = {
   iconClassName?: string;
 };
 
+export type HomeAudienceId = "everyone" | "recruiters" | "engineers" | "designers";
+
+export type HomeAudienceIntro = {
+  id: HomeAudienceId;
+  label: string;
+  title: string;
+};
+
 export enum ProjectCategory {
   All = "ALL",
   Web = "WEB",
@@ -152,7 +160,7 @@ export type MePageContent = {
   mediaStripLabel: string;
   mediaPreviewLabel: string;
   mediaPreviewCloseLabel: string;
-  mediaLabels: string[];
+  mediaShuffleLabel: string;
   overview: MeOverviewSection;
   stackShowcase: MeStackShowcaseSection;
   experience: MeExperienceSection;

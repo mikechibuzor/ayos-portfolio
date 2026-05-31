@@ -25,7 +25,6 @@ export const projects: Project[] = [
       "VBAN is a remittance product that helps Africans receive payments easily from overseas. I shaped the experience to feel modern, trustworthy, and effortless to use.",
     imageDescription: "Dark product preview card for the VBAN remittance experience.",
     imageSource: vbanThumbnailImage,
-    caseStudyHref: "/works/vban",
     liveHref: "https://vban.com",
     isCaseStudyLocked: true,
   },
@@ -54,7 +53,7 @@ export const projects: Project[] = [
     imageSource: signatureBankImage,
     caseStudyHref: "/works/signature-bank",
     liveHref: "https://signaturebank.ng",
-    isCaseStudyLocked: true,
+    isCaseStudyLocked: false,
   },
   {
     title: "Spoxio",
@@ -68,7 +67,7 @@ export const projects: Project[] = [
     imageSource: spoxioImage,
     caseStudyHref: "/works/spoxio",
     liveHref: "https://spoxio.com",
-    isCaseStudyLocked: true,
+    isCaseStudyLocked: false,
   },
   {
     title: "Chekker",
@@ -82,7 +81,7 @@ export const projects: Project[] = [
     imageSource: chekkerImage,
     caseStudyHref: "/works/chekker",
     liveHref: "https://chekkerhealth.com",
-    isCaseStudyLocked: true,
+    isCaseStudyLocked: false,
   },
   {
     title: "Qore",
@@ -96,7 +95,7 @@ export const projects: Project[] = [
     imageSource: qoreImage,
     caseStudyHref: "/works/qore",
     liveHref: "https://qore.inc",
-    isCaseStudyLocked: true,
+    isCaseStudyLocked: false,
   },
   {
     title: "Kiira Health",
@@ -109,6 +108,6 @@ export const projects: Project[] = [
     imageDescription: "Dark product preview card for the Kiira Health virtual care platform.",
     imageSource: kiiraImage,
     caseStudyHref: "/works/kiira-health",
-    isCaseStudyLocked: true,
+    isCaseStudyLocked: false,
   },
 ];

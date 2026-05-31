@@ -4,8 +4,10 @@ import { PageLayout } from "../components/layout/PageLayout";
 import { ContactSection } from "../components/sections/ContactSection";
 import { mePageContent } from "../data/pageContent";
 import { contactFields, profile } from "../data/profile";
+import { allProjectGalleryItems } from "../data/projectGalleryImages";
 import { stackTools } from "../data/stacks";
 import { uiCopy } from "../data/uiCopy";
+import type { CaseStudyGalleryItem } from "../types/site";
 import "./MePage.css";
 
 const MEDIA_PREVIEW_EXIT_DURATION_MS = 740;
@@ -16,6 +18,9 @@ const MEDIA_PREVIEW_MAX_HEIGHT_REM = 34;
 const MEDIA_PREVIEW_HORIZONTAL_INSET_REM = 1.5;
 const STACK_SCROLL_HINT_QUERY = "(max-width: 56.25rem)";
 const MINIMUM_SCROLLABLE_STACK_TOOL_COUNT = 3;
+const MEDIA_STRIP_VISIBLE_CARD_COUNT = 6;
+const MEDIA_STRIP_SHUFFLE_INTERVAL_MS = 15000;
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 
 type MediaPreviewGeometry = {
   sourceX: number;
@@ -39,10 +44,52 @@ type MediaPreviewCssVariable =
   | "--media-preview-target-height";
 
 type MediaPreviewStyle = CSSProperties & Record<MediaPreviewCssVariable, string>;
+type MediaStripGalleryItem = CaseStudyGalleryItem & { imageSource: string };
 
 enum MediaPreviewPhase {
   Active = "ACTIVE",
   Closing = "CLOSING",
+}
+
+const mediaStripGalleryItems = allProjectGalleryItems.filter(
+  (galleryItem): galleryItem is MediaStripGalleryItem => Boolean(galleryItem.imageSource),
+);
+
+function getRandomMediaStripItems(): MediaStripGalleryItem[] {
+  const shuffledGalleryItems = [...mediaStripGalleryItems];
+
+  for (let index = shuffledGalleryItems.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    const currentGalleryItem = shuffledGalleryItems[index];
+    const swapGalleryItem = shuffledGalleryItems[swapIndex];
+
+    if (!currentGalleryItem || !swapGalleryItem) {
+      continue;
+    }
+
+    shuffledGalleryItems[index] = swapGalleryItem;
+    shuffledGalleryItems[swapIndex] = currentGalleryItem;
+  }
+
+  return shuffledGalleryItems.slice(0, Math.min(MEDIA_STRIP_VISIBLE_CARD_COUNT, shuffledGalleryItems.length));
+}
+
+function getMediaItemSignature(mediaItems: MediaStripGalleryItem[]): string {
+  return mediaItems.map((mediaItem) => mediaItem.id).join("|");
+}
+
+function getNextRandomMediaStripItems(currentMediaItems: MediaStripGalleryItem[]): MediaStripGalleryItem[] {
+  const currentSignature = getMediaItemSignature(currentMediaItems);
+
+  for (let attempt = 0; attempt < 4; attempt += 1) {
+    const nextMediaItems = getRandomMediaStripItems();
+
+    if (getMediaItemSignature(nextMediaItems) !== currentSignature) {
+      return nextMediaItems;
+    }
+  }
+
+  return getRandomMediaStripItems();
 }
 
 function getSourceRectWithoutTransientTransform(sourceElement: HTMLElement): DOMRect {
@@ -100,6 +147,7 @@ function getMediaPreviewStyle(mediaPreviewGeometry: MediaPreviewGeometry): Media
 export function MePage() {
   const [openExperienceId, setOpenExperienceId] = useState<string | null>(null);
   const [activeMediaCardIndex, setActiveMediaCardIndex] = useState<number | null>(null);
+  const [visibleMediaItems, setVisibleMediaItems] = useState<MediaStripGalleryItem[]>(getRandomMediaStripItems);
   const [mediaPreviewPhase, setMediaPreviewPhase] = useState<MediaPreviewPhase>(MediaPreviewPhase.Active);
   const [mediaPreviewGeometry, setMediaPreviewGeometry] = useState<MediaPreviewGeometry | null>(null);
   const mediaPreviewCloseTimeoutRef = useRef<ReturnType<typeof window.setTimeout> | null>(null);
@@ -164,10 +212,8 @@ export function MePage() {
     });
   };
   const testimonialMarqueeRows = [false, true];
-  const activeMediaCardLabel =
-    activeMediaCardIndex === null
-      ? mePageContent.mediaPreviewLabel
-      : mePageContent.mediaLabels[activeMediaCardIndex] ?? mePageContent.mediaPreviewLabel;
+  const activeMediaItem = activeMediaCardIndex === null ? null : visibleMediaItems[activeMediaCardIndex] ?? null;
+  const activeMediaCardLabel = activeMediaItem?.label ?? mePageContent.mediaPreviewLabel;
   const mediaPreviewStyle = mediaPreviewGeometry === null ? undefined : getMediaPreviewStyle(mediaPreviewGeometry);
 
   const clearMediaPreviewCloseTimeout = useCallback(() => {
@@ -185,6 +231,10 @@ export function MePage() {
     setMediaPreviewPhase(MediaPreviewPhase.Active);
     setActiveMediaCardIndex(mediaCardIndex);
   };
+
+  const shuffleVisibleMediaItems = useCallback(() => {
+    setVisibleMediaItems((currentMediaItems) => getNextRandomMediaStripItems(currentMediaItems));
+  }, []);
 
   const closeMediaPreview = useCallback(() => {
     if (activeMediaCardIndex === null || mediaPreviewPhase === MediaPreviewPhase.Closing) {
@@ -207,6 +257,24 @@ export function MePage() {
   useEffect(() => {
     return clearMediaPreviewCloseTimeout;
   }, [clearMediaPreviewCloseTimeout]);
+
+  useEffect(() => {
+    if (activeMediaCardIndex !== null || mediaStripGalleryItems.length <= MEDIA_STRIP_VISIBLE_CARD_COUNT) {
+      return;
+    }
+
+    const reducedMotionMediaQuery = window.matchMedia(REDUCED_MOTION_QUERY);
+
+    if (reducedMotionMediaQuery.matches) {
+      return;
+    }
+
+    const shuffleIntervalId = window.setInterval(shuffleVisibleMediaItems, MEDIA_STRIP_SHUFFLE_INTERVAL_MS);
+
+    return () => {
+      window.clearInterval(shuffleIntervalId);
+    };
+  }, [activeMediaCardIndex, shuffleVisibleMediaItems]);
 
   useEffect(() => {
     if (activeMediaCardIndex === null) {
@@ -244,17 +312,29 @@ export function MePage() {
           </div>
         </section>
         <section className="me-page__media-strip" aria-label={mePageContent.mediaStripLabel}>
-          {mePageContent.mediaLabels.map((label, index) => (
+          <button className="me-page__media-shuffle-button" type="button" onClick={shuffleVisibleMediaItems}>
+            {mePageContent.mediaShuffleLabel}
+          </button>
+          {visibleMediaItems.map((mediaItem, index) => (
             <button
               className="me-page__media-card"
-              aria-label={label}
+              aria-label={mediaItem.label}
               aria-haspopup="dialog"
-              key={label}
+              key={`${mediaItem.id}-${index}`}
               type="button"
               data-card-index={index}
               data-preview-hidden={activeMediaCardIndex === index}
               onClick={(event) => openMediaPreview(index, event.currentTarget)}
-            />
+            >
+              <img
+                className="me-page__media-card-image"
+                src={mediaItem.imageSource}
+                alt=""
+                aria-hidden="true"
+                loading={index < 3 ? "eager" : "lazy"}
+                decoding="async"
+              />
+            </button>
           ))}
         </section>
         {activeMediaCardIndex !== null && mediaPreviewStyle !== undefined ? (
@@ -273,7 +353,11 @@ export function MePage() {
               onClick={closeMediaPreview}
             />
             {/* The preview is separate from the source card so absolute-positioned Figma layout never fights fixed overlay motion. */}
-            <div className="me-page__media-preview-card" role="img" aria-label={activeMediaCardLabel} />
+            <div className="me-page__media-preview-card" role="img" aria-label={activeMediaCardLabel}>
+              {activeMediaItem ? (
+                <img className="me-page__media-preview-image" src={activeMediaItem.imageSource} alt="" aria-hidden="true" />
+              ) : null}
+            </div>
           </div>
         ) : null}
         <section className="me-page__overview content-container scroll-reveal" aria-labelledby="me-overview-title">

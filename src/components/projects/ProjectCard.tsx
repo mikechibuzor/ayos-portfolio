@@ -12,6 +12,7 @@ type ProjectCardProps = {
 export function ProjectCard({ project }: ProjectCardProps) {
   const caseStudyIconSource = project.isCaseStudyLocked ? lockIcon : arrowRightUpIcon;
   const caseStudyIconClassName = project.isCaseStudyLocked ? "project-card__lock-icon" : "project-card__arrow-icon";
+  const canOpenCaseStudy = Boolean(project.caseStudyHref) && !project.isCaseStudyLocked;
 
   return (
     <article className="project-card">
@@ -31,7 +32,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <p className="project-card__description">{project.description}</p>
         <div className="project-card__actions">
           <div className="project-card__primary-action">
-            {project.caseStudyHref ? (
+            {canOpenCaseStudy && project.caseStudyHref ? (
               <Link className="project-card__action-link" to={project.caseStudyHref}>
                 <span>{uiCopy.caseStudyLabel}</span>
                 <span className={caseStudyIconClassName} aria-hidden="true">

@@ -74,3 +74,18 @@ export const signatureBankGalleryItems: CaseStudyGalleryItem[] = [
   { id: "ui-overview", label: "Signature Bank interface overview", imageSource: signatureBankUiOverviewImage },
   { id: "wireframes", label: "Signature Bank wireframe exploration", imageSource: signatureBankWireframesImage },
 ];
+
+function namespaceGalleryItems(projectId: string, galleryItems: CaseStudyGalleryItem[]): CaseStudyGalleryItem[] {
+  return galleryItems.map((galleryItem) => ({
+    ...galleryItem,
+    id: `${projectId}-${galleryItem.id}`,
+  }));
+}
+
+export const allProjectGalleryItems: CaseStudyGalleryItem[] = [
+  ...namespaceGalleryItems("qore", qoreGalleryItems),
+  ...namespaceGalleryItems("ekohub", ekohubGalleryItems),
+  ...namespaceGalleryItems("kiira-health", kiiraHealthGalleryItems),
+  ...namespaceGalleryItems("spoxio", spoxioGalleryItems),
+  ...namespaceGalleryItems("signature-bank", signatureBankGalleryItems),
+];

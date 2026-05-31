@@ -1,4 +1,4 @@
-import type { ContactField, NavigationItem, ProfileFact, ResumeEntry, SocialLink } from "../types/site";
+import type { ContactField, HomeAudienceIntro, NavigationItem, ProfileFact, ResumeEntry, SocialLink } from "../types/site";
 import { SiteRoute } from "../types/site";
 import behanceIcon from "../assets/icons/social/behance.svg";
 import instagramIcon from "../assets/icons/social/instagram.svg";
@@ -24,7 +24,37 @@ export const profile = {
   footerCredit: "Cooked and chopped by Oluolagunju Ayomide",
   footerYear: "2026",
   contactEmail: "oluolagunjuayomide@gmail.com",
+  heroAudienceLabel: "Choose homepage introduction",
+  heroLocationStartLabel: "LAGOS",
+  heroLocationEndLabel: "NIGERIA",
 } as const;
+
+export const homeAudienceIntros: HomeAudienceIntro[] = [
+  {
+    id: "everyone",
+    label: "Everyone",
+    title:
+      "Hi there, I design digital products that feel like somebody actually thought about you. Because somebody did",
+  },
+  {
+    id: "recruiters",
+    label: "Recruiters",
+    title:
+      "I've spent 4 years turning vague briefs, tight deadlines, and shifting requirements into products people actually enjoy. That's not luck — that's process.",
+  },
+  {
+    id: "engineers",
+    label: "Engineers",
+    title:
+      "I don't hand off pretty pictures and disappear. I sit in the complexity with you, think through the edge cases, and design something we can both be proud of shipping.",
+  },
+  {
+    id: "designers",
+    label: "Designers",
+    title:
+      "Most designers have a process. Mine started with feeling — music, stories, visuals that hit different. Design just became the most useful place to channel that.",
+  },
+];
 
 export const navigationItems: NavigationItem[] = [
   { label: "/home", href: SiteRoute.Home },

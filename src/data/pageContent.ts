@@ -39,14 +39,7 @@ export const mePageContent = {
   mediaStripLabel: "Profile media previews",
   mediaPreviewLabel: "Focused profile media preview",
   mediaPreviewCloseLabel: "Close focused profile media preview",
-  mediaLabels: [
-    "Left profile media placeholder",
-    "Lower left profile media placeholder",
-    "Center profile media placeholder",
-    "Lower center profile media placeholder",
-    "Right profile media placeholder",
-    "Far right profile media placeholder",
-  ],
+  mediaShuffleLabel: "Shuffle deck",
   overview: {
     title:
       "The only prerequisite? Awesomeness — at any stage of the journey: idea, redesign, or reinvention.",

@@ -11,7 +11,7 @@ export function ProjectDetailPage() {
   const { slug } = useParams();
   const project = getProjectBySlug(projects, slug);
 
-  if (!project) {
+  if (!project || project.isCaseStudyLocked) {
     return (
       <PageLayout>
         <main className="project-detail-page">

@@ -4,7 +4,7 @@ import { ContactSection } from "../components/sections/ContactSection";
 import { IntroHero } from "../components/sections/IntroHero";
 import { StackSection } from "../components/sections/StackSection";
 import { WorkSection } from "../components/sections/WorkSection";
-import { contactFields, profile } from "../data/profile";
+import { contactFields, homeAudienceIntros, profile } from "../data/profile";
 import { projectFilters, projects } from "../data/projects";
 import { stackTools } from "../data/stacks";
 import { ProjectCategory } from "../types/site";
@@ -21,7 +21,12 @@ export function HomePage() {
   return (
     <PageLayout>
       <main>
-        <IntroHero title={profile.heroTitle} subtitle={profile.heroSubtitle} />
+        <IntroHero
+          audienceIntros={homeAudienceIntros}
+          audienceLabel={profile.heroAudienceLabel}
+          locationStartLabel={profile.heroLocationStartLabel}
+          locationEndLabel={profile.heroLocationEndLabel}
+        />
         <WorkSection
           filters={projectFilters}
           projects={visibleProjects}
