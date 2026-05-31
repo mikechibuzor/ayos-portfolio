@@ -5,6 +5,13 @@ import qoreImage from "../assets/images/projects/qore.png";
 import signatureBankImage from "../assets/images/projects/signature-bank.png";
 import spoxioImage from "../assets/images/projects/spoxio.png";
 import vbanThumbnailImage from "../assets/images/projects/vban-thumbnail.png";
+import {
+  ekohubGalleryItems,
+  kiiraHealthGalleryItems,
+  qoreGalleryItems,
+  signatureBankGalleryItems,
+  spoxioGalleryItems,
+} from "./projectGalleryImages";
 
 export const caseStudyFallbackCopy = {
   categoryFallback: "Digital Product",
@@ -127,12 +134,7 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     galleryTitle: "Visual Gallery",
-    galleryItems: [
-      { id: "gallery-one", label: "Qore gallery placeholder one" },
-      { id: "gallery-two", label: "Qore gallery placeholder two" },
-      { id: "gallery-three", label: "Qore gallery placeholder three" },
-      { id: "gallery-four", label: "Qore gallery placeholder four" },
-    ],
+    galleryItems: qoreGalleryItems,
     moreProjectsTitle: "More Projects",
   },
   {
@@ -235,12 +237,7 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     galleryTitle: "Visual Gallery",
-    galleryItems: [
-      { id: "gallery-one", label: "Eko Hub gallery placeholder one" },
-      { id: "gallery-two", label: "Eko Hub gallery placeholder two" },
-      { id: "gallery-three", label: "Eko Hub gallery placeholder three" },
-      { id: "gallery-four", label: "Eko Hub gallery placeholder four" },
-    ],
+    galleryItems: ekohubGalleryItems,
     moreProjectsTitle: "More Projects",
   },
   {
@@ -365,12 +362,7 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     galleryTitle: "Visual Gallery",
-    galleryItems: [
-      { id: "gallery-one", label: "Kiira Health gallery placeholder one" },
-      { id: "gallery-two", label: "Kiira Health gallery placeholder two" },
-      { id: "gallery-three", label: "Kiira Health gallery placeholder three" },
-      { id: "gallery-four", label: "Kiira Health gallery placeholder four" },
-    ],
+    galleryItems: kiiraHealthGalleryItems,
     moreProjectsTitle: "More Projects",
   },
   {
@@ -492,12 +484,7 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     galleryTitle: "Visual Gallery",
-    galleryItems: [
-      { id: "gallery-one", label: "Spoxio gallery placeholder one" },
-      { id: "gallery-two", label: "Spoxio gallery placeholder two" },
-      { id: "gallery-three", label: "Spoxio gallery placeholder three" },
-      { id: "gallery-four", label: "Spoxio gallery placeholder four" },
-    ],
+    galleryItems: spoxioGalleryItems,
     moreProjectsTitle: "More Projects",
   },
   {
@@ -736,12 +723,7 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     galleryTitle: "Visual Gallery",
-    galleryItems: [
-      { id: "gallery-one", label: "Signature Bank gallery placeholder one" },
-      { id: "gallery-two", label: "Signature Bank gallery placeholder two" },
-      { id: "gallery-three", label: "Signature Bank gallery placeholder three" },
-      { id: "gallery-four", label: "Signature Bank gallery placeholder four" },
-    ],
+    galleryItems: signatureBankGalleryItems,
     moreProjectsTitle: "More Projects",
   },
 ];

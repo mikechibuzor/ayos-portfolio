@@ -301,7 +301,11 @@ export function CaseStudyDetail({ caseStudy, relatedProjects }: CaseStudyDetailP
             />
             <div className="case-study-detail__gallery-grid" ref={galleryScrollHint.scrollContainerRef}>
               {caseStudy.galleryItems.map((item) => (
-                <div className="case-study-detail__gallery-item media-mask-hover" key={item.id} role="img" aria-label={item.label} />
+                <div className="case-study-detail__gallery-item media-mask-hover" key={item.id} role="img" aria-label={item.label}>
+                  {item.imageSource ? (
+                    <img className="case-study-detail__gallery-image" src={item.imageSource} alt="" aria-hidden="true" />
+                  ) : null}
+                </div>
               ))}
             </div>
             <ScrollHintButton

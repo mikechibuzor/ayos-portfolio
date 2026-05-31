@@ -102,6 +102,7 @@ export type CaseStudyImpactCard = {
 export type CaseStudyGalleryItem = {
   id: string;
   label: string;
+  imageSource?: string;
 };
 
 export type CaseStudy = {
