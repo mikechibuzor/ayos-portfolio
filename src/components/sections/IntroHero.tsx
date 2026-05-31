@@ -41,7 +41,8 @@ export function IntroHero({ audienceIntros, audienceLabel, locationStartLabel, l
             );
           })}
         </div>
-        <h1 className="intro-hero__title reveal-on-load" id="intro-title">
+        {/* Keying by audience id remounts the heading on each tab click so the CSS swap animation replays. */}
+        <h1 className="intro-hero__title" id="intro-title" key={activeAudienceIntro.id}>
           {activeAudienceIntro.title}
         </h1>
       </div>
