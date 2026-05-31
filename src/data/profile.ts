@@ -4,6 +4,8 @@ import behanceIcon from "../assets/icons/social/behance.svg";
 import instagramIcon from "../assets/icons/social/instagram.svg";
 import linkedinIcon from "../assets/icons/social/linkedin.svg";
 import xIcon from "../assets/icons/social/x.svg";
+import ovalLabsLogo from "../assets/icons/companies/oval-labs.svg";
+import oyecoutureLogo from "../assets/icons/companies/oyecouture.svg";
 
 export const profile = {
   ownerName: "Oluolagunju Ayomide",
@@ -111,13 +113,37 @@ export const resumeEntries: ResumeEntry[] = [
   {
     role: "Product Designer",
     company: "Oval Labs Inc.",
-    period: "Present",
-    description: "Designing VBAN and related product experiences across remittance, onboarding, and business workflows.",
+    period: "Aug 2024 — Present",
+    description:
+      "I operate as a core product designer across Oval's B2B and B2C product suite — owning brand direction, running research, and shipping across multiple surfaces. At the centre of it all is vBan, a fintech remittance platform for African freelancers and contractors that I designed from the ground up and continue to grow.",
+    logoSource: ovalLabsLogo,
+    logoAlt: "Oval Labs logo",
   },
   {
     role: "Product Designer",
-    company: "Independent Projects",
-    period: "2024",
-    description: "Shaping fintech, healthcare, commerce, and sports products from discovery through interface execution.",
+    company: "Chekker Health",
+    period: "Apr 2024 — Jun 2025",
+    description:
+      "I designed interfaces for a digital healthcare product — translating user needs into accessible, compliant experiences. I worked cross-functionally, contributed to the design system, and stayed close to industry regulations to make sure every decision held up beyond the screen.",
+    logoSource: ovalLabsLogo,
+    logoAlt: "Chekker Health logo",
+  },
+  {
+    role: "Brand Designer",
+    company: "Oyecouture Bespoke",
+    period: "Jul 2022 — Mar 2024",
+    description:
+      "I owned the brand identity end to end — colour system, typography, guidelines — ensuring it showed up consistently across digital and print. Every touchpoint aligned with the brand's voice, on every platform, without exception.",
+    logoSource: oyecoutureLogo,
+    logoAlt: "Oyecouture Bespoke logo",
+  },
+  {
+    role: "Product Design (Intern/Junior)",
+    company: "Empocrate Limited",
+    period: "Jan 2021 — Jan 2024",
+    description:
+      "A digital agency where I built the range. Over three years I grew from intern to junior designer — working across fintech, healthcare, editorial and more, on websites, mobile apps, and web apps. The breadth here is the foundation everything else is built on.",
+    logoSource: ovalLabsLogo,
+    logoAlt: "Empocrate Limited logo",
   },
 ];

@@ -169,7 +169,7 @@
 
 .stack-section__tool:hover .stack-section__icon-frame {
   filter: drop-shadow(0 0.75rem 1.25rem color-mix(in srgb, var(--color-text-primary) 12%, transparent));
-  transform: translateY(-0.25rem) scale(1.045);
+  transform: scale(0.93);
 }
 
 .stack-section__scroller::before,

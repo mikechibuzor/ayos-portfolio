@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, type CSSProperties } from "react";
 import type { HomeAudienceId, HomeAudienceIntro } from "../../types/site";
 import "./IntroHero.css";
 
@@ -41,9 +41,23 @@ export function IntroHero({ audienceIntros, audienceLabel, locationStartLabel, l
             );
           })}
         </div>
-        {/* Keying by audience id remounts the heading on each tab click so the CSS swap animation replays. */}
-        <h1 className="intro-hero__title" id="intro-title" key={activeAudienceIntro.id}>
-          {activeAudienceIntro.title}
+        {/* Keying by audience id remounts the heading on each tab click so the per-word cascade replays. */}
+        <h1
+          className="intro-hero__title"
+          id="intro-title"
+          key={activeAudienceIntro.id}
+          aria-label={activeAudienceIntro.title}
+        >
+          {activeAudienceIntro.title.split(" ").map((word, index) => (
+            <span
+              className="intro-hero__title-word"
+              style={{ "--word-index": index } as CSSProperties}
+              key={`${word}-${index}`}
+              aria-hidden="true"
+            >
+              {word}
+            </span>
+          ))}
         </h1>
       </div>
       <span className="intro-hero__location intro-hero__location--start" aria-hidden="true">

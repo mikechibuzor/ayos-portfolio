@@ -11,8 +11,8 @@
   background: var(--color-surface-card);
   border-radius: 0;
   transition:
-    transform var(--duration-slow) var(--ease-emphasized),
-    border-radius var(--duration-base) var(--ease-standard);
+    transform 0.72s var(--ease-emphasized),
+    border-radius 0.72s var(--ease-standard);
 }
 
 .project-card__media::after {
@@ -38,18 +38,15 @@
   object-fit: cover;
   object-position: center;
   filter: saturate(0.92) brightness(0.86);
-  transition:
-    transform var(--duration-slow) var(--ease-emphasized),
-    filter var(--duration-base) var(--ease-standard);
+  transition: filter 0.72s var(--ease-standard);
 }
 
 .project-card:hover .project-card__media {
-  transform: translateY(-0.35rem) scale(1.01);
+  transform: scale(0.96);
   border-radius: var(--radius-card);
 }
 
 .project-card:hover .project-card__image {
-  transform: scale(1.035);
   filter: saturate(1) brightness(0.98);
 }
 

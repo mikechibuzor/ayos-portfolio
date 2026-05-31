@@ -221,4 +221,6 @@ export type ResumeEntry = {
   company: string;
   period: string;
   description: string;
+  logoSource: string;
+  logoAlt: string;
 };

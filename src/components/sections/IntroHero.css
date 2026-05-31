@@ -48,26 +48,41 @@
 }
 
 .intro-hero__title {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1em 0.3em;
   max-width: 68rem;
   color: var(--color-text-primary);
   font-size: 3rem;
   font-weight: 500;
   line-height: 1.22;
   letter-spacing: 0;
-  /* Replays on every remount (page load and tab switch) because the element is keyed by audience id. */
-  animation: intro-title-swap var(--duration-slow) var(--ease-emphasized) both;
 }
 
-@keyframes intro-title-swap {
-  from {
+.intro-hero__title-word {
+  display: inline-block;
+  transform-origin: 50% 50%;
+  /* Rack-focus: each word fades in heavily blurred + enlarged, then snaps sharp. The stagger pulls focus across the line. Replays on every remount (page load and tab switch) because the heading is keyed by audience id. */
+  animation: intro-rack-focus 0.82s var(--ease-standard) both;
+  animation-delay: calc(var(--word-index, 0) * 52ms);
+}
+
+@keyframes intro-rack-focus {
+  0% {
     opacity: 0;
-    transform: translateY(0.85rem);
-    filter: blur(0.5rem);
+    transform: scale(1.12);
+    filter: blur(0.95rem);
   }
 
-  to {
+  32% {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1.07);
+    filter: blur(0.7rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
     filter: blur(0);
   }
 }
@@ -168,7 +183,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .intro-hero__title {
+  .intro-hero__title-word {
     animation: none;
   }
 }

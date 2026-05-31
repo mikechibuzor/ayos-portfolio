@@ -22,6 +22,7 @@ export const uiCopy = {
   scrollGalleryRightAriaLabel: "Scroll gallery right",
   scrollMoreProjectsLeftAriaLabel: "Scroll more projects left",
   scrollMoreProjectsRightAriaLabel: "Scroll more projects right",
+  moreProjectsTitle: "More Projects",
   projectNotFoundTitle: "Project not found",
   projectNotFoundDescription: "This project is not available in the current portfolio archive.",
   contactSendingLabel: "Sending...",

@@ -228,7 +228,7 @@
   .me-page__media-card:hover .me-page__media-card-image {
     opacity: 0.92;
     filter: saturate(1) brightness(0.98);
-    transform: translateY(0) scale(1.025);
+    transform: translateY(0) scale(1);
   }
 
   .me-page__media-card:hover::before {
@@ -244,7 +244,7 @@
 .me-page__media-card:focus-visible .me-page__media-card-image {
   opacity: 0.92;
   filter: saturate(1) brightness(0.98);
-  transform: translateY(0) scale(1.025);
+  transform: translateY(0) scale(1);
 }
 
 .me-page__media-card:focus-visible::before {
@@ -633,6 +633,7 @@
   min-height: clamp(14rem, 22vw, 23.25rem);
   overflow: hidden;
   background: var(--color-surface-card);
+  background-clip: padding-box;
   border: 0.0625rem solid rgba(0, 0, 0, 0.28);
   border-radius: 0.5rem;
   transition:
@@ -672,14 +673,13 @@
 }
 
 .me-page__project-preview:hover {
-  transform: translateY(-0.35rem);
+  transform: scale(0.98);
 }
 
 .me-page__project-preview:hover .me-page__project-preview-media {
   border-radius: var(--radius-card);
-  border-color: var(--color-surface-border);
+  border-color: transparent;
   box-shadow: 0 1.25rem 4rem rgba(0, 0, 0, 0.36);
-  transform: scale(1.012);
 }
 
 .me-page__project-preview-media::after {
@@ -954,7 +954,7 @@
 .me-page__testimonial-card:hover {
   border-color: var(--color-surface-border);
   box-shadow: 0 1.25rem 4rem rgba(0, 0, 0, 0.32);
-  transform: translateY(-0.35rem);
+  transform: scale(0.98);
 }
 
 @keyframes testimonial-marquee {
