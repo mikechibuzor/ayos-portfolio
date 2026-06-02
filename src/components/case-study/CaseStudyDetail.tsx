@@ -1,7 +1,9 @@
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useHorizontalScrollHint, type ScrollDirection } from "../../hooks/useHorizontalScrollHint";
 import { uiCopy } from "../../data/uiCopy";
 import {
+  type CaseStudyGalleryItem,
   CaseStudyMetaIcon,
   CaseStudyTextSectionLayout,
   SiteRoute,
@@ -26,6 +28,16 @@ type ScrollHintButtonProps = {
   disabled: boolean;
   onClick: () => void;
 };
+
+type PreviewableGalleryItem = CaseStudyGalleryItem & { imageSource: string };
+
+const escapeKey = "Escape";
+const arrowLeftKey = "ArrowLeft";
+const arrowRightKey = "ArrowRight";
+
+function hasGalleryImage(item: CaseStudyGalleryItem): item is PreviewableGalleryItem {
+  return Boolean(item.imageSource);
+}
 
 function ScrollHintButton({ direction, label, disabled, onClick }: ScrollHintButtonProps) {
   return (
@@ -129,10 +141,79 @@ function CaseStudyParagraphContent({ paragraph }: { paragraph: CaseStudyParagrap
 export function CaseStudyDetail({ caseStudy, relatedProjects }: CaseStudyDetailProps) {
   const galleryScrollHint = useHorizontalScrollHint<HTMLDivElement>();
   const moreProjectsScrollHint = useHorizontalScrollHint<HTMLDivElement>();
+  const previewableGalleryItems = useMemo(() => caseStudy.galleryItems.filter(hasGalleryImage), [caseStudy.galleryItems]);
+  const [activeGalleryItemId, setActiveGalleryItemId] = useState<string | null>(null);
+  const activeGalleryItemIndex = activeGalleryItemId === null
+    ? -1
+    : previewableGalleryItems.findIndex((galleryItem) => galleryItem.id === activeGalleryItemId);
+  const activeGalleryItem = activeGalleryItemIndex >= 0 ? previewableGalleryItems[activeGalleryItemIndex] : null;
+  const hasMultipleGalleryItems = previewableGalleryItems.length > 1;
   const impactGridClassName =
     caseStudy.impactCards.length === 4
       ? "case-study-detail__impact-grid case-study-detail__impact-grid--two-column sibling-dim-group"
       : "case-study-detail__impact-grid sibling-dim-group";
+
+  const closeGalleryPreview = useCallback(() => {
+    setActiveGalleryItemId(null);
+  }, []);
+
+  const showAdjacentGalleryItem = useCallback((direction: ScrollDirection) => {
+    setActiveGalleryItemId((currentGalleryItemId) => {
+      if (previewableGalleryItems.length === 0) {
+        return null;
+      }
+
+      const currentGalleryItemIndex = previewableGalleryItems.findIndex(
+        (galleryItem) => galleryItem.id === currentGalleryItemId,
+      );
+      const fallbackIndex = direction === "right" ? 0 : previewableGalleryItems.length - 1;
+      const nextGalleryItemIndex = currentGalleryItemIndex === -1
+        ? fallbackIndex
+        : (currentGalleryItemIndex + (direction === "right" ? 1 : -1) + previewableGalleryItems.length) %
+          previewableGalleryItems.length;
+
+      return previewableGalleryItems[nextGalleryItemIndex]?.id ?? null;
+    });
+  }, [previewableGalleryItems]);
+
+  useEffect(() => {
+    if (activeGalleryItemId !== null && activeGalleryItem === null) {
+      setActiveGalleryItemId(null);
+    }
+  }, [activeGalleryItem, activeGalleryItemId]);
+
+  useEffect(() => {
+    if (activeGalleryItem === null) {
+      return;
+    }
+
+    const originalBodyOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = "hidden";
+
+    const handleGalleryPreviewKeyDown = (event: KeyboardEvent) => {
+      if (event.key === escapeKey) {
+        closeGalleryPreview();
+        return;
+      }
+
+      if (!hasMultipleGalleryItems) {
+        return;
+      }
+
+      if (event.key === arrowLeftKey || event.key === arrowRightKey) {
+        event.preventDefault();
+        showAdjacentGalleryItem(event.key === arrowRightKey ? "right" : "left");
+      }
+    };
+
+    window.addEventListener("keydown", handleGalleryPreviewKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalBodyOverflow;
+      window.removeEventListener("keydown", handleGalleryPreviewKeyDown);
+    };
+  }, [activeGalleryItem, closeGalleryPreview, hasMultipleGalleryItems, showAdjacentGalleryItem]);
 
   return (
     <main className="case-study-detail">
@@ -245,13 +326,21 @@ export function CaseStudyDetail({ caseStudy, relatedProjects }: CaseStudyDetailP
               onClick={() => galleryScrollHint.scrollByPage("left")}
             />
             <div className="case-study-detail__gallery-grid" ref={galleryScrollHint.scrollContainerRef}>
-              {caseStudy.galleryItems.map((item) => (
-                <div className="case-study-detail__gallery-item media-mask-hover" key={item.id} role="img" aria-label={item.label}>
-                  {item.imageSource ? (
+              {caseStudy.galleryItems.map((item) =>
+                item.imageSource ? (
+                  <button
+                    className="case-study-detail__gallery-item media-mask-hover"
+                    key={item.id}
+                    type="button"
+                    aria-label={`${item.label}. ${uiCopy.openGalleryPreviewLabel}`}
+                    onClick={() => setActiveGalleryItemId(item.id)}
+                  >
                     <img className="case-study-detail__gallery-image" src={item.imageSource} alt="" aria-hidden="true" />
-                  ) : null}
-                </div>
-              ))}
+                  </button>
+                ) : (
+                  <div className="case-study-detail__gallery-item media-mask-hover" key={item.id} role="img" aria-label={item.label} />
+                ),
+              )}
             </div>
             <ScrollHintButton
               direction="right"
@@ -261,6 +350,56 @@ export function CaseStudyDetail({ caseStudy, relatedProjects }: CaseStudyDetailP
             />
           </div>
         </section>
+
+        {activeGalleryItem ? (
+          <div className="case-study-detail__gallery-preview" role="dialog" aria-modal="true" aria-label={activeGalleryItem.label}>
+            <button
+              className="case-study-detail__gallery-preview-backdrop"
+              type="button"
+              aria-label={uiCopy.closeGalleryPreviewLabel}
+              onClick={closeGalleryPreview}
+            />
+            <div className="case-study-detail__gallery-preview-shell">
+              <button
+                className="case-study-detail__gallery-preview-close"
+                type="button"
+                aria-label={uiCopy.closeGalleryPreviewLabel}
+                onClick={closeGalleryPreview}
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+              {hasMultipleGalleryItems ? (
+                <button
+                  className="case-study-detail__gallery-preview-button case-study-detail__gallery-preview-button--left"
+                  type="button"
+                  aria-label={uiCopy.previousGalleryPreviewLabel}
+                  onClick={() => showAdjacentGalleryItem("left")}
+                >
+                  <span aria-hidden="true">‹</span>
+                </button>
+              ) : null}
+              <figure className="case-study-detail__gallery-preview-figure">
+                <img className="case-study-detail__gallery-preview-image" src={activeGalleryItem.imageSource} alt={activeGalleryItem.label} />
+                <figcaption className="case-study-detail__gallery-preview-caption">
+                  <span>{activeGalleryItem.label}</span>
+                  {hasMultipleGalleryItems ? (
+                    <span>{`${activeGalleryItemIndex + 1} / ${previewableGalleryItems.length}`}</span>
+                  ) : null}
+                </figcaption>
+              </figure>
+              {hasMultipleGalleryItems ? (
+                <button
+                  className="case-study-detail__gallery-preview-button case-study-detail__gallery-preview-button--right"
+                  type="button"
+                  aria-label={uiCopy.nextGalleryPreviewLabel}
+                  onClick={() => showAdjacentGalleryItem("right")}
+                >
+                  <span aria-hidden="true">›</span>
+                </button>
+              ) : null}
+            </div>
+          </div>
+        ) : null}
 
         <section className="case-study-detail__more scroll-reveal" aria-labelledby="case-study-more-title">
           <h2 id="case-study-more-title">{caseStudy.moreProjectsTitle}</h2>

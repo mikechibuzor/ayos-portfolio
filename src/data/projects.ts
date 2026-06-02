@@ -11,7 +11,6 @@ export const projectFilters: ProjectFilter[] = [
   { label: "All", category: ProjectCategory.All },
   { label: "Mobile", category: ProjectCategory.Mobile },
   { label: "Web", category: ProjectCategory.Web },
-  { label: "Branding", category: ProjectCategory.Branding },
 ];
 
 export const projects: Project[] = [

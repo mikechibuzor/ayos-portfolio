@@ -7,16 +7,16 @@
 .me-page__hero {
   display: grid;
   justify-items: center;
-  text-align: center;
+  text-align: left;
 }
 
 .me-page__headline {
-  max-width: 62rem;
+  max-width: 53.4375rem;
   color: var(--color-text-primary);
-  font-size: 2.25rem;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.03em;
+  font-size: clamp(3rem, 5.1vw, 4rem);
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: 0;
 }
 
 .me-page__headline-segment--primary {
@@ -33,24 +33,29 @@
 
 .me-page__copy {
   display: grid;
-  max-width: 43.5rem;
-  gap: 1.875rem;
-  margin-top: 3.25rem;
+  max-width: 53.4375rem;
+  gap: 1.5rem;
+  margin-top: 2rem;
   text-align: left;
 }
 
 .me-page__copy p {
   color: var(--color-text-muted);
-  font-size: 1rem;
-  line-height: 1.34;
+  font-size: 1.125rem;
+  line-height: 1.32;
   letter-spacing: 0;
+}
+
+.me-page__copy p:last-child {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
 }
 
 .me-page__media-strip {
   position: relative;
   width: 100vw;
   height: clamp(28rem, 37vw, 37rem);
-  margin-top: 7rem;
+  margin-top: clamp(3rem, 5vw, 4.5rem);
   margin-left: calc(50% - 50vw);
 }
 
@@ -163,7 +168,7 @@
 
 .me-page__media-card[data-card-index="0"] {
   animation-delay: 120ms;
-  bottom: 4rem;
+  bottom: 12rem;
   left: -1vw;
   z-index: 1;
   width: clamp(24rem, 27.5vw, 35.5rem);
@@ -172,7 +177,7 @@
 
 .me-page__media-card[data-card-index="1"] {
   animation-delay: 220ms;
-  bottom: 0;
+  bottom: 8rem;
   left: 13vw;
   z-index: 3;
   width: clamp(23rem, 26vw, 33.5rem);
@@ -181,7 +186,7 @@
 
 .me-page__media-card[data-card-index="2"] {
   animation-delay: 180ms;
-  bottom: 4rem;
+  bottom: 12rem;
   left: 33vw;
   z-index: 1;
   width: clamp(24rem, 26vw, 33.5rem);
@@ -190,7 +195,7 @@
 
 .me-page__media-card[data-card-index="3"] {
   animation-delay: 320ms;
-  bottom: 0;
+  bottom: 8rem;
   left: 45.5vw;
   z-index: 4;
   width: clamp(18rem, 18vw, 23rem);
@@ -199,7 +204,7 @@
 
 .me-page__media-card[data-card-index="4"] {
   animation-delay: 260ms;
-  bottom: 3rem;
+  bottom: 11rem;
   left: 61vw;
   z-index: 2;
   width: clamp(24rem, 26vw, 33.5rem);
@@ -208,7 +213,7 @@
 
 .me-page__media-card[data-card-index="5"] {
   animation-delay: 360ms;
-  bottom: 8.5rem;
+  bottom: 16.5rem;
   left: 83.25vw;
   z-index: 3;
   width: clamp(18rem, 20vw, 26rem);
@@ -315,30 +320,30 @@
   display: grid;
   justify-items: center;
   padding-block: clamp(7rem, 10vw, 10rem);
-  text-align: center;
+  text-align: left;
 }
 
 .me-page__section-title {
-  max-width: 46rem;
+  max-width: 53.4375rem;
   color: var(--color-text-primary);
-  font-size: clamp(2.25rem, 3.4vw, 3.25rem);
-  font-weight: 500;
-  line-height: 1.18;
-  letter-spacing: -0.025em;
+  font-size: clamp(3rem, 5.1vw, 4rem);
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: 0;
 }
 
 .me-page__section-copy {
   display: grid;
-  max-width: 43rem;
-  gap: 1.75rem;
-  margin-top: 2.75rem;
+  max-width: 53.4375rem;
+  gap: 1.5rem;
+  margin-top: 2rem;
   text-align: left;
 }
 
 .me-page__section-copy p {
   color: var(--color-text-muted);
-  font-size: 1.0625rem;
-  line-height: 1.36;
+  font-size: 1.125rem;
+  line-height: 1.32;
 }
 
 .me-page__tags {
@@ -368,9 +373,9 @@
 
 .me-page__stack-inner {
   display: grid;
-  grid-template-columns: minmax(12rem, 18rem) minmax(0, 1fr);
+  grid-template-columns: minmax(13rem, 19rem) minmax(0, 1fr);
   align-items: center;
-  gap: clamp(2rem, 4.5vw, 5rem);
+  gap: clamp(2rem, 3.2vw, 3rem);
 }
 
 .me-page__stack-heading {
@@ -381,13 +386,18 @@
 .me-page__stack-heading h2,
 .me-page__center-heading h2 {
   color: var(--color-text-primary);
-  font-size: clamp(2.25rem, 3.3vw, 3rem);
+  font-size: clamp(2.5rem, 3.2vw, 3rem);
   font-weight: 500;
   line-height: 1.15;
-  letter-spacing: -0.025em;
+  letter-spacing: 0;
 }
 
-.me-page__stack-heading p,
+.me-page__stack-heading p {
+  color: var(--color-text-dim);
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
 .me-page__center-heading p {
   color: var(--color-text-muted);
   font-size: 1.125rem;
@@ -870,7 +880,7 @@
 }
 
 .me-page__creating .me-page__section-title {
-  max-width: 46rem;
+  max-width: 53.4375rem;
 }
 
 .me-page__testimonials {
@@ -1107,10 +1117,10 @@
   }
 
   .me-page__headline {
-    max-width: 45rem;
-    font-size: 2.25rem;
+    max-width: 53.4375rem;
+    font-size: clamp(2.75rem, 6vw, 3.5rem);
     line-height: 1.2;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
   }
 
   .me-page__media-strip {
@@ -1184,14 +1194,14 @@
   }
 
   .me-page__headline {
-    font-size: 2.25rem;
+    font-size: 2.5rem;
     line-height: 1.2;
   }
 
   .me-page__copy {
     gap: 1.5rem;
     margin-top: 2.5rem;
-    text-align: center;
+    text-align: left;
   }
 
   .me-page__copy p {
@@ -1259,7 +1269,7 @@
   }
 
   .me-page__section-title {
-    font-size: 2.25rem;
+    font-size: 2.5rem;
     line-height: 1.18;
   }
 

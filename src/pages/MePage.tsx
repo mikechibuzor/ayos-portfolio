@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import { PageLayout } from "../components/layout/PageLayout";
 import { ContactSection } from "../components/sections/ContactSection";
@@ -7,6 +7,7 @@ import { contactFields, profile } from "../data/profile";
 import { allProjectGalleryItems } from "../data/projectGalleryImages";
 import { stackTools } from "../data/stacks";
 import { uiCopy } from "../data/uiCopy";
+import { useHorizontalScrollHint } from "../hooks/useHorizontalScrollHint";
 import type { CaseStudyGalleryItem } from "../types/site";
 import "./MePage.css";
 
@@ -151,66 +152,14 @@ export function MePage() {
   const [mediaPreviewPhase, setMediaPreviewPhase] = useState<MediaPreviewPhase>(MediaPreviewPhase.Active);
   const [mediaPreviewGeometry, setMediaPreviewGeometry] = useState<MediaPreviewGeometry | null>(null);
   const mediaPreviewCloseTimeoutRef = useRef<ReturnType<typeof window.setTimeout> | null>(null);
-  const stackToolsRef = useRef<HTMLUListElement>(null);
-  const [canScrollStackLeft, setCanScrollStackLeft] = useState(false);
-  const [canScrollStackRight, setCanScrollStackRight] = useState(false);
-  const [stackHasOverflow, setStackHasOverflow] = useState(false);
-
-  // Stack tools row gets the same pulsating arrows + scroll mechanic as the Visual Gallery.
-  useLayoutEffect(() => {
-    const toolsList = stackToolsRef.current;
-
-    if (!toolsList) {
-      return;
-    }
-
-    const updateStackScrollState = () => {
-      const maxScrollLeft = toolsList.scrollWidth - toolsList.clientWidth;
-      const hasMeasuredOverflow = maxScrollLeft > 1;
-      const hasResponsiveOverflow =
-        window.matchMedia(STACK_SCROLL_HINT_QUERY).matches &&
-        toolsList.children.length > MINIMUM_SCROLLABLE_STACK_TOOL_COUNT;
-
-      setStackHasOverflow(hasMeasuredOverflow || hasResponsiveOverflow);
-      setCanScrollStackLeft(toolsList.scrollLeft > 1);
-      setCanScrollStackRight(
-        hasMeasuredOverflow ? toolsList.scrollLeft < maxScrollLeft - 1 : hasResponsiveOverflow,
-      );
-    };
-
-    updateStackScrollState();
-    const animationFrameId = window.requestAnimationFrame(updateStackScrollState);
-    const resizeObserver = new ResizeObserver(updateStackScrollState);
-
-    resizeObserver.observe(toolsList);
-
-    if (toolsList.parentElement) {
-      resizeObserver.observe(toolsList.parentElement);
-    }
-
-    toolsList.addEventListener("scroll", updateStackScrollState, { passive: true });
-    window.addEventListener("resize", updateStackScrollState);
-
-    return () => {
-      window.cancelAnimationFrame(animationFrameId);
-      resizeObserver.disconnect();
-      toolsList.removeEventListener("scroll", updateStackScrollState);
-      window.removeEventListener("resize", updateStackScrollState);
-    };
-  }, []);
-
-  const scrollStackTools = (direction: "left" | "right") => {
-    const toolsList = stackToolsRef.current;
-
-    if (!toolsList) {
-      return;
-    }
-
-    toolsList.scrollBy({
-      left: direction === "right" ? toolsList.clientWidth * 0.72 : -toolsList.clientWidth * 0.72,
-      behavior: "smooth",
-    });
-  };
+  const stackScrollHint = useHorizontalScrollHint<HTMLUListElement>({
+    autoLoop: true,
+    loop: true,
+    minimumScrollableItemCount: MINIMUM_SCROLLABLE_STACK_TOOL_COUNT,
+    responsiveOverflowQuery: STACK_SCROLL_HINT_QUERY,
+    scrollPageMultiplier: 0.72,
+  });
+  const stackToolRows = [false, true];
   const testimonialMarqueeRows = [false, true];
   const activeMediaItem = activeMediaCardIndex === null ? null : visibleMediaItems[activeMediaCardIndex] ?? null;
   const activeMediaCardLabel = activeMediaItem?.label ?? mePageContent.mediaPreviewLabel;
@@ -383,34 +332,41 @@ export function MePage() {
             </div>
             <div
               className="me-page__stack-scroller"
-              data-can-scroll-left={canScrollStackLeft}
-              data-can-scroll-right={canScrollStackRight}
-              data-has-overflow={stackHasOverflow}
+              data-can-scroll-left={stackScrollHint.canScrollLeft}
+              data-can-scroll-right={stackScrollHint.canScrollRight}
+              data-has-overflow={stackScrollHint.hasHorizontalOverflow}
             >
               <button
                 className="me-page__stack-scroll-button me-page__stack-scroll-button--left"
                 type="button"
                 aria-label={uiCopy.scrollStackLeftAriaLabel}
-                disabled={!canScrollStackLeft}
-                onClick={() => scrollStackTools("left")}
+                disabled={!stackScrollHint.canScrollLeft}
+                onClick={() => stackScrollHint.scrollByPage("left")}
               >
                 <span aria-hidden="true">‹</span>
               </button>
-              <ul className="me-page__stack-tools" aria-label={mePageContent.stackShowcase.title} ref={stackToolsRef}>
-                {stackTools.map((tool) => (
-                  <li className="me-page__stack-tool interactive-lift" key={tool.name}>
-                    <span className="me-page__stack-icon-frame">
-                      <img className={tool.iconClassName} src={tool.iconSource} alt={tool.name} />
-                    </span>
-                  </li>
-                ))}
+              <ul className="me-page__stack-tools" aria-label={mePageContent.stackShowcase.title} ref={stackScrollHint.scrollContainerRef}>
+                {stackToolRows.map((isDuplicateRow) =>
+                  stackTools.map((tool, toolIndex) => (
+                    <li
+                      className="me-page__stack-tool interactive-lift"
+                      key={`${isDuplicateRow ? "duplicate" : "primary"}-${tool.name}`}
+                      aria-hidden={isDuplicateRow}
+                      data-scroll-loop-duplicate-start={isDuplicateRow && toolIndex === 0 ? "true" : undefined}
+                    >
+                      <span className="me-page__stack-icon-frame">
+                        <img className={tool.iconClassName} src={tool.iconSource} alt={isDuplicateRow ? "" : tool.name} />
+                      </span>
+                    </li>
+                  )),
+                )}
               </ul>
               <button
                 className="me-page__stack-scroll-button me-page__stack-scroll-button--right"
                 type="button"
                 aria-label={uiCopy.scrollStackRightAriaLabel}
-                disabled={!canScrollStackRight}
-                onClick={() => scrollStackTools("right")}
+                disabled={!stackScrollHint.canScrollRight}
+                onClick={() => stackScrollHint.scrollByPage("right")}
               >
                 <span aria-hidden="true">›</span>
               </button>

@@ -9,8 +9,8 @@ export const pageIntros = {
   },
   works: {
     eyebrow: "Selected work",
-    title: "Check out my works",
-    description: "Delivering excellence at all levels",
+    title: "Designs built to disappear — and be remembered anyway.",
+    description: "Every project here started with a problem worth solving. Here's what came out the other side.",
   },
   resume: {
     eyebrow: "Resume",
@@ -28,25 +28,23 @@ export const pageIntros = {
 
 export const mePageContent = {
   headlineSegments: [
-    { text: "I’m Ayomide, ", tone: "primary" },
-    { text: "I design products that actually solve problems and help brands reach their ", tone: "muted" },
-    { text: "business goals.", tone: "accent" },
+    { text: "I'm Ayomide, and I've never designed anything I wasn't trying to break first.", tone: "primary" },
   ],
   paragraphs: [
-    "I’m a Product & Brand Designer with over 5 years of creative experience and 3+ years turning real-world ideas into digital products that make people’s lives easier (and a little more beautiful).",
-    "I’ve always believed design sits at the intersection of logic and emotion — where thoughtful strategy meets visual storytelling. My work revolves around creating experiences that don’t just look great, but actually work for the people using them.",
+    "Every product I've worked on has taught me something the previous one couldn't. One of them is Vban — a remittance platform built for Africans earning in foreign currencies. I designed it from scratch, across every surface: admin, mobile, web. And as it grows, I grow it with it.",
+    "Product design is the craft. Building something that becomes something — that's the point.",
+    "“I kicked off my design career at a small digital agency, where I wore many hats — from branding to UI, social content to web design. That early experience gave me the freedom to explore and build for diverse industries, shaping how I think about design from both the business and human side.”",
   ],
   mediaStripLabel: "Profile media previews",
   mediaPreviewLabel: "Focused profile media preview",
   mediaPreviewCloseLabel: "Close focused profile media preview",
   mediaShuffleLabel: "Shuffle deck",
   overview: {
-    title:
-      "The only prerequisite? Awesomeness — at any stage of the journey: idea, redesign, or reinvention.",
+    title: "You don't need a finished idea. You just need the right one.",
     paragraphs: [
-      "I work with driven founders and teams to bring bold ideas to life, whether they’re just sketches on a napkin, existing products ready for a redesign, or platforms looking to evolve into something greater. My goal is always the same: to turn imagination into impact and make the future feel a little closer.",
-      "At the core of what I do is product design — my bread and butter. I design for web, mobile, and desktop platforms, building experiences that are both functional and human. Along the way, I’ve also explored the craft of website design, advanced prototyping, design systems, custom icons and illustrations, brand identity, and even launch visuals when needed.",
-      "No two projects are ever the same. Every collaboration brings a new challenge, a new perspective, and a new chance to create something meaningful. I don’t believe in one-size-fits-all design — I believe in thoughtful, user-centered solutions built with intention and creativity.",
+      "I work with founders and teams at whatever stage they're at — early chaos, mid-rebuild, or the uncomfortable moment your retention numbers tell you something your instincts didn't. I've been in all three rooms.",
+      "I come in, question everything, and pull until something clicks. My process isn't linear and I won't pretend it is — I sketch chaos first, then find the order buried inside it.",
+      "The core is product design — web, mobile, desktop. Around it: brand identity, design systems, prototyping, launch visuals. Whatever the build needs. No two projects are the same, and I'm not interested in treating them like they are.",
     ],
     tags: ["Visual design", "Prototyping", "Research", "Branding", "Brand Strategy"],
   },
@@ -94,10 +92,11 @@ export const mePageContent = {
     ],
   },
   creating: {
-    title: "When I’m Not Pushing Pixels, I’m Still Creating",
+    title: "I make beats I'll probably never release.",
     paragraphs: [
-      "When I’m not designing, I’m usually in my own little creative world — either playing video games, watching anime, or producing music (yes, I make beats and sound experiments for fun). These hobbies keep me curious, inspired, and always looking at design from new angles.",
-      "They also remind me that creativity doesn’t have to be confined to pixels — it’s a way of seeing, building, and connecting everything around us.",
+      "Sound experiments, weird textures, half-finished tracks living in folders I never open twice. Not a side hustle — just what happens when the need to keep making things doesn't stop at 6pm.",
+      "Video games and anime live in the same drawer. Both are masterclasses in pacing, world-building, and the kind of visual storytelling that never makes it into a design case study. They keep me curious, a little restless, and permanently skeptical of first drafts.",
+      "That restlessness is the job. I just stopped pretending it has an off switch.",
     ],
   },
   testimonials: {
