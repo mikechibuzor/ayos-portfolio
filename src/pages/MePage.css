@@ -634,7 +634,7 @@ html[data-theme="light"] .me-page__stack-tool .stack-section__icon--openai {
 
 .me-page__project-previews {
   display: grid;
-  grid-auto-columns: minmax(17rem, 26rem);
+  grid-auto-columns: minmax(18.7rem, 28.6rem);
   grid-auto-flow: column;
   gap: 1.75rem;
   width: 100%;
@@ -1211,7 +1211,7 @@ html[data-theme="light"] .me-page__stack-tool .stack-section__icon--openai {
   }
 
   .me-page__project-previews {
-    grid-auto-columns: minmax(17rem, 42vw);
+    grid-auto-columns: minmax(18.7rem, 46.2vw);
   }
 }
 
@@ -1353,7 +1353,7 @@ html[data-theme="light"] .me-page__stack-tool .stack-section__icon--openai {
   }
 
   .me-page__project-previews {
-    grid-auto-columns: minmax(16rem, 76vw);
+    grid-auto-columns: minmax(17.6rem, 83.6vw);
     gap: 1rem;
     padding-inline: var(--layout-section-padding-x);
   }
