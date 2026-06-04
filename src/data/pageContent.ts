@@ -1,4 +1,4 @@
-import type { MePageContent, PageIntro } from "../types/site";
+import type { MePageContent, MeTestimonial, PageIntro } from "../types/site";
 
 export const pageIntros = {
   me: {
@@ -33,7 +33,6 @@ export const mePageContent = {
   paragraphs: [
     "Every product I've worked on has taught me something the previous one couldn't. One of them is Vban — a remittance platform built for Africans earning in foreign currencies. I designed it from scratch, across every surface: admin, mobile, web. And as it grows, I grow it with it.",
     "Product design is the craft. Building something that becomes something — that's the point.",
-    "“I kicked off my design career at a small digital agency, where I wore many hats — from branding to UI, social content to web design. That early experience gave me the freedom to explore and build for diverse industries, shaping how I think about design from both the business and human side.”",
   ],
   mediaStripLabel: "Profile media previews",
   mediaPreviewLabel: "Focused profile media preview",
@@ -51,7 +50,6 @@ export const mePageContent = {
   stackShowcase: {
     title: "My Stacks",
     subtitle: "Let's build that brilliant idea together",
-    projectLabels: ["Building VBAN", "Building VBAN", "Building VBAN", "Building VBAN"],
   },
   experience: {
     title: "Experience Highlight",
@@ -102,31 +100,6 @@ export const mePageContent = {
   testimonials: {
     title: "What people say about me",
     quoteSymbol: "“",
-    items: [
-      {
-        quote:
-          "I kicked off my design career at a small digital agency, where I wore many hats — from branding to UI, social content to web design. That early experience gave me the freedom to explore and build for diverse industries, shaping how I think about design from both the business and human side.",
-        author: "Ayodeji Osindele",
-        role: "Creative Director, EOC",
-      },
-      {
-        quote:
-          "I kicked off my design career at a small digital agency, where I wore many hats — from branding to UI, social content to web design. That early experience gave me the freedom to explore and build for diverse industries, shaping how I think about design from both the business and human side.",
-        author: "Ayodeji Osindele",
-        role: "Creative Director, EOC",
-      },
-      {
-        quote:
-          "I kicked off my design career at a small digital agency, where I wore many hats — from branding to UI, social content to web design. That early experience gave me the freedom to explore and build for diverse industries, shaping how I think about design from both the business and human side.",
-        author: "Ayodeji Osindele",
-        role: "Creative Director, EOC",
-      },
-      {
-        quote:
-          "I kicked off my design career at a small digital agency, where I wore many hats — from branding to UI, social content to web design. That early experience gave me the freedom to explore and build for diverse industries, shaping how I think about design from both the business and human side.",
-        author: "Ayodeji Osindele",
-        role: "Creative Director, EOC",
-      },
-    ],
+    items: [] as MeTestimonial[],
   },
 } satisfies MePageContent;

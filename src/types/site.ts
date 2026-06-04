@@ -177,7 +177,6 @@ export type MeOverviewSection = {
 export type MeStackShowcaseSection = {
   title: string;
   subtitle: string;
-  projectLabels: string[];
 };
 
 export type MeExperienceSection = {

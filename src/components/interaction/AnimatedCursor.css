@@ -119,9 +119,7 @@
 
 [data-theme="light"] .animated-cursor__ring {
   border-color: color-mix(in srgb, #111111 54%, transparent);
-  box-shadow:
-    0 0 0.75rem color-mix(in srgb, #111111 10%, transparent),
-    inset 0 0 1.25rem color-mix(in srgb, #111111 5%, transparent);
+  box-shadow: none;
 }
 
 [data-theme="light"] .animated-cursor__dot {
@@ -130,7 +128,13 @@
 
 [data-theme="light"] .animated-cursor-trail__ring {
   background: color-mix(in srgb, #111111 12%, transparent);
-  box-shadow: 0 0 1.25rem color-mix(in srgb, #111111 14%, transparent);
+  box-shadow: none;
+}
+
+html[data-theme="light"] .animated-cursor__ring,
+html[data-theme="light"] .animated-cursor__dot,
+html[data-theme="light"] .animated-cursor-trail__ring {
+  box-shadow: none !important;
 }
 
 @media (pointer: fine) and (prefers-reduced-motion: no-preference) {

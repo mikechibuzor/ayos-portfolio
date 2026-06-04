@@ -19,6 +19,9 @@ export function PageLayout({ children, showHeader = true, showFooter = true }: P
           title={profile.footerTitle}
           subtitle={profile.footerSubtitle}
           credit={profile.footerCredit}
+          creditName={profile.footerCreditName}
+          creditLinkedInHref={profile.footerCreditLinkedInHref}
+          creditEmail={profile.footerCreditEmail}
           year={profile.footerYear}
           socialLinks={socialLinks}
         />

@@ -17,8 +17,8 @@ export const stackTools: StackTool[] = [
   { name: "Illustrator", iconSource: illustratorIcon },
   { name: "Google Meet", iconSource: googleMeetIcon },
   { name: "Gmail", iconSource: gmailIcon, iconClassName: "stack-section__icon--gmail" },
-  { name: "OpenAI", iconSource: openaiIcon },
+  { name: "OpenAI", iconSource: openaiIcon, iconClassName: "stack-section__icon--openai" },
   { name: "Claude", iconSource: claudeIcon },
   { name: "Google Drive", iconSource: googleDriveIcon },
-  { name: "Framer", iconSource: framerIcon },
+  { name: "Framer", iconSource: framerIcon, iconClassName: "stack-section__icon--framer" },
 ];

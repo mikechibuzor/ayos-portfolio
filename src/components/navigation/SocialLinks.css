@@ -73,6 +73,10 @@
   transform: translateY(-0.16rem);
 }
 
+[data-theme="light"] .social-links--icon .social-links__item:hover {
+  filter: none;
+}
+
 .social-links--icon:hover .social-links__item:nth-child(1) {
   transition-delay: 0ms;
 }

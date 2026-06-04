@@ -67,9 +67,7 @@
 .theme-toggle[data-theme-mode="light"]:hover .theme-toggle__track,
 .theme-toggle[data-theme-mode="light"]:focus-visible .theme-toggle__track {
   border-color: var(--color-surface-border-visible);
-  box-shadow:
-    0 0.375rem 1.25rem rgba(0, 0, 0, 0.12),
-    0 0 0 0.25rem color-mix(in srgb, #000000 7%, transparent);
+  box-shadow: none;
 }
 
 .theme-toggle[data-theme-mode="light"] .theme-toggle__icon--sun {
@@ -83,7 +81,14 @@
 .theme-toggle[data-theme-mode="light"]:hover .theme-toggle__icon--moon,
 .theme-toggle[data-theme-mode="light"]:focus-visible .theme-toggle__icon--moon {
   color: var(--color-text-primary);
+  filter: none;
   transform: scale(1.04);
+}
+
+html[data-theme="light"] .theme-toggle__track,
+html[data-theme="light"] .theme-toggle__icon {
+  box-shadow: none !important;
+  filter: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

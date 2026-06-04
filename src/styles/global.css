@@ -63,6 +63,13 @@ h3 {
   color: var(--color-text-inverse);
 }
 
+[data-theme="light"] *,
+[data-theme="light"] *::before,
+[data-theme="light"] *::after {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
 .page-shell {
   min-height: 100vh;
   overflow: clip;

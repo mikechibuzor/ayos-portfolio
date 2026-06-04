@@ -2,9 +2,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import { PageLayout } from "../components/layout/PageLayout";
 import { ContactSection } from "../components/sections/ContactSection";
+import { aboutGalleryItems } from "../data/aboutGalleryImages";
 import { mePageContent } from "../data/pageContent";
 import { contactFields, profile } from "../data/profile";
-import { allProjectGalleryItems } from "../data/projectGalleryImages";
+import { projects } from "../data/projects";
 import { stackTools } from "../data/stacks";
 import { uiCopy } from "../data/uiCopy";
 import { useHorizontalScrollHint } from "../hooks/useHorizontalScrollHint";
@@ -52,7 +53,7 @@ enum MediaPreviewPhase {
   Closing = "CLOSING",
 }
 
-const mediaStripGalleryItems = allProjectGalleryItems.filter(
+const mediaStripGalleryItems = aboutGalleryItems.filter(
   (galleryItem): galleryItem is MediaStripGalleryItem => Boolean(galleryItem.imageSource),
 );
 
@@ -372,17 +373,27 @@ export function MePage() {
               </button>
             </div>
           </div>
-          <div className="me-page__project-previews sibling-dim-group" aria-label={mePageContent.stackShowcase.title}>
-            {mePageContent.stackShowcase.projectLabels.map((label, index) => (
-              <article
-                className="me-page__project-preview sibling-dim-card"
-                key={`${label}-${index}`}
-                data-preview-index={index}
-              >
-                <div className="me-page__project-preview-media media-mask-hover" aria-hidden="true" />
-                <p>{label}</p>
-              </article>
-            ))}
+          <div
+            className="me-page__project-preview-shell"
+          >
+            <div
+              className="me-page__project-previews sibling-dim-group"
+              aria-label={mePageContent.stackShowcase.title}
+            >
+              {projects.map((project, index) => (
+                <article
+                  className="me-page__project-preview sibling-dim-card"
+                  key={project.slug}
+                  data-preview-index={index % 4}
+                >
+                  <div className="me-page__project-preview-media media-mask-hover" role="img" aria-label={project.imageDescription}>
+                    {project.imageSource ? (
+                      <img className="me-page__project-preview-image" src={project.imageSource} alt="" aria-hidden="true" loading="lazy" />
+                    ) : null}
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
         <section className="me-page__experience content-container scroll-reveal" aria-labelledby="me-experience-title">
@@ -429,31 +440,33 @@ export function MePage() {
             ))}
           </div>
         </section>
-        <section className="me-page__testimonials scroll-reveal" aria-labelledby="me-testimonials-title">
-          <div className="me-page__center-heading content-container">
-            <h2 id="me-testimonials-title">{mePageContent.testimonials.title}</h2>
-          </div>
-          <div className="me-page__testimonial-window">
-            <div className="me-page__testimonial-track sibling-dim-group">
-              {testimonialMarqueeRows.map((isDuplicateRow) => (
-                <div className="me-page__testimonial-group" aria-hidden={isDuplicateRow} key={String(isDuplicateRow)}>
-                  {mePageContent.testimonials.items.map((testimonial, index) => (
-                    <article className="me-page__testimonial-card sibling-dim-card" key={`${testimonial.author}-${index}`}>
-                      <span className="me-page__quote-mark" aria-hidden="true">
-                        {mePageContent.testimonials.quoteSymbol}
-                      </span>
-                      <p>{testimonial.quote}</p>
-                      <div className="me-page__testimonial-author">
-                        <strong>{testimonial.author}</strong>
-                        <span>{testimonial.role}</span>
-                      </div>
-                    </article>
-                  ))}
-                </div>
-              ))}
+        {mePageContent.testimonials.items.length > 0 ? (
+          <section className="me-page__testimonials scroll-reveal" aria-labelledby="me-testimonials-title">
+            <div className="me-page__center-heading content-container">
+              <h2 id="me-testimonials-title">{mePageContent.testimonials.title}</h2>
             </div>
-          </div>
-        </section>
+            <div className="me-page__testimonial-window">
+              <div className="me-page__testimonial-track sibling-dim-group">
+                {testimonialMarqueeRows.map((isDuplicateRow) => (
+                  <div className="me-page__testimonial-group" aria-hidden={isDuplicateRow} key={String(isDuplicateRow)}>
+                    {mePageContent.testimonials.items.map((testimonial, index) => (
+                      <article className="me-page__testimonial-card sibling-dim-card" key={`${testimonial.author}-${index}`}>
+                        <span className="me-page__quote-mark" aria-hidden="true">
+                          {mePageContent.testimonials.quoteSymbol}
+                        </span>
+                        <p>{testimonial.quote}</p>
+                        <div className="me-page__testimonial-author">
+                          <strong>{testimonial.author}</strong>
+                          <span>{testimonial.role}</span>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null}
         <ContactSection
           availabilityLabel={profile.contactAvailability}
           title={profile.contactTitle}
