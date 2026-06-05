@@ -607,7 +607,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "signature-bank",
     title: "Signature Bank",
     category: "Commercial Bank",
-    liveHref: "https://signaturebank.ng",
+    liveHref: "https://www.signaturebankng.com/",
     coverImageDescription: "Dark placeholder for Signature Bank case study hero media.",
     coverImageSource: signatureBankImage,
     metaItems: [

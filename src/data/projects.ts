@@ -51,7 +51,7 @@ export const projects: Project[] = [
     imageDescription: "Dark product preview card for Signature Bank digital banking.",
     imageSource: signatureBankImage,
     caseStudyHref: "/works/signature-bank",
-    liveHref: "https://signaturebank.ng",
+    liveHref: "https://www.signaturebankng.com/",
     isCaseStudyLocked: false,
   },
   {
@@ -79,7 +79,7 @@ export const projects: Project[] = [
     imageDescription: "Dark product preview card for the Chekker healthcare platform.",
     imageSource: chekkerImage,
     caseStudyHref: "/works/chekker",
-    liveHref: "https://chekkerhealth.com",
+    liveHref: "https://www.mychekker.com/",
     isCaseStudyLocked: false,
   },
   {
