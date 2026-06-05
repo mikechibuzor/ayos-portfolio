@@ -14,7 +14,7 @@ export function SocialLinks({ links, variant = "plain" }: SocialLinksProps) {
     <ul className={`social-links social-links--${variant}`} aria-label={uiCopy.socialLinksAriaLabel}>
       {links.map((link) => (
         <li key={link.label}>
-          <a className="social-links__item interactive-lift" href={link.href} aria-label={link.label}>
+          <a className="social-links__item interactive-lift" href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
             {shouldUseIconAssets && link.iconSource ? (
               <span className="social-links__icon-frame">
                 <img className={`social-links__icon ${link.iconClassName ?? ""}`} src={link.iconSource} alt="" aria-hidden="true" />
