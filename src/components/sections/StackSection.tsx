@@ -1,5 +1,4 @@
 import { useHorizontalScrollHint } from "../../hooks/useHorizontalScrollHint";
-import { uiCopy } from "../../data/uiCopy";
 import type { StackTool } from "../../types/site";
 import "./StackSection.css";
 
@@ -35,15 +34,6 @@ export function StackSection({ title, subtitle, tools }: StackSectionProps) {
           data-can-scroll-right={stackScrollHint.canScrollRight}
           data-has-overflow={stackScrollHint.hasHorizontalOverflow}
         >
-          <button
-            className="stack-section__scroll-button stack-section__scroll-button--left"
-            type="button"
-            aria-label={uiCopy.scrollStackLeftAriaLabel}
-            disabled={!stackScrollHint.canScrollLeft}
-            onClick={() => stackScrollHint.scrollByPage("left")}
-          >
-            <span aria-hidden="true">‹</span>
-          </button>
           <ul className="stack-section__tools" aria-label={title} ref={stackScrollHint.scrollContainerRef}>
             {stackToolRows.map((isDuplicateRow) =>
               tools.map((tool, toolIndex) => (
@@ -60,15 +50,6 @@ export function StackSection({ title, subtitle, tools }: StackSectionProps) {
               )),
             )}
           </ul>
-          <button
-            className="stack-section__scroll-button stack-section__scroll-button--right"
-            type="button"
-            aria-label={uiCopy.scrollStackRightAriaLabel}
-            disabled={!stackScrollHint.canScrollRight}
-            onClick={() => stackScrollHint.scrollByPage("right")}
-          >
-            <span aria-hidden="true">›</span>
-          </button>
         </div>
       </div>
     </section>

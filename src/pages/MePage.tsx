@@ -7,7 +7,6 @@ import { mePageContent } from "../data/pageContent";
 import { contactFields, profile } from "../data/profile";
 import { projects } from "../data/projects";
 import { stackTools } from "../data/stacks";
-import { uiCopy } from "../data/uiCopy";
 import { useHorizontalScrollHint } from "../hooks/useHorizontalScrollHint";
 import type { CaseStudyGalleryItem } from "../types/site";
 import "./MePage.css";
@@ -337,15 +336,6 @@ export function MePage() {
               data-can-scroll-right={stackScrollHint.canScrollRight}
               data-has-overflow={stackScrollHint.hasHorizontalOverflow}
             >
-              <button
-                className="me-page__stack-scroll-button me-page__stack-scroll-button--left"
-                type="button"
-                aria-label={uiCopy.scrollStackLeftAriaLabel}
-                disabled={!stackScrollHint.canScrollLeft}
-                onClick={() => stackScrollHint.scrollByPage("left")}
-              >
-                <span aria-hidden="true">‹</span>
-              </button>
               <ul className="me-page__stack-tools" aria-label={mePageContent.stackShowcase.title} ref={stackScrollHint.scrollContainerRef}>
                 {stackToolRows.map((isDuplicateRow) =>
                   stackTools.map((tool, toolIndex) => (
@@ -362,15 +352,6 @@ export function MePage() {
                   )),
                 )}
               </ul>
-              <button
-                className="me-page__stack-scroll-button me-page__stack-scroll-button--right"
-                type="button"
-                aria-label={uiCopy.scrollStackRightAriaLabel}
-                disabled={!stackScrollHint.canScrollRight}
-                onClick={() => stackScrollHint.scrollByPage("right")}
-              >
-                <span aria-hidden="true">›</span>
-              </button>
             </div>
           </div>
           <div

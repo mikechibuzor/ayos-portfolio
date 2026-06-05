@@ -43,7 +43,7 @@
   max-width: 100%;
   margin: 0;
   overflow-x: auto;
-  padding-inline: 3.5rem;
+  padding-inline: 0;
   scroll-behavior: smooth;
   scrollbar-width: none;
   list-style: none;
@@ -51,49 +51,6 @@
 
 .stack-section__tools::-webkit-scrollbar {
   display: none;
-}
-
-.stack-section__scroll-button {
-  position: absolute;
-  top: 50%;
-  z-index: 2;
-  display: grid;
-  width: 2.75rem;
-  height: 2.75rem;
-  place-items: center;
-  color: var(--color-text-primary);
-  background: color-mix(in srgb, var(--color-surface-raised) 82%, transparent);
-  border: 0.0625rem solid var(--color-surface-border);
-  border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-soft);
-  transform: translateY(-50%);
-  transition:
-    opacity var(--duration-base) var(--ease-standard),
-    transform var(--duration-base) var(--ease-standard);
-}
-
-.stack-section__scroll-button span {
-  display: block;
-  font-size: 1.75rem;
-  line-height: 1;
-  transform: translateY(-0.0625rem);
-}
-
-.stack-section__scroll-button--left {
-  left: 0;
-}
-
-.stack-section__scroll-button--right {
-  right: 0;
-}
-
-.stack-section__scroll-button:not(:disabled) {
-  animation: stack-scroll-hint 1.4s var(--ease-standard) infinite;
-}
-
-.stack-section__scroll-button:disabled {
-  pointer-events: none;
-  opacity: 0.32;
 }
 
 .stack-section__tool {
@@ -209,31 +166,14 @@ html[data-theme="light"] .stack-section__tool .stack-section__icon--openai {
   opacity: 1;
 }
 
-.stack-section__scroller[data-has-overflow="false"] .stack-section__scroll-button {
-  display: none;
-}
-
 @media (max-width: 56.25rem) {
   .stack-section__scroller {
     width: calc(100% + (var(--layout-section-padding-x) * 2));
     margin-inline: calc(var(--layout-section-padding-x) * -1);
   }
 
-  .stack-section__scroll-button,
-  .stack-section__scroller[data-has-overflow="false"] .stack-section__scroll-button {
-    display: grid;
-  }
-
-  .stack-section__scroll-button--left {
-    left: var(--layout-section-padding-x);
-  }
-
-  .stack-section__scroll-button--right {
-    right: var(--layout-section-padding-x);
-  }
-
   .stack-section__tools {
-    padding-inline: calc(var(--layout-section-padding-x) + 3.5rem);
+    padding-inline: var(--layout-section-padding-x);
   }
 }
 
@@ -256,16 +196,5 @@ html[data-theme="light"] .stack-section__tool .stack-section__icon--openai {
   .stack-section__tool img {
     max-width: 3rem;
     max-height: 3rem;
-  }
-}
-
-@keyframes stack-scroll-hint {
-  0%,
-  100% {
-    transform: translateY(-50%) scale(1);
-  }
-
-  50% {
-    transform: translateY(-50%) scale(1.08);
   }
 }
