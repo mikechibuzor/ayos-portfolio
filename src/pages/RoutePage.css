@@ -4,7 +4,7 @@
 
 .resume-page__content {
   display: grid;
-  width: min(100% - (var(--layout-section-padding-x) * 2), var(--layout-reading-max));
+  width: min(calc(100% - (var(--layout-section-padding-x) * 2)), var(--layout-reading-max));
   margin-inline: auto;
 }
 

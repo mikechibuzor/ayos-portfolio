@@ -57,11 +57,11 @@ export const mePageContent = {
     entries: [
       {
         id: "iterative-financials",
-        company: "Iterative Financials, Inc.",
+        company: "Oval Labs Inc",
         role: "Product designer",
         period: "2024 - PRESENT",
         description:
-          "At Iterative Financials, I shape product experiences for financial and operational tools, turning dense workflows into calm interfaces that teams can trust and use repeatedly.",
+          "I operate as a core product designer across Oval's B2B and B2C product suite — owning brand direction, running research, and shipping across multiple surfaces. At the centre of it all is vBan, a fintech remittance platform for African freelancers and contractors that I designed from the ground up and continue to grow.",
       },
       {
         id: "vban",

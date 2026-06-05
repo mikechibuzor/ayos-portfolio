@@ -8,7 +8,7 @@
 
 .intro-hero__inner {
   display: grid;
-  width: min(100% - (var(--layout-section-padding-x) * 2), 68rem);
+  width: min(calc(100% - (var(--layout-section-padding-x) * 2)), 68rem);
   /* Reserve headline space so audience tabs do not jump when copy wraps differently. */
   min-height: 29rem;
   align-content: start;
