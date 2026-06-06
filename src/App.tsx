@@ -6,6 +6,7 @@ import { ProjectDetailPage } from "./pages/ProjectDetailPage";
 import { ResumePage } from "./pages/ResumePage";
 import { WorksPage } from "./pages/WorksPage";
 import { AnimatedCursor } from "./components/interaction/AnimatedCursor";
+import { CrackedGlassEffect } from "./components/interaction/CrackedGlassEffect";
 import { useGsapSectionReveal } from "./hooks/useGsapSectionReveal";
 import { useScrollToTop } from "./hooks/useScrollToTop";
 import { SiteRoute } from "./types/site";
@@ -17,6 +18,7 @@ export default function App() {
   return (
     <>
       <AnimatedCursor />
+      <CrackedGlassEffect />
       <Routes>
         <Route path={SiteRoute.Home} element={<HomePage />} />
         <Route path={SiteRoute.Me} element={<MePage />} />
