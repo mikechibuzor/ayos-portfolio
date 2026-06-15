@@ -2,6 +2,7 @@ import { ProjectCategory, type Project, type ProjectFilter } from "../types/site
 import chekkerImage from "../assets/images/projects/chekker.png";
 import ekohubImage from "../assets/images/projects/ekohub.jpg";
 import kiiraImage from "../assets/images/projects/kiira.png";
+import pamojaImage from "../assets/images/projects/pamoja.jpg";
 import qoreImage from "../assets/images/projects/qore.png";
 import signatureBankImage from "../assets/images/projects/signature-bank.png";
 import spoxioImage from "../assets/images/projects/spoxio.png";
@@ -26,6 +27,19 @@ export const projects: Project[] = [
     imageSource: vbanThumbnailImage,
     liveHref: "https://vban.com",
     isCaseStudyLocked: true,
+  },
+  {
+    title: "Pamoja",
+    slug: "pamoja",
+    year: "2022",
+    categories: [ProjectCategory.Mobile, ProjectCategory.Fintech],
+    summaryLabel: "Fin-tech - Payment platform",
+    description:
+      "Pamoja is a payment platform designed to make everyday banking, bills, remittance, and virtual card flows feel swift, trustworthy, and accessible.",
+    imageDescription: "Pamoja mobile payment platform product preview.",
+    imageSource: pamojaImage,
+    caseStudyHref: "/works/pamoja",
+    isCaseStudyLocked: false,
   },
   {
     title: "Ekohub",

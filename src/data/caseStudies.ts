@@ -1,6 +1,7 @@
 import { CaseStudyMetaIcon, CaseStudyTextSectionLayout, type CaseStudy } from "../types/site";
 import ekohubImage from "../assets/images/projects/ekohub.jpg";
 import kiiraImage from "../assets/images/projects/kiira.png";
+import pamojaImage from "../assets/images/projects/pamoja.jpg";
 import qoreImage from "../assets/images/projects/qore.png";
 import signatureBankImage from "../assets/images/projects/signature-bank.png";
 import spoxioImage from "../assets/images/projects/spoxio.png";
@@ -8,6 +9,7 @@ import vbanThumbnailImage from "../assets/images/projects/vban-thumbnail.png";
 import {
   ekohubGalleryItems,
   kiiraHealthGalleryItems,
+  pamojaGalleryItems,
   qoreGalleryItems,
   signatureBankGalleryItems,
   spoxioGalleryItems,
@@ -601,6 +603,146 @@ export const caseStudies: CaseStudy[] = [
       { id: "gallery-three", label: "VBAN gallery placeholder three" },
       { id: "gallery-four", label: "VBAN gallery placeholder four" },
     ],
+    moreProjectsTitle: "More Projects",
+  },
+  {
+    slug: "pamoja",
+    title: "Pamoja",
+    category: "Redefining Payment Experience",
+    coverImageDescription: "Pamoja mobile payment platform case study hero media.",
+    coverImageSource: pamojaImage,
+    metaItems: [
+      { id: "role", icon: CaseStudyMetaIcon.Role, label: "Product designer" },
+      { id: "lead-designer", icon: CaseStudyMetaIcon.Lead, label: "Lead designer: Ayodeji Osindele" },
+      { id: "year", icon: CaseStudyMetaIcon.Calendar, label: "2022" },
+    ],
+    textSections: [
+      {
+        id: "context",
+        title: "The Context",
+        paragraphs: [
+          {
+            text:
+              "Pamoja is a payment platform designed to bridge the gap between a user's daily life and their finances. It serves as an intermediary to streamline everything from local grocery spending to international remittances, ensuring that financial access is no longer a privilege of the elite but a standard for everyone.",
+          },
+        ],
+      },
+      {
+        id: "challenge",
+        title: "The Challenge",
+        paragraphs: [
+          {
+            text:
+              "Designing for the Nigerian banking sector means designing for a landscape defined by significant hurdles.",
+          },
+          {
+            lead: "Technical Barriers:",
+            text: "Constant network issues make even simple transactions feel like a gamble.",
+          },
+          {
+            lead: "User Frustration:",
+            text: "Slow chargeback processes during transaction errors leave users without their funds for days.",
+          },
+          {
+            lead: "The Trust Gap:",
+            text:
+              "A lack of international transfer options and better banking services in general drove users to seek alternatives to traditional institutions.",
+          },
+          {
+            lead: "The Stake:",
+            text:
+              "Without a reliable system, millions are excluded from the formal economy, limiting their ability to expand businesses or manage personal wealth securely.",
+          },
+        ],
+      },
+      {
+        id: "discovery",
+        title: "The Discovery",
+        paragraphs: [
+          {
+            lead: "Methodology:",
+            text:
+              "I conducted qualitative user interviews with target participants aged 18 to 60, covering Gen Z, Millennials, and Gen X.",
+          },
+          {
+            lead: "Key Persona Insight:",
+            text:
+              "Users like Zoe Micheals, a content creator, emphasized the need for fast track recovery on failed transactions and UI flows that felt swift and intuitive.",
+          },
+          {
+            lead: "The Pivot:",
+            text:
+              "While we initially focused on simple spend features, the research highlighted an urgent demand for affordable and accessible payment products delivered in a responsible, sustainable way.",
+          },
+        ],
+      },
+      {
+        id: "exploration",
+        title: "The Exploration",
+        paragraphs: [
+          {
+            lead: "Structural Logic:",
+            text:
+              "I mapped out a high-security onboarding process including BVN verification, Secret Q&A, and ID uploads to ensure compliance without sacrificing speed.",
+          },
+          {
+            lead: "Decision Making:",
+            text:
+              "We prioritized a four-pillar navigation system (Home, Spend, Card, and More) to separate daily utility from long-term financial management.",
+          },
+          {
+            lead: "Wireframing:",
+            text:
+              "Each screen was drafted on paper first to validate that the information density did not become overwhelming for users in high-stress financial situations.",
+          },
+        ],
+      },
+      {
+        id: "craft",
+        title: "The Craft",
+        layout: CaseStudyTextSectionLayout.Wide,
+        paragraphs: [
+          {
+            lead: "Unified Tooling:",
+            text: "Designed entirely in Figma to facilitate high-fidelity prototyping and smooth handoffs.",
+          },
+          {
+            lead: "Visual Trust:",
+            text:
+              "Used a deep, professional teal palette paired with vibrant status indicators for income and expenses to provide instant financial clarity.",
+          },
+          {
+            lead: "Feature Integration:",
+            text:
+              "Built-in flows for Government Remittance, Bill Payments, and Virtual Card creation allow the app to act as a complete digital wallet rather than just a transfer tool.",
+          },
+        ],
+      },
+    ],
+    tags: ["Product Designer", "Research", "Branding", "Brand Strategy"],
+    impactTitle: "The Impact",
+    impactCards: [
+      { id: "financial-inclusion", title: "Targeting 20% Gap", label: "Financial Inclusion" },
+      { id: "sdg-alignment", title: "Financial Access Goals", label: "SDG Alignment" },
+      { id: "target-demographic", title: "Ages 18 to 60", label: "Target Demographic" },
+      { id: "design-cycle", title: "Research to Prototype", label: "Design Cycle" },
+    ],
+    reflection: {
+      id: "reflection",
+      title: "Reflection",
+      paragraphs: [
+        {
+          text:
+            "Personal Growth: Pamoja taught me that in fintech, clarity is a security feature. When a user sees their income and expenses summarised accurately in real-time, it builds the trust necessary to move away from cash-only habits.",
+        },
+        {
+          text:
+            "Senior Takeaway: Research is only valuable if it translates into deterministic UI. My goal was to take the frustration of traditional banking and turn it into a swift, predictable experience.",
+        },
+      ],
+    },
+    galleryTitle: "Visual Gallery",
+    galleryItems: pamojaGalleryItems,
     moreProjectsTitle: "More Projects",
   },
   {

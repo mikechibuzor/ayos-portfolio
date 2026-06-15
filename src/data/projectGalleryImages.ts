@@ -17,6 +17,11 @@ import kiiraHealth05Image from "../assets/images/projects/gallery/kiira-health/k
 import kiiraHealth06Image from "../assets/images/projects/gallery/kiira-health/kiira-health-06.jpg";
 import kiiraHealth07Image from "../assets/images/projects/gallery/kiira-health/kiira-health-07.jpg";
 import kiiraHealth08Image from "../assets/images/projects/gallery/kiira-health/kiira-health-08.jpg";
+import pamoja01Image from "../assets/images/projects/gallery/pamoja/pamoja-01.jpg";
+import pamoja02Image from "../assets/images/projects/gallery/pamoja/pamoja-02.jpg";
+import pamoja03Image from "../assets/images/projects/gallery/pamoja/pamoja-03.jpg";
+import pamoja04Image from "../assets/images/projects/gallery/pamoja/pamoja-04.jpg";
+import pamoja05Image from "../assets/images/projects/gallery/pamoja/pamoja-05.jpg";
 import qoreFeaturesOverviewImage from "../assets/images/projects/gallery/qore/qore-features-overview.jpg";
 import qoreHeroLandingImage from "../assets/images/projects/gallery/qore/qore-hero-landing.jpg";
 import qoreHeroMockupImage from "../assets/images/projects/gallery/qore/qore-hero-mockup.jpg";
@@ -61,6 +66,14 @@ export const kiiraHealthGalleryItems: CaseStudyGalleryItem[] = [
   { id: "care-screen-eight", label: "Kiira Health product interface screen eight", imageSource: kiiraHealth08Image },
 ];
 
+export const pamojaGalleryItems: CaseStudyGalleryItem[] = [
+  { id: "wallet-overview", label: "Pamoja wallet overview", imageSource: pamoja01Image },
+  { id: "payment-flow", label: "Pamoja payment flow", imageSource: pamoja02Image },
+  { id: "card-management", label: "Pamoja card management", imageSource: pamoja03Image },
+  { id: "remittance-flow", label: "Pamoja remittance flow", imageSource: pamoja04Image },
+  { id: "mobile-screens", label: "Pamoja mobile screens", imageSource: pamoja05Image },
+];
+
 export const spoxioGalleryItems: CaseStudyGalleryItem[] = [
   { id: "desktop-overview", label: "Spoxio desktop overview", imageSource: spoxioDesktopOverviewImage },
   { id: "desktop-screens", label: "Spoxio desktop screens", imageSource: spoxioDesktopScreensImage },
@@ -86,6 +99,7 @@ export const allProjectGalleryItems: CaseStudyGalleryItem[] = [
   ...namespaceGalleryItems("qore", qoreGalleryItems),
   ...namespaceGalleryItems("ekohub", ekohubGalleryItems),
   ...namespaceGalleryItems("kiira-health", kiiraHealthGalleryItems),
+  ...namespaceGalleryItems("pamoja", pamojaGalleryItems),
   ...namespaceGalleryItems("spoxio", spoxioGalleryItems),
   ...namespaceGalleryItems("signature-bank", signatureBankGalleryItems),
 ];
