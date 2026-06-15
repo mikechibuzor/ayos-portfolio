@@ -92,7 +92,7 @@ export const projects: Project[] = [
       "Chekker is a healthcare platform connecting doctors, patients, laboratories, and phlebotomists in one coordinated ecosystem.",
     imageDescription: "Dark product preview card for the Chekker healthcare platform.",
     imageSource: chekkerImage,
-    caseStudyHref: "/works/chekker",
+    caseStudyHref: "https://www.behance.net/gallery/249448537/Chekker-Simplifying-Diagnostic-Test-Bookings",
     liveHref: "https://www.mychekker.com/",
     isCaseStudyLocked: false,
   },

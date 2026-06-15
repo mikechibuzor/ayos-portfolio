@@ -13,6 +13,7 @@ export const uiCopy = {
   viewLiveLabel: "View Live",
   lockedLabel: "locked",
   caseStudyLockedAriaLabel: "Case study locked",
+  liveWebsiteLockedAriaLabel: "Live website unavailable",
   breadcrumbHomeAriaLabel: "Home",
   breadcrumbWorksLabel: "Works",
   caseStudyBreadcrumbAriaLabel: "Case study breadcrumb",

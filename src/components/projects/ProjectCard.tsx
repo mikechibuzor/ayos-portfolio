@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import type { Project } from "../../types/site";
 import { uiCopy } from "../../data/uiCopy";
+import { isExternalHref } from "../../utils/links";
 import arrowRightUpIcon from "../../assets/icons/actions/arrow-right-up.svg";
 import lockIcon from "../../assets/icons/actions/lock.svg";
 import "./ProjectCard.css";
@@ -9,9 +10,55 @@ type ProjectCardProps = {
   project: Project;
 };
 
+type ProjectActionLinkProps = {
+  href: string;
+  label: string;
+  className?: string;
+};
+
+type LockedProjectActionProps = {
+  label: string;
+  ariaLabel: string;
+};
+
+function ProjectActionLink({ href, label, className = "" }: ProjectActionLinkProps) {
+  const actionClassName = `project-card__action-link${className ? ` ${className}` : ""}`;
+  const content = (
+    <>
+      <span>{label}</span>
+      <span className="project-card__arrow-icon" aria-hidden="true">
+        <img src={arrowRightUpIcon} alt="" />
+      </span>
+    </>
+  );
+
+  if (isExternalHref(href)) {
+    return (
+      <a className={actionClassName} href={href} target="_blank" rel="noreferrer">
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link className={actionClassName} to={href}>
+      {content}
+    </Link>
+  );
+}
+
+function LockedProjectAction({ label, ariaLabel }: LockedProjectActionProps) {
+  return (
+    <span className="project-card__locked" aria-disabled="true" aria-label={ariaLabel}>
+      <span>{label}</span>
+      <span className="project-card__lock-icon" aria-hidden="true">
+        <img src={lockIcon} alt="" />
+      </span>
+    </span>
+  );
+}
+
 export function ProjectCard({ project }: ProjectCardProps) {
-  const caseStudyIconSource = project.isCaseStudyLocked ? lockIcon : arrowRightUpIcon;
-  const caseStudyIconClassName = project.isCaseStudyLocked ? "project-card__lock-icon" : "project-card__arrow-icon";
   const canOpenCaseStudy = Boolean(project.caseStudyHref) && !project.isCaseStudyLocked;
 
   return (
@@ -33,29 +80,20 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <div className="project-card__actions">
           <div className="project-card__primary-action">
             {canOpenCaseStudy && project.caseStudyHref ? (
-              <Link className="project-card__action-link" to={project.caseStudyHref}>
-                <span>{uiCopy.caseStudyLabel}</span>
-                <span className={caseStudyIconClassName} aria-hidden="true">
-                  <img src={caseStudyIconSource} alt="" />
-                </span>
-              </Link>
+              <ProjectActionLink href={project.caseStudyHref} label={uiCopy.caseStudyLabel} />
             ) : (
-              <span className="project-card__locked" aria-label={uiCopy.caseStudyLockedAriaLabel}>
-                <span>{uiCopy.caseStudyLabel}</span>
-                <span className="project-card__lock-icon" aria-hidden="true">
-                  <img src={lockIcon} alt="" />
-                </span>
-              </span>
+              <LockedProjectAction label={uiCopy.caseStudyLabel} ariaLabel={uiCopy.caseStudyLockedAriaLabel} />
             )}
           </div>
           {project.liveHref ? (
-            <a className="project-card__action-link project-card__action-link--live" href={project.liveHref} target="_blank" rel="noreferrer">
-              <span>{uiCopy.liveWebsiteLabel}</span>
-              <span className="project-card__arrow-icon" aria-hidden="true">
-                <img src={arrowRightUpIcon} alt="" />
-              </span>
-            </a>
-          ) : null}
+            <ProjectActionLink
+              className="project-card__action-link--live"
+              href={project.liveHref}
+              label={uiCopy.liveWebsiteLabel}
+            />
+          ) : (
+            <LockedProjectAction label={uiCopy.liveWebsiteLabel} ariaLabel={uiCopy.liveWebsiteLockedAriaLabel} />
+          )}
         </div>
       </div>
     </article>

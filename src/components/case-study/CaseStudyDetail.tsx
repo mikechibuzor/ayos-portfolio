@@ -11,6 +11,7 @@ import {
   type CaseStudyParagraph,
   type Project,
 } from "../../types/site";
+import { isExternalHref } from "../../utils/links";
 import "./CaseStudyDetail.css";
 
 type CaseStudyDetailProps = {
@@ -135,6 +136,33 @@ function CaseStudyParagraphContent({ paragraph }: { paragraph: CaseStudyParagrap
     <>
       <strong>{paragraph.lead}</strong> {paragraph.text}
     </>
+  );
+}
+
+function MoreProjectCard({ project }: { project: Project }) {
+  const href = project.caseStudyHref ?? SiteRoute.Works;
+  const content = (
+    <>
+      <span className="case-study-detail__more-media media-mask-hover" role="img" aria-label={project.imageDescription}>
+        {project.imageSource ? <img className="case-study-detail__more-image" src={project.imageSource} alt="" aria-hidden="true" /> : null}
+      </span>
+      <span className="case-study-detail__more-title">{project.title}</span>
+      <span className="case-study-detail__more-summary">{project.summaryLabel}</span>
+    </>
+  );
+
+  if (isExternalHref(href)) {
+    return (
+      <a className="case-study-detail__more-card sibling-dim-card" href={href} target="_blank" rel="noreferrer">
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link className="case-study-detail__more-card sibling-dim-card" to={href}>
+      {content}
+    </Link>
   );
 }
 
@@ -417,13 +445,7 @@ export function CaseStudyDetail({ caseStudy, relatedProjects }: CaseStudyDetailP
             />
             <div className="case-study-detail__more-track sibling-dim-group" ref={moreProjectsScrollHint.scrollContainerRef}>
               {relatedProjects.map((project) => (
-                <Link className="case-study-detail__more-card sibling-dim-card" to={project.caseStudyHref ?? SiteRoute.Works} key={project.slug}>
-                  <span className="case-study-detail__more-media media-mask-hover" role="img" aria-label={project.imageDescription}>
-                    {project.imageSource ? <img className="case-study-detail__more-image" src={project.imageSource} alt="" aria-hidden="true" /> : null}
-                  </span>
-                  <span className="case-study-detail__more-title">{project.title}</span>
-                  <span className="case-study-detail__more-summary">{project.summaryLabel}</span>
-                </Link>
+                <MoreProjectCard project={project} key={project.slug} />
               ))}
             </div>
             <ScrollHintButton

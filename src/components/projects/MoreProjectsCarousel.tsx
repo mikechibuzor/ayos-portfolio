@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { uiCopy } from "../../data/uiCopy";
 import { useHorizontalScrollHint, type ScrollDirection } from "../../hooks/useHorizontalScrollHint";
 import { SiteRoute, type Project } from "../../types/site";
+import { isExternalHref } from "../../utils/links";
 import "./MoreProjectsCarousel.css";
 
 type MoreProjectsCarouselProps = {
@@ -27,6 +28,35 @@ function CarouselArrow({ direction, label, disabled, onClick }: CarouselArrowPro
     >
       <span aria-hidden="true">{direction === "left" ? "‹" : "›"}</span>
     </button>
+  );
+}
+
+function MoreProjectCard({ project }: { project: Project }) {
+  const href = project.caseStudyHref ?? SiteRoute.Works;
+  const content = (
+    <>
+      <span className="more-projects__media media-mask-hover" role="img" aria-label={project.imageDescription}>
+        {project.imageSource ? (
+          <img className="more-projects__image" src={project.imageSource} alt="" aria-hidden="true" />
+        ) : null}
+      </span>
+      <span className="more-projects__card-title">{project.title}</span>
+      <span className="more-projects__card-summary">{project.summaryLabel}</span>
+    </>
+  );
+
+  if (isExternalHref(href)) {
+    return (
+      <a className="more-projects__card sibling-dim-card" href={href} target="_blank" rel="noreferrer">
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link className="more-projects__card sibling-dim-card" to={href}>
+      {content}
+    </Link>
   );
 }
 
@@ -56,19 +86,7 @@ export function MoreProjectsCarousel({ title, projects }: MoreProjectsCarouselPr
         />
         <div className="more-projects__track sibling-dim-group" ref={scrollHint.scrollContainerRef}>
           {projects.map((project) => (
-            <Link
-              className="more-projects__card sibling-dim-card"
-              to={project.caseStudyHref ?? SiteRoute.Works}
-              key={project.slug}
-            >
-              <span className="more-projects__media media-mask-hover" role="img" aria-label={project.imageDescription}>
-                {project.imageSource ? (
-                  <img className="more-projects__image" src={project.imageSource} alt="" aria-hidden="true" />
-                ) : null}
-              </span>
-              <span className="more-projects__card-title">{project.title}</span>
-              <span className="more-projects__card-summary">{project.summaryLabel}</span>
-            </Link>
+            <MoreProjectCard project={project} key={project.slug} />
           ))}
         </div>
         <CarouselArrow
