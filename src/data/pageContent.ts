@@ -77,7 +77,7 @@ export const mePageContent = {
         role: "Product designer",
         period: "2024 - 2025",
         description:
-          "From there, I joined Chekker, a healthcare tech company, where I focused on designing digital experiences that made medical testing and health services more accessible. Working in that space taught me the importance of empathy in design — how a simple interface can literally improve someone’s well-being.",
+          "I joined Chekker, a healthcare tech company, where I focused on designing digital experiences that made medical testing and health services more accessible. Working in that space taught me the importance of empathy in design — how a simple interface can literally improve someone’s well-being.",
       },
       {
         id: "eoc",

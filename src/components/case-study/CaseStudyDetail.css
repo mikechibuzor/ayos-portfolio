@@ -232,26 +232,6 @@
   font-weight: 500;
 }
 
-.case-study-detail__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.625rem;
-  padding: 0;
-  margin: -2rem 0 0;
-  list-style: none;
-}
-
-.case-study-detail__tags li {
-  min-height: 2rem;
-  padding: 0.42rem 1rem;
-  color: var(--color-text-secondary);
-  font-size: 1rem;
-  line-height: 1;
-  background: var(--color-surface-raised);
-  border: 0.0625rem solid var(--color-surface-border-muted);
-  border-radius: var(--radius-pill);
-}
-
 .case-study-detail__impact,
 .case-study-detail__reflection,
 .case-study-detail__gallery,
@@ -607,10 +587,6 @@
     margin-block-start: -1rem;
   }
 
-  .case-study-detail__tags {
-    margin-block-start: -1rem;
-  }
-
   .case-study-detail__gallery-grid {
     grid-auto-columns: minmax(16rem, 22rem);
     padding-inline: var(--layout-section-padding-x);
@@ -731,15 +707,6 @@
     line-height: 1.38;
   }
 
-  .case-study-detail__tags {
-    margin-block-start: -0.5rem;
-  }
-
-  .case-study-detail__tags li {
-    min-height: 1.85rem;
-    padding: 0.35rem 0.75rem;
-    font-size: 0.8125rem;
-  }
 
   .case-study-detail__impact,
   .case-study-detail__reflection,

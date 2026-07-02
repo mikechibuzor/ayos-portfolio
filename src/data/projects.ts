@@ -67,6 +67,7 @@ export const projects: Project[] = [
     imageDescription: "Dark product preview card for the Kiira Health virtual care platform.",
     imageSource: kiiraImage,
     caseStudyHref: "/works/kiira-health",
+    liveHref: "https://kiira.webflow.io/",
     isCaseStudyLocked: false,
   },
   {

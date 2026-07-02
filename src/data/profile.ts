@@ -6,6 +6,8 @@ import linkedinIcon from "../assets/icons/social/linkedin.svg";
 import xIcon from "../assets/icons/social/x.svg";
 import ovalLabsLogo from "../assets/icons/companies/oval-labs.svg";
 import oyecoutureLogo from "../assets/icons/companies/oyecouture.svg";
+import chekkerLogo from "../assets/icons/companies/chekker.svg";
+import eocLogo from "../assets/icons/companies/eoc.svg";
 
 export const profile = {
   ownerName: "Oluolagunju Ayomide",
@@ -128,7 +130,7 @@ export const resumeEntries: ResumeEntry[] = [
     period: "Apr 2024 — Jun 2025",
     description:
       "I designed interfaces for a digital healthcare product — translating user needs into accessible, compliant experiences. I worked cross-functionally, contributed to the design system, and stayed close to industry regulations to make sure every decision held up beyond the screen.",
-    logoSource: ovalLabsLogo,
+    logoSource: chekkerLogo,
     logoAlt: "Chekker Health logo",
   },
   {
@@ -146,7 +148,7 @@ export const resumeEntries: ResumeEntry[] = [
     period: "Jan 2021 — Jan 2024",
     description:
       "A digital agency where I built the range. Over three years I grew from intern to junior designer — working across fintech, healthcare, editorial and more, on websites, mobile apps, and web apps. The breadth here is the foundation everything else is built on.",
-    logoSource: ovalLabsLogo,
+    logoSource: eocLogo,
     logoAlt: "Empocrate Limited logo",
   },
 ];

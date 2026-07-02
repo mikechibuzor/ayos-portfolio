@@ -138,7 +138,8 @@
   transform: translateX(0.18rem);
 }
 
-.project-card__action-link--live {
+.project-card__action-link--live,
+.project-card__primary-action .project-card__action-link {
   color: var(--color-text-primary);
 }
 

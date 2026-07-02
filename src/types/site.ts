@@ -122,7 +122,6 @@ export type CaseStudy = {
   coverImageSource?: string;
   metaItems: CaseStudyMetaItem[];
   textSections: CaseStudyTextSection[];
-  tags?: string[];
   impactTitle: string;
   impactCards: CaseStudyImpactCard[];
   reflection: CaseStudyTextSection;

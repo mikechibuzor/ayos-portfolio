@@ -100,9 +100,7 @@ export const caseStudies: CaseStudy[] = [
           },
         ],
       },
-    ],
-    tags: ["Product Designer", "3", "Research", "Branding", "Brand Strategy"],
-    impactTitle: "The Impact",
+    ],    impactTitle: "The Impact",
     impactCards: [
       { id: "commercial-banks", title: "19+", label: "Commercial Banks" },
       { id: "monthly-transactions", title: "191M+", label: "Monthly Transactions" },
@@ -204,9 +202,7 @@ export const caseStudies: CaseStudy[] = [
           },
         ],
       },
-    ],
-    tags: ["Product Designer", "3", "Research", "Branding", "Brand Strategy"],
-    impactTitle: "The Impact",
+    ],    impactTitle: "The Impact",
     impactCards: [
       { id: "digital-shoppers", title: "76.7M+", label: "Digital Shoppers" },
       { id: "year-of-context", title: "2020", label: "Year of Context" },
@@ -230,7 +226,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "kiira-health",
     title: "Kiira Health",
     category: "Virtual Care for Students",
-    liveHref: "https://www.kiira.io/",
+    liveHref: "https://kiira.webflow.io/",
     coverImageDescription: "Dark placeholder for Kiira Health case study hero media.",
     coverImageSource: kiiraImage,
     metaItems: [
@@ -328,9 +324,7 @@ export const caseStudies: CaseStudy[] = [
           },
         ],
       },
-    ],
-    tags: ["Product Designer", "3", "Research", "Branding", "Brand Strategy"],
-    impactTitle: "The Impact",
+    ],    impactTitle: "The Impact",
     impactCards: [
       { id: "engagement", title: "500% Increase", label: "User Engagement" },
       { id: "platform-feel", title: "Class & Uniqueness", label: "Platform Feel" },
@@ -431,9 +425,7 @@ export const caseStudies: CaseStudy[] = [
           },
         ],
       },
-    ],
-    tags: ["Product Designer", "3", "Research", "Branding", "Brand Strategy"],
-    impactTitle: "The Impact",
+    ],    impactTitle: "The Impact",
     impactCards: [
       { id: "user-types", title: "4 (Scout, Talent, Fan, Club)", label: "User Types" },
       { id: "research-participants", title: "10", label: "Research Participants" },
@@ -521,9 +513,7 @@ export const caseStudies: CaseStudy[] = [
           },
         ],
       },
-    ],
-    tags: ["Product Designer", "3", "Research", "Branding", "Brand Strategy"],
-    impactTitle: "The Impact",
+    ],    impactTitle: "The Impact",
     impactCards: [
       {
         id: "unified-flow",
@@ -648,9 +638,7 @@ export const caseStudies: CaseStudy[] = [
           },
         ],
       },
-    ],
-    tags: ["Product Designer", "Research", "Branding", "Brand Strategy"],
-    impactTitle: "The Impact",
+    ],    impactTitle: "The Impact",
     impactCards: [
       { id: "financial-inclusion", title: "Targeting 20% Gap", label: "Financial Inclusion" },
       { id: "sdg-alignment", title: "Financial Access Goals", label: "SDG Alignment" },

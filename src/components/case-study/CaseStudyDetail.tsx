@@ -308,14 +308,6 @@ export function CaseStudyDetail({ caseStudy, relatedProjects }: CaseStudyDetailP
           ))}
         </section>
 
-        {caseStudy.tags ? (
-          <ul className="case-study-detail__tags scroll-reveal" aria-label={`${caseStudy.title} project tags`}>
-            {caseStudy.tags.map((tag) => (
-              <li key={tag}>{tag}</li>
-            ))}
-          </ul>
-        ) : null}
-
         <section className="case-study-detail__impact scroll-reveal" aria-labelledby="case-study-impact-title">
           <h2 id="case-study-impact-title">{caseStudy.impactTitle}</h2>
           <div className={impactGridClassName}>
