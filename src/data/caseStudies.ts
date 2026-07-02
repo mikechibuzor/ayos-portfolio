@@ -67,11 +67,7 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           {
             text:
-              "Qore (formerly Appzone Switch) is the backbone for fully digital and automated banks. I was brought in to lead the end-to-end transformation of their brand and digital presence--moving away from a legacy identity to create a cohesive ecosystem from logo and physical collateral to a secure, enterprise-grade web platform.",
-          },
-          {
-            text:
-              "Transitioning a complex backend powerhouse into a world-class brand capable of anchoring the digital operations of over 500 financial institutions.",
+              "Qore (formerly Appzone Switch) is the backbone for fully digital and automated banks — powering the digital operations of over 500 financial institutions. I was part of the design team brought in for the end-to-end transformation of their brand and digital presence. The goal was to move away from a legacy identity and build a cohesive ecosystem — from logo to digital platform to physical collateral — that could hold its own as a secure, enterprise-grade product.",
           },
         ],
       },
@@ -80,22 +76,12 @@ export const caseStudies: CaseStudy[] = [
         title: "The Challenge",
         paragraphs: [
           {
-            text: "The project required a balance of technical authority and modern accessibility.",
+            text:
+              "The project required balancing two things that don't always sit well together: technical authority and modern accessibility.",
           },
           {
-            lead: "The Rebrand:",
             text:
-              "Leadership needed an identity that felt stable enough for commercial banks but innovative enough for the next generation of fintechs.",
-          },
-          {
-            lead: "Information Density:",
-            text:
-              "The site had to house a massive range of products, including core banking and lending solutions, without creating cognitive overload for the C-suite audience.",
-          },
-          {
-            lead: "High Stakes:",
-            text:
-              "With ₦130 Billion in daily balances flowing through their systems, the brand's digital storefront had to radiate security.",
+              "The rebrand needed an identity stable enough for commercial banks but innovative enough for the next generation of fintechs. The site also had to house a massive range of products — core banking, lending solutions — without creating cognitive overload for a C-suite audience. And with ₦130 billion in daily balances flowing through their systems, the brand's digital storefront had to radiate security.",
           },
         ],
       },
@@ -105,14 +91,12 @@ export const caseStudies: CaseStudy[] = [
         layout: CaseStudyTextSectionLayout.Wide,
         paragraphs: [
           {
-            lead: "Brand and Identity:",
             text:
-              'We went through five iterations to land on the final Black and Green identity, selected for its balance of institutional trust and digital growth. The project extended into the physical world with letterheads, business cards, employee apparel, and roll-up banners to ensure unified internal culture. The senior team noted that the work "definitely got the brand" and successfully portrayed their world-class ambitions.',
+              "I worked on the brand and identity side — we went through five iterations before landing on the final Black and Green identity, selected for its balance of institutional trust and digital-forward energy. The project extended into the physical world too: letterheads, business cards, employee apparel, and roll-up banners to ensure a unified internal culture.",
           },
           {
-            lead: "Digital Architecture:",
             text:
-              'I designed a navigation system that allowed diverse users--from bank executives to developers--to find specific products like "Remarkable Lending" or "Core Banking" within seconds. I used card-based layouts and custom diagrams to simplify complex concepts like "API Gateway Integrations" and "Automated Lending Services." I built a bespoke backend with a full database and CMS, allowing the Qore team to manage their blog and white papers independently while maintaining strict security standards.',
+              "On the digital side, I worked on a navigation system that helped diverse users — from bank executives to developers — find specific products quickly. I used card-based layouts and custom diagrams to simplify complex concepts like API Gateway Integrations and Automated Lending Services. We also built a bespoke backend with a full database and CMS, so the Qore team could manage their blog and white papers independently while maintaining strict security standards.",
           },
         ],
       },
@@ -131,7 +115,7 @@ export const caseStudies: CaseStudy[] = [
       paragraphs: [
         {
           text:
-            "Working on Qore reinforced that in infrastructure design, reliability is the primary aesthetic. My focus was on creating a visual system that felt as stable and powerful as the core banking code it represents.",
+            "Working on Qore reinforced something I carry into every project since: in infrastructure design, reliability is the aesthetic. The goal wasn't to make it pretty — it was to make it feel as stable and powerful as the core banking code it represents.",
         },
       ],
     },
@@ -149,7 +133,7 @@ export const caseStudies: CaseStudy[] = [
       { id: "role", icon: CaseStudyMetaIcon.Role, label: "Product designer" },
       { id: "lead-designer", icon: CaseStudyMetaIcon.Lead, label: "Lead designer: Ayodeji Osindele" },
       { id: "design-team", icon: CaseStudyMetaIcon.Team, label: "3-man design team" },
-      { id: "year", icon: CaseStudyMetaIcon.Calendar, label: "2022" },
+      { id: "year", icon: CaseStudyMetaIcon.Calendar, label: "2020" },
     ],
     textSections: [
       {
@@ -253,7 +237,7 @@ export const caseStudies: CaseStudy[] = [
       { id: "role", icon: CaseStudyMetaIcon.Role, label: "Product designer" },
       { id: "lead-designer", icon: CaseStudyMetaIcon.Lead, label: "Lead designer: Ayodeji Osindele" },
       { id: "design-team", icon: CaseStudyMetaIcon.Team, label: "3-man design team" },
-      { id: "year", icon: CaseStudyMetaIcon.Calendar, label: "2022" },
+      { id: "year", icon: CaseStudyMetaIcon.Calendar, label: "2023" },
     ],
     textSections: [
       {
@@ -377,7 +361,7 @@ export const caseStudies: CaseStudy[] = [
     metaItems: [
       { id: "role", icon: CaseStudyMetaIcon.Role, label: "Product designer" },
       { id: "lead-designer", icon: CaseStudyMetaIcon.Lead, label: "Lead designer: Ayodeji Osindele" },
-      { id: "year", icon: CaseStudyMetaIcon.Calendar, label: "2022" },
+      { id: "year", icon: CaseStudyMetaIcon.Calendar, label: "2021" },
     ],
     textSections: [
       {
@@ -386,11 +370,7 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           {
             text:
-              "Spoxio was an existing application in need of a strategic overhaul to better serve the global sports community. As part of the design team, I assisted in collecting and organising insights from stakeholders--including athletes, product owners, and sports fans--to help shape a more engaging, high-performance social platform from an initially generic experience.",
-          },
-          {
-            text:
-              "Revamping an existing application into a tailored social platform designed specifically for the unique needs of sports professionals, enthusiasts, and scouts.",
+              "Spoxio was an existing sports social platform in need of a strategic overhaul to better serve the global sports community. I was part of the design team, contributing to collecting and organising insights from stakeholders — including athletes, product owners, and sports fans — to help shape a more engaging, high-performance social platform built specifically for the unique needs of sports professionals, enthusiasts, and scouts.",
           },
         ],
       },
@@ -403,14 +383,8 @@ export const caseStudies: CaseStudy[] = [
               "The primary objective was to move beyond the limitations of mainstream social media and address the specific functional requirements of the sports industry.",
           },
           {
-            lead: "Stakeholder Needs:",
             text:
-              "We had to reconcile the goals of diverse users, from a Talent looking to be discovered, to a Scout needing exclusive stats and talent rankings.",
-          },
-          {
-            lead: "Concept Validation:",
-            text:
-              "We needed to understand how the existing concept was perceived and identify the missing links in how people currently enjoy and interact with sports digitally.",
+              "We had to reconcile the goals of diverse users — from a Talent looking to be discovered, to a Scout needing exclusive stats and talent rankings. We also needed to understand how the existing concept was perceived and identify the missing links in how people currently enjoy and interact with sports digitally.",
           },
         ],
       },
@@ -419,18 +393,12 @@ export const caseStudies: CaseStudy[] = [
         title: "The Discovery",
         paragraphs: [
           {
-            lead: "In-depth Discovery:",
-            text: "I understudied complex business processes through discovery sessions and 1:1 interviews.",
+            text:
+              "I was involved in the discovery phase — conducting in-depth research through discovery sessions and 11 interviews. I helped schedule 10 targeted participants across platforms like Teams, Zoom, and Google Meet to discuss their sporting habits and requirements.",
           },
           {
-            lead: "Global Research Panel:",
             text:
-              "I scheduled 10 targeted participants across platforms like Teams, Zoom, and Google Meet to discuss their sporting habits and requirements.",
-          },
-          {
-            lead: "Core Insights:",
-            text:
-              "The research highlighted a demand for specialized features like exclusive talent rankings and bulk messaging for professional networking that generic platforms simply do not provide.",
+              "The research highlighted a clear demand for specialised features like exclusive talent rankings and bulk messaging for professional networking — things generic social platforms simply don't offer.",
           },
         ],
       },
@@ -439,14 +407,12 @@ export const caseStudies: CaseStudy[] = [
         title: "The Exploration",
         paragraphs: [
           {
-            lead: "Divergent Thinking:",
             text:
-              "I immersed myself in the problem space using divergent methods to explore how buyers and sellers of sports talent could interact without friction.",
+              "I immersed myself in the problem space using divergent thinking to explore how buyers and sellers of sports talent could interact without friction.",
           },
           {
-            lead: "Refining the Vision:",
             text:
-              "I mapped out four distinct entry points--I am a Scout, I am a Talent, I am a Fan, and I am a Club--to ensure the interface adapted perfectly to each user's specific intent.",
+              "I mapped out four distinct entry points — Scout, Talent, Fan, and Club — to ensure the interface adapted perfectly to each user's specific intent rather than forcing everyone through the same generic experience.",
           },
         ],
       },
@@ -456,14 +422,12 @@ export const caseStudies: CaseStudy[] = [
         layout: CaseStudyTextSectionLayout.Wide,
         paragraphs: [
           {
-            lead: "Tailored Experience:",
             text:
-              "I designed an interface that allows scouts to access exclusive stats and rankings directly from the feed. Professional Networking: Integrated Contact Talent flows via direct or bulk messaging, enabling real-time recruitment and professional communication.",
+              "I worked on designing an interface that allows scouts to access exclusive stats and rankings directly from the feed. I contributed to integrating contact flows — direct and bulk messaging — enabling real-time recruitment and professional communication across user types.",
           },
           {
-            lead: "Visual Identity:",
             text:
-              "Leveraged a sleek, high-contrast dark theme that highlights sports media and athlete profiles, creating an immersive, premium environment for enthusiasts.",
+              "On the visual side, I worked on a sleek, high-contrast dark theme that highlights sports media and athlete profiles, creating an immersive, premium environment for enthusiasts.",
           },
         ],
       },
@@ -481,7 +445,7 @@ export const caseStudies: CaseStudy[] = [
       paragraphs: [
         {
           text:
-            "Being the sole designer on Spoxio reinforced the power of niche empathy. By designing specifically for the scout, the club owner, and the aspiring athlete, I realized that true innovation often comes from creating specialized tools that standard social platforms are too broad to address.",
+            "Being part of the Spoxio project reinforced the power of niche empathy. Designing for the scout, the club owner, and the aspiring athlete at the same time taught me that true innovation often comes from creating specialised tools that standard platforms are too broad to address.",
         },
       ],
     },
@@ -499,7 +463,7 @@ export const caseStudies: CaseStudy[] = [
     metaItems: [
       { id: "role", icon: CaseStudyMetaIcon.Role, label: "Product designer" },
       { id: "ownership", icon: CaseStudyMetaIcon.Lead, label: "Ownership of Design" },
-      { id: "year", icon: CaseStudyMetaIcon.Calendar, label: "2024" },
+      { id: "year", icon: CaseStudyMetaIcon.Calendar, label: "2025" },
     ],
     textSections: [
       {
@@ -623,7 +587,7 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           {
             text:
-              "Pamoja is a payment platform designed to bridge the gap between a user's daily life and their finances. It serves as an intermediary to streamline everything from local grocery spending to international remittances, ensuring that financial access is no longer a privilege of the elite but a standard for everyone.",
+              "Pamoja is a payment platform designed to bridge the gap between a user's daily life and their finances — streamlining everything from local grocery spending to international remittances. I was part of the design team working to ensure that financial access is no longer a privilege of the few but a standard for everyone.",
           },
         ],
       },
@@ -633,25 +597,11 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           {
             text:
-              "Designing for the Nigerian banking sector means designing for a landscape defined by significant hurdles.",
+              "Designing for the Nigerian banking sector means working within a landscape defined by real friction.",
           },
           {
-            lead: "Technical Barriers:",
-            text: "Constant network issues make even simple transactions feel like a gamble.",
-          },
-          {
-            lead: "User Frustration:",
-            text: "Slow chargeback processes during transaction errors leave users without their funds for days.",
-          },
-          {
-            lead: "The Trust Gap:",
             text:
-              "A lack of international transfer options and better banking services in general drove users to seek alternatives to traditional institutions.",
-          },
-          {
-            lead: "The Stake:",
-            text:
-              "Without a reliable system, millions are excluded from the formal economy, limiting their ability to expand businesses or manage personal wealth securely.",
+              "Constant network issues make even simple transactions feel like a gamble. Slow chargeback processes leave users without their funds for days. The lack of international transfer options and better banking services drives users toward alternatives to traditional institutions. And without formal financial systems, millions are excluded from the economy — limiting their ability to grow businesses or manage personal wealth securely.",
           },
         ],
       },
@@ -660,19 +610,12 @@ export const caseStudies: CaseStudy[] = [
         title: "The Discovery",
         paragraphs: [
           {
-            lead: "Methodology:",
             text:
-              "I conducted qualitative user interviews with target participants aged 18 to 60, covering Gen Z, Millennials, and Gen X.",
+              "I was involved in qualitative user interviews with target participants aged 18 to 60 — covering Gen Z, Millennials, and Gen X. A key persona that emerged was users like Zoe Micheais, a content creator whose feedback emphasised the need for fast track recovery on failed transactions and UI flows that felt swift and intuitive.",
           },
           {
-            lead: "Key Persona Insight:",
             text:
-              "Users like Zoe Micheals, a content creator, emphasized the need for fast track recovery on failed transactions and UI flows that felt swift and intuitive.",
-          },
-          {
-            lead: "The Pivot:",
-            text:
-              "While we initially focused on simple spend features, the research highlighted an urgent demand for affordable and accessible payment products delivered in a responsible, sustainable way.",
+              "The pivot came when we realised the research consistently pointed toward simple spend features — accessible and affordable payment products delivered in a responsible, sustainable way.",
           },
         ],
       },
@@ -681,19 +624,12 @@ export const caseStudies: CaseStudy[] = [
         title: "The Exploration",
         paragraphs: [
           {
-            lead: "Structural Logic:",
             text:
-              "I mapped out a high-security onboarding process including BVN verification, Secret Q&A, and ID uploads to ensure compliance without sacrificing speed.",
+              "I worked on mapping out a high-security onboarding process — including BVN verification, Secret Q&A, and ID uploads — to ensure compliance without sacrificing speed.",
           },
           {
-            lead: "Decision Making:",
             text:
-              "We prioritized a four-pillar navigation system (Home, Spend, Card, and More) to separate daily utility from long-term financial management.",
-          },
-          {
-            lead: "Wireframing:",
-            text:
-              "Each screen was drafted on paper first to validate that the information density did not become overwhelming for users in high-stress financial situations.",
+              "For navigation, I contributed to a four-pillar system — Home, Spend, Card, and More — to separate daily utility from long-term financial management. Every screen was drafted on paper first to make sure the information density never became overwhelming for users in high-stress financial situations.",
           },
         ],
       },
@@ -703,18 +639,12 @@ export const caseStudies: CaseStudy[] = [
         layout: CaseStudyTextSectionLayout.Wide,
         paragraphs: [
           {
-            lead: "Unified Tooling:",
-            text: "Designed entirely in Figma to facilitate high-fidelity prototyping and smooth handoffs.",
+            text:
+              "The entire product was designed in Figma to facilitate high-fidelity prototyping and smooth handoffs. I worked on visual trust elements — a deep, professional teal palette paired with vibrant status indicators for income and expenses to provide instant financial clarity.",
           },
           {
-            lead: "Visual Trust:",
             text:
-              "Used a deep, professional teal palette paired with vibrant status indicators for income and expenses to provide instant financial clarity.",
-          },
-          {
-            lead: "Feature Integration:",
-            text:
-              "Built-in flows for Government Remittance, Bill Payments, and Virtual Card creation allow the app to act as a complete digital wallet rather than just a transfer tool.",
+              "I also contributed to feature integration flows — Government Remittance, Bill Payments, and Virtual Card creation — helping position Pamoja as a complete digital wallet rather than just a transfer tool.",
           },
         ],
       },
@@ -724,8 +654,8 @@ export const caseStudies: CaseStudy[] = [
     impactCards: [
       { id: "financial-inclusion", title: "Targeting 20% Gap", label: "Financial Inclusion" },
       { id: "sdg-alignment", title: "Financial Access Goals", label: "SDG Alignment" },
-      { id: "target-demographic", title: "Ages 18 to 60", label: "Target Demographic" },
-      { id: "design-cycle", title: "Research to Prototype", label: "Design Cycle" },
+      { id: "target-demographic", title: "Ages 18-60", label: "Target Demographic" },
+      { id: "design-cycle", title: "3 Months End-to-End", label: "Design Cycle" },
     ],
     reflection: {
       id: "reflection",
@@ -733,11 +663,11 @@ export const caseStudies: CaseStudy[] = [
       paragraphs: [
         {
           text:
-            "Personal Growth: Pamoja taught me that in fintech, clarity is a security feature. When a user sees their income and expenses summarised accurately in real-time, it builds the trust necessary to move away from cash-only habits.",
+            "Pamoja taught me that in fintech, clarity is a security feature. When a user sees their income and expenses summarised accurately in real-time, it builds the trust necessary to move away from cash-only habits.",
         },
         {
           text:
-            "Senior Takeaway: Research is only valuable if it translates into deterministic UI. My goal was to take the frustration of traditional banking and turn it into a swift, predictable experience.",
+            "The biggest takeaway: research is only valuable if it translates into deterministic UI. My goal was to take the frustration of traditional banking and turn it into a swift, predictable experience.",
         },
       ],
     },
@@ -756,7 +686,7 @@ export const caseStudies: CaseStudy[] = [
       { id: "role", icon: CaseStudyMetaIcon.Role, label: "Product designer" },
       { id: "lead-designer", icon: CaseStudyMetaIcon.Lead, label: "Lead designer: Ayodeji Osindele" },
       { id: "design-team", icon: CaseStudyMetaIcon.Team, label: "3-man design team" },
-      { id: "year", icon: CaseStudyMetaIcon.Calendar, label: "2022" },
+      { id: "year", icon: CaseStudyMetaIcon.Calendar, label: "2023" },
     ],
     textSections: [
       {
