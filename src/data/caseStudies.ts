@@ -140,10 +140,7 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           {
             text:
-              'Nigeria has a vibrant but physically demanding marketplace. By 2020, over a third of the country\'s population were online buyers, yet a massive gap remained for local traders who found the cost of physical storefronts unbearable. I led the design of Eko Hub to digitize this experience, providing a "verified" platform that simplifies how commodities are bought and sold without either party needing to leave their home.',
-          },
-          {
-            text: "Solving the accessibility and trust crisis for buyers and sellers in the traditional Nigerian marketplace.",
+              "Nigeria has a vibrant but physically demanding marketplace. By 2020, over a third of the country's population were online buyers, yet a massive gap remained for local traders who found the cost of physical storefronts unbearable. I was part of the design team working on Eko Hub, a verified digital marketplace platform built to simplify how commodities are bought and sold without either party needing to leave their home.",
           },
         ],
       },
@@ -153,20 +150,11 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           {
             text:
-              'Market research revealed that the hurdle was not just "buying stuff"--it was the physical and emotional cost of the "hustle."',
+              'Market research revealed that the hurdle wasn\'t just "buying stuff": it was the physical and emotional cost of the hustle.',
           },
           {
-            lead: "Physical Friction:",
-            text: "Merchants faced high overheads and the unbearable cost of owning physical shops.",
-          },
-          {
-            lead: "Logistical Stress:",
-            text: "Shoppers complained about the sheer stress and time-loss of navigating physical markets.",
-          },
-          {
-            lead: "The Safety Gap:",
             text:
-              "A significant fear of area boys, hijackers, and general theft made both buyers and sellers hesitant to engage in high-value commerce.",
+              "Merchants faced high overheads and the unbearable cost of owning physical shops. Shoppers complained about the sheer stress and time-loss of navigating physical markets. And a significant fear of area boys, hijackers, and general theft made both buyers and sellers hesitant to engage in high-value commerce.",
           },
         ],
       },
@@ -175,14 +163,12 @@ export const caseStudies: CaseStudy[] = [
         title: "The Discovery",
         paragraphs: [
           {
-            lead: "Persona Deep-Dive:",
             text:
-              "We centered our design on users like Deji Ajayi, a 30-year-old online trader who needed real-time communication and fast delivery to survive in a competitive market.",
+              "We centred the design around users like Deji Ajayi, a 30-year-old online trader who needed real-time communication and fast delivery to survive in a competitive market.",
           },
           {
-            lead: "Core Pillars:",
             text:
-              "Research synthesized three non-negotiables for the solution: Interaction (real-time connection), Efficiency (removing the stress of travel), and Security (mitigating the fear of theft).",
+              "Research synthesised three non-negotiables for the solution: Interaction, real-time connection between buyers and sellers; Efficiency, removing the stress of travel; and Security, mitigating the ever-present fear of theft.",
           },
         ],
       },
@@ -191,18 +177,17 @@ export const caseStudies: CaseStudy[] = [
         title: "The Craft",
         paragraphs: [
           {
-            lead: "Visual Trust:",
             text:
-              'I used high-contrast UI and "verified reseller" badging to immediately address the safety concerns found during research. Iterative Design: We began with low-fidelity sketches on paper to ensure the user flow for "starting a sale" was as friction-free as possible, eventually moving to high-fidelity prototypes for both mobile and web.',
+              'I worked on visual trust elements: high-contrast UI and "verified reseller" badging to immediately address the safety concerns surfaced during research.',
           },
           {
-            lead: 'The "Start Selling" Flow:',
             text:
-              'I prioritised a "verified upload" system, allowing merchants to take a photo of their item and get paid as soon as it sells, effectively removing the need for an expensive physical storefront.',
+              'We began with low-fidelity sketches on paper to make sure the user flow for starting a sale was as friction-free as possible, eventually moving to high-fidelity prototypes for both mobile and web. I also contributed to the "Start Selling" flow, prioritising a verified upload system that allows merchants to take a photo of their item and get paid as soon as it sells, effectively removing the need for an expensive physical storefront.',
           },
         ],
       },
-    ],    impactTitle: "The Impact",
+    ],
+    impactTitle: "The Impact",
     impactCards: [
       { id: "digital-shoppers", title: "76.7M+", label: "Digital Shoppers" },
       { id: "year-of-context", title: "2020", label: "Year of Context" },
@@ -214,7 +199,7 @@ export const caseStudies: CaseStudy[] = [
       paragraphs: [
         {
           text:
-            'Eko Hub taught me that digital transformation is not just about moving products from a shelf to a screen. It is about understanding the socio-economic stressors--like the cost of physical space and the threat of theft--and using design to provide a "safe harbor" for commerce to thrive.',
+            "Eko Hub taught me that digital transformation isn't just about moving products from a shelf to a screen. It's about understanding the socio-economic stressors: the cost of physical space and the threat of theft, and using design to provide a safe harbour for commerce to thrive.",
         },
       ],
     },
@@ -233,7 +218,7 @@ export const caseStudies: CaseStudy[] = [
       { id: "role", icon: CaseStudyMetaIcon.Role, label: "Product designer" },
       { id: "lead-designer", icon: CaseStudyMetaIcon.Lead, label: "Lead designer: Ayodeji Osindele" },
       { id: "design-team", icon: CaseStudyMetaIcon.Team, label: "3-man design team" },
-      { id: "year", icon: CaseStudyMetaIcon.Calendar, label: "2023" },
+      { id: "year", icon: CaseStudyMetaIcon.Calendar, label: "2022" },
     ],
     textSections: [
       {
@@ -242,7 +227,7 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           {
             text:
-              "Kiira is a Los Angeles-based virtual health clinic dedicated to the holistic wellbeing of young women and gender-diverse students. I worked as part of the design team to redesign their web platform, focusing on creating a seamless, user-friendly interface that puts the needs of the multicultural student population first.",
+              "Kiira is a Los Angeles-based virtual health clinic dedicated to the holistic well-being of young women and gender-diverse students. I was part of the design team brought in to redesign their web platform, with a clear focus on creating a seamless, user-friendly interface that puts the needs of a multicultural student population first.",
           },
         ],
       },
@@ -255,18 +240,8 @@ export const caseStudies: CaseStudy[] = [
               "Healthcare can be intimidating, especially for students navigating sensitive topics like reproductive or mental health for the first time.",
           },
           {
-            lead: "The Clinical Coldness:",
             text:
-              "The original site felt like a standard medical directory, lacking the warmth needed to engage a younger, digitally-native audience.",
-          },
-          {
-            lead: "Navigation Friction:",
-            text:
-              "Complex data sets (insurance, pricing, provider bios) needed to be organized so students could find care seamlessly and easily.",
-          },
-          {
-            lead: "The Trust Gap:",
-            text: "How do we make a virtual clinic feel as safe and personal as a face-to-face visit?",
+              "The original site felt like a standard medical directory: clinical, cold, and hard to navigate. The data sets were complex: insurance, pricing, and provider bios all needed to be organised so students could find care without friction. Underneath all of it was a trust problem: how do you make a virtual clinic feel as safe and personal as a face-to-face visit?",
           },
         ],
       },
@@ -275,14 +250,12 @@ export const caseStudies: CaseStudy[] = [
         title: "The Discovery",
         paragraphs: [
           {
-            lead: "The Research Core:",
             text:
-              "We conducted in-depth research to understand why students were abandoning their health journeys midway. The 3D Mascot Breakthrough: I realized that a clinical interface alone would not bridge the trust gap. We needed a human (or in this case, a friendly 3D) anchor.",
+              "We conducted in-depth research to understand why students were abandoning their health journeys midway. What became clear was that a clinical interface alone wouldn't bridge the trust gap. We needed a human anchor.",
           },
           {
-            lead: "Aha Moment:",
             text:
-              "By creating Kiira the Penguin, a custom 3D mascot, we could guide users through stressful tasks like insurance verification or symptom checking with a sense of playfulness and care.",
+              "That's where the 3D mascot came in. By creating Kiira the Penguin, we could guide users through stressful tasks like insurance verification or symptom checking with a sense of playfulness and care.",
           },
         ],
       },
@@ -291,14 +264,12 @@ export const caseStudies: CaseStudy[] = [
         title: "The Exploration",
         paragraphs: [
           {
-            lead: "Visual Class and Uniqueness:",
             text:
-              "I moved away from standard flat icons in favor of custom 3D assets. These were not just decorative; they served as calls-to-action on cards and as welcoming avatars.",
+              "I moved away from standard flat icons in favour of custom 3D icons: not just decorative, but functional. They served as calls-to-action on cards and as welcoming avatars throughout the experience.",
           },
           {
-            lead: "Design Alternatives:",
             text:
-              "We experimented with various color palettes, ultimately landing on Kiira Blue (#3F84FF) and Kiira Dark (#000B1E) to balance medical authority with modern tech aesthetics.",
+              "We experimented with multiple colour palettes before landing on Kiira Blue and Kiira Dark, a combination that balanced medical authority with modern, digitally native aesthetics.",
           },
         ],
       },
@@ -308,23 +279,21 @@ export const caseStudies: CaseStudy[] = [
         layout: CaseStudyTextSectionLayout.Wide,
         paragraphs: [
           {
-            lead: "High-Fidelity Onboarding:",
             text:
-              "Designed an intuitive UI that allows students to step into a world of tailored healthcare via a streamlined landing page and service selection.",
+              "I worked on the onboarding flow, designing an intuitive UI that allows students to step into a world of tailored healthcare through a streamlined landing page and service selection.",
           },
           {
-            lead: "Accessibility-First UI:",
             text:
-              "I designed Preview Cards and pop-up screens that allow students to view provider availability and bios without losing their place in the user journey.",
+              "I also handled preview cards and pop-up screens that let students view provider availability and bios without losing their place in the user journey.",
           },
           {
-            lead: "3D Integration:",
             text:
-              "Every key health category from Primary Care to Mental Health was paired with a unique 3D icon I built, ensuring the design felt high-end and cohesive.",
+              "Every key health category, from Primary Care to Mental Health, was paired with a unique 3D icon I worked on, ensuring the design felt high-end and cohesive throughout.",
           },
         ],
       },
-    ],    impactTitle: "The Impact",
+    ],
+    impactTitle: "The Impact",
     impactCards: [
       { id: "engagement", title: "500% Increase", label: "User Engagement" },
       { id: "platform-feel", title: "Class & Uniqueness", label: "Platform Feel" },
@@ -337,7 +306,11 @@ export const caseStudies: CaseStudy[] = [
       paragraphs: [
         {
           text:
-            "Personal Growth: Kiira was a masterclass in combining UX Strategy with Brand Artistry. It proved that when you are designing for high-anxiety sectors like health, the visual vibe is just as functional as the navigation. Key Lesson: Do not be afraid to bring non-standard elements like 3D mascots into professional spaces. Sometimes, a friendly penguin is exactly what is needed to help a user complete a daunting medical form.",
+            "Kiira was a masterclass in combining UX strategy with brand artistry. It proved that when you're designing for high-anxiety sectors like health, the visual experience is just as functional as the navigation.",
+        },
+        {
+          text:
+            "The key lesson I took away: don't be afraid to bring non-standard elements into professional spaces. Sometimes a friendly penguin is exactly what's needed to help a user complete a daunting medical form.",
         },
       ],
     },
@@ -674,7 +647,7 @@ export const caseStudies: CaseStudy[] = [
       { id: "role", icon: CaseStudyMetaIcon.Role, label: "Product designer" },
       { id: "lead-designer", icon: CaseStudyMetaIcon.Lead, label: "Lead designer: Ayodeji Osindele" },
       { id: "design-team", icon: CaseStudyMetaIcon.Team, label: "3-man design team" },
-      { id: "year", icon: CaseStudyMetaIcon.Calendar, label: "2023" },
+      { id: "year", icon: CaseStudyMetaIcon.Calendar, label: "2022" },
     ],
     textSections: [
       {
@@ -683,7 +656,7 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           {
             text:
-              'Signature Bank is a modern financial institution built to accelerate growth through technology. I headed the end-to-end team responsible for creating their primary digital storefront. Our goal was to move beyond the "one-size-fits-all" approach of traditional Nigerian banks and build a "Signature" experience that feels as unique and secure as a person\'s fingerprint.',
+              "Signature Bank is a modern Nigerian financial institution built around technology and digital-first experiences. I was part of the design team responsible for their primary digital storefront, working to move beyond generic banking and build something that felt as personal and secure as a fingerprint.",
           },
         ],
       },
@@ -693,21 +666,11 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           {
             text:
-              'The Nigerian banking sector is crowded with legacy giants. To stand out, Signature Bank could not just be "another bank"; it had to be a top-tier competitor from day one.',
+              "Nigerian banking is crowded. To stand out, Signature Bank couldn't just be another bank; it had to feel like a top-tier competitor from day one.",
           },
           {
-            lead: "The Identity Crisis:",
             text:
-              'How do you design a site that feels premium enough for "Private & Institutional" wealth, but accessible enough for "Personal & Digital" banking?',
-          },
-          {
-            lead: "Trust in Security:",
-            text:
-              'In a market sensitive to fraud, the UI had to visually communicate "Maximum Security" without feeling cold or restrictive.',
-          },
-          {
-            lead: "The Stake:",
-            text: "A poor digital entry point would undermine the bank's goal of being a trusted, world-class institution.",
+              "That meant cracking three things at once: premium enough for Private Wealth clients, accessible enough for everyday digital banking, and secure enough to earn trust without the UI feeling cold or restrictive.",
           },
         ],
       },
@@ -717,17 +680,7 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           {
             text:
-              'We researched the "Signature Experience" -- what makes a service feel bespoke? We found that users value predictive personalization over generic features.',
-          },
-          {
-            lead: "The Pivot:",
-            text:
-              'We realized the website should not just be a list of products (Accounts, Cards, Loans); it had to be an "Opportunity Accelerator."',
-          },
-          {
-            lead: "Key Insight:",
-            text:
-              "Users felt constrained by traditional banking limits. This led to our core direction: make every pathway feel clear, secure, and growth-oriented.",
+              'The team researched what a "Signature Experience" really means: what makes a service feel bespoke rather than just feature-heavy. A key insight we landed on was that users did not want more products. They wanted fewer restrictions. That became the core design philosophy: no restrictions, no limitations.',
           },
         ],
       },
@@ -737,12 +690,22 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           {
             text:
-              'We moved through multiple iterations to find the right balance of whitespace, high-end photography, and custom iconography that reflects the "Bespoke" nature of the bank.',
+              "We went through multiple iterations to land on the right balance of whitespace, high-end photography, and custom iconography that reflected the bespoke nature of the bank.",
           },
           {
-            lead: "Modular Architecture:",
             text:
-              "I led the team in designing a modular framework that allows the site to serve diverse audiences (Private Wealth clients and Business owners) without diluting the brand voice.",
+              "I worked on a modular architecture that could serve both Private Wealth and Business clients without diluting the brand voice, and we cut the clutter aggressively in favour of a clean, high-performance interface.",
+          },
+        ],
+      },
+      {
+        id: "craft",
+        title: "The Craft",
+        layout: CaseStudyTextSectionLayout.Wide,
+        paragraphs: [
+          {
+            text:
+              "I worked across the UI/UX side of the project, from design through to front-end and back-end integration. I handled bespoke flows for Signature Cards, focused on the unique payment needs of the target audience, and contributed to the centralised digital hub for Personal, Business, and Institutional banking.",
           },
         ],
       },
@@ -773,12 +736,12 @@ export const caseStudies: CaseStudy[] = [
       paragraphs: [
         {
           text:
-            'Heading the end-to-end team for Signature Bank was a lesson in Strategic Consistency. It required ensuring that the "Bespoke" brand promise was reflected in every line of code and every pixel.',
+            "Signature Bank was a lesson in what strategic consistency actually looks like. Every design decision had to carry the bespoke promise. Being part of a team that held that standard taught me what intentional design really means in practice.",
         },
         {
-          lead: "The Takeaway:",
+          lead: "The takeaway:",
           text:
-            "In high-end banking, design is the silent partner of security. When a site looks this polished and intentional, users feel more confident that their wealth is being managed with the same level of care.",
+            "In high-end banking, design is the silent partner of security. When a product feels this polished, users trust it with their money, and that starts at the pixel level.",
         },
       ],
     },
